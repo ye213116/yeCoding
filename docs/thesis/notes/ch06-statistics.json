@@ -1,0 +1,308 @@
+{
+  "source": "eval/evidence/repair-heldout-live.json",
+  "source_sha256": "79f7a86c54aabe7d2d1f723e68928c8e50164670a034e59949c963a732bb7746",
+  "matplotlib_version": "3.11.2",
+  "summary": {
+    "single": {
+      "tasks": 8,
+      "verified": 8,
+      "independently_passed": 8,
+      "false_acceptances": 0,
+      "mean_tokens": 31119.625,
+      "mean_seconds": 13.43844003099997,
+      "mean_llm_calls": 5.75,
+      "budget_exhausted": 0
+    },
+    "team": {
+      "tasks": 8,
+      "verified": 5,
+      "independently_passed": 5,
+      "false_acceptances": 0,
+      "mean_tokens": 64541,
+      "mean_seconds": 17.001075112874958,
+      "mean_llm_calls": 9.125,
+      "budget_exhausted": 3
+    },
+    "verified": {
+      "tasks": 8,
+      "verified": 4,
+      "independently_passed": 5,
+      "false_acceptances": 0,
+      "mean_tokens": 60167.125,
+      "mean_seconds": 18.060885722124908,
+      "mean_llm_calls": 9.75,
+      "budget_exhausted": 4
+    }
+  },
+  "budget_failure_phases": {
+    "before_candidate_handoff": 6,
+    "after_acceptance_pass": 1
+  },
+  "independent_checked": 18,
+  "records": [
+    {
+      "task": "none-value",
+      "strategy": "single",
+      "run_id": "fcc748e586de4741a38212e5f4941de7",
+      "status": "verified",
+      "independent_checked": true,
+      "independently_passed": true,
+      "llm_calls": 5,
+      "tokens": 21220,
+      "attempts": 1
+    },
+    {
+      "task": "none-value",
+      "strategy": "team",
+      "run_id": "702f422a437541bcb9d31225a572ab5e",
+      "status": "verified",
+      "independent_checked": true,
+      "independently_passed": true,
+      "llm_calls": 11,
+      "tokens": 75862,
+      "attempts": 1
+    },
+    {
+      "task": "none-value",
+      "strategy": "verified",
+      "run_id": "db4346dec2984ce3849e78770d8b6458",
+      "status": "verified",
+      "independent_checked": true,
+      "independently_passed": true,
+      "llm_calls": 11,
+      "tokens": 39978,
+      "attempts": 1
+    },
+    {
+      "task": "trailing-literal",
+      "strategy": "single",
+      "run_id": "0905596b042b4c17925b5acf46a5b8dc",
+      "status": "verified",
+      "independent_checked": true,
+      "independently_passed": true,
+      "llm_calls": 6,
+      "tokens": 34406,
+      "attempts": 1
+    },
+    {
+      "task": "trailing-literal",
+      "strategy": "team",
+      "run_id": "6437d01d10264b70ba796ad35dac3e86",
+      "status": "budget_exhausted",
+      "independent_checked": false,
+      "independently_passed": false,
+      "llm_calls": 8,
+      "tokens": 64885,
+      "attempts": 1
+    },
+    {
+      "task": "trailing-literal",
+      "strategy": "verified",
+      "run_id": "20fdde7494a7448489aea5961fa7f50d",
+      "status": "budget_exhausted",
+      "independent_checked": true,
+      "independently_passed": true,
+      "llm_calls": 11,
+      "tokens": 60863,
+      "attempts": 1
+    },
+    {
+      "task": "variable-cursor",
+      "strategy": "single",
+      "run_id": "176fe529dad3451dba14d9c2ac2609a7",
+      "status": "verified",
+      "independent_checked": true,
+      "independently_passed": true,
+      "llm_calls": 5,
+      "tokens": 32182,
+      "attempts": 1
+    },
+    {
+      "task": "variable-cursor",
+      "strategy": "team",
+      "run_id": "d70da7038065449fb12d8d0ebfc00e3c",
+      "status": "verified",
+      "independent_checked": true,
+      "independently_passed": true,
+      "llm_calls": 11,
+      "tokens": 60488,
+      "attempts": 1
+    },
+    {
+      "task": "variable-cursor",
+      "strategy": "verified",
+      "run_id": "13d17563e49c430bbe39e532f4e093c1",
+      "status": "verified",
+      "independent_checked": true,
+      "independently_passed": true,
+      "llm_calls": 12,
+      "tokens": 70177,
+      "attempts": 1
+    },
+    {
+      "task": "unquoted-whitespace",
+      "strategy": "single",
+      "run_id": "b3e2b4dffd99433ba1f4af31ce9289e4",
+      "status": "verified",
+      "independent_checked": true,
+      "independently_passed": true,
+      "llm_calls": 5,
+      "tokens": 24889,
+      "attempts": 1
+    },
+    {
+      "task": "unquoted-whitespace",
+      "strategy": "team",
+      "run_id": "2eaf4e0450674279924e7f879e52391e",
+      "status": "verified",
+      "independent_checked": true,
+      "independently_passed": true,
+      "llm_calls": 11,
+      "tokens": 75473,
+      "attempts": 1
+    },
+    {
+      "task": "unquoted-whitespace",
+      "strategy": "verified",
+      "run_id": "c238a13fd90d4bb1b715e89fe73226ac",
+      "status": "verified",
+      "independent_checked": true,
+      "independently_passed": true,
+      "llm_calls": 12,
+      "tokens": 54255,
+      "attempts": 1
+    },
+    {
+      "task": "escape-decoding",
+      "strategy": "single",
+      "run_id": "6e98ecbded78458cbebd0ea5c99710d5",
+      "status": "verified",
+      "independent_checked": true,
+      "independently_passed": true,
+      "llm_calls": 7,
+      "tokens": 36000,
+      "attempts": 1
+    },
+    {
+      "task": "escape-decoding",
+      "strategy": "team",
+      "run_id": "c6953a22358b4e0a8938bbbe74ca2349",
+      "status": "verified",
+      "independent_checked": true,
+      "independently_passed": true,
+      "llm_calls": 11,
+      "tokens": 54724,
+      "attempts": 1
+    },
+    {
+      "task": "escape-decoding",
+      "strategy": "verified",
+      "run_id": "29ab2ee49cb74a4eaf2ecf2a83ad7a00",
+      "status": "verified",
+      "independent_checked": true,
+      "independently_passed": true,
+      "llm_calls": 12,
+      "tokens": 67250,
+      "attempts": 1
+    },
+    {
+      "task": "line-tracking",
+      "strategy": "single",
+      "run_id": "78d4327b950e4778a12d0f10ac31da1e",
+      "status": "verified",
+      "independent_checked": true,
+      "independently_passed": true,
+      "llm_calls": 6,
+      "tokens": 36300,
+      "attempts": 1
+    },
+    {
+      "task": "line-tracking",
+      "strategy": "team",
+      "run_id": "d4b752e6fa1b4cac9a38a3ac0b874d40",
+      "status": "verified",
+      "independent_checked": true,
+      "independently_passed": true,
+      "llm_calls": 11,
+      "tokens": 55438,
+      "attempts": 1
+    },
+    {
+      "task": "line-tracking",
+      "strategy": "verified",
+      "run_id": "fda369056b834f319927617e045723c6",
+      "status": "budget_exhausted",
+      "independent_checked": false,
+      "independently_passed": false,
+      "llm_calls": 7,
+      "tokens": 65799,
+      "attempts": 1
+    },
+    {
+      "task": "override-environment",
+      "strategy": "single",
+      "run_id": "fb1ad515686f4a3792009d04a496664c",
+      "status": "verified",
+      "independent_checked": true,
+      "independently_passed": true,
+      "llm_calls": 6,
+      "tokens": 36460,
+      "attempts": 1
+    },
+    {
+      "task": "override-environment",
+      "strategy": "team",
+      "run_id": "6a3b090964dc4f3db1daf956e5e97e09",
+      "status": "budget_exhausted",
+      "independent_checked": false,
+      "independently_passed": false,
+      "llm_calls": 3,
+      "tokens": 60163,
+      "attempts": 1
+    },
+    {
+      "task": "override-environment",
+      "strategy": "verified",
+      "run_id": "ed3fbd4060b946f09907cde6b62c5ccd",
+      "status": "budget_exhausted",
+      "independent_checked": false,
+      "independently_passed": false,
+      "llm_calls": 4,
+      "tokens": 60972,
+      "attempts": 1
+    },
+    {
+      "task": "disable-interpolation",
+      "strategy": "single",
+      "run_id": "4e996d7e912c480eb3b2427c7d0094c8",
+      "status": "verified",
+      "independent_checked": true,
+      "independently_passed": true,
+      "llm_calls": 6,
+      "tokens": 27500,
+      "attempts": 1
+    },
+    {
+      "task": "disable-interpolation",
+      "strategy": "team",
+      "run_id": "970f528e646440f2b4fc05aa59169031",
+      "status": "budget_exhausted",
+      "independent_checked": false,
+      "independently_passed": false,
+      "llm_calls": 7,
+      "tokens": 69295,
+      "attempts": 1
+    },
+    {
+      "task": "disable-interpolation",
+      "strategy": "verified",
+      "run_id": "1da5838617934905870678089b3f2f23",
+      "status": "budget_exhausted",
+      "independent_checked": false,
+      "independently_passed": false,
+      "llm_calls": 9,
+      "tokens": 62043,
+      "attempts": 1
+    }
+  ]
+}

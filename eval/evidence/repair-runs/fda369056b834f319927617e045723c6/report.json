@@ -1,0 +1,86 @@
+{
+  "id": "fda369056b834f319927617e045723c6",
+  "status": "budget_exhausted",
+  "strategy": "verified",
+  "source": "/tmp/yecoding-repair-eval-_ct3c99l/line-tracking/src",
+  "model": "deepseek-v4-flash",
+  "provider": "deepseek",
+  "options": {
+    "image": "python:3.11-slim",
+    "test_commands": [
+      "python -m unittest discover -s tests -v"
+    ],
+    "max_attempts": 3,
+    "max_llm_calls": 18,
+    "max_tokens": 60000,
+    "timeout": 180.0,
+    "command_timeout": 60.0,
+    "artifacts_dir": "/home/zyh/projects/yeCoding/eval/evidence/repair-runs",
+    "strategy": "verified"
+  },
+  "started_at": "2026-10-20T04:29:24.878208+00:00",
+  "attempts": [
+    {
+      "number": 1
+    }
+  ],
+  "skills": [
+    {
+      "name": "repair-reproduce",
+      "version": "1.0.0",
+      "role": "coordinator",
+      "sha256": "08c62f4e3b40007ff17c062cf458e18f2a771a354a7847d7eb698a7fda8abbd2"
+    },
+    {
+      "name": "repair-reproduce",
+      "version": "1.0.0",
+      "role": "worker",
+      "sha256": "08c62f4e3b40007ff17c062cf458e18f2a771a354a7847d7eb698a7fda8abbd2"
+    },
+    {
+      "name": "repair-minimal",
+      "version": "1.0.0",
+      "role": "worker",
+      "sha256": "4c790f5e7acfe7c6e4c84f13929293435c91e788472b370cb388bc4a6bd06414"
+    }
+  ],
+  "recalled_memory_ids": [],
+  "artifacts": "/home/zyh/projects/yeCoding/eval/evidence/repair-runs/fda369056b834f319927617e045723c6",
+  "task": "Parser bindings always report line 1. Restore correct original line tracking for LF and CRLF input.",
+  "base_hash": "aaa950db2b83e943f29df55c7a0311a3da83fb1c96098b94dacd0600dcde1763",
+  "base_files": {
+    "dotenv/__init__.py": "58153949f4a2280852de1ceed7bca436ebb06eec320c25fdd52cefe2f51e3ae3",
+    "dotenv/__main__.py": "3744612c6ee71c8aad9491f0c1ea48a3ecdb24f371f6c7b0082446639dbc87fe",
+    "dotenv/cli.py": "badf37488b5b59c9846a102448ece41eabd12a1aa18f4b40e77bdc5e9ca578e3",
+    "dotenv/ipython.py": "6af23a69ecff4719c1a6d62072122ab85d934a0288f863a1637a698aedd5b961",
+    "dotenv/main.py": "1c98244b45d971dd1fd9565a546c6551cace121a8172643a2f3f6142b31f6aeb",
+    "dotenv/parser.py": "87656a49c49852e2166a0fe38c22ecb1393e3d49b7e69dd5befd1562b9ef5ea6",
+    "dotenv/py.typed": "f0f8f2675695a10a5156fb7bd66bafbaae6a13e8d315990af862c792175e6e67",
+    "dotenv/variables.py": "083d2a5cebefa41deae51a4140c0fda97eaf1d7ed2c96f92ba2c063054a5b74f",
+    "dotenv/version.py": "abcff90b47fef261d635bea6330d36ce560f9c419706abce98fdf3d0213064a3",
+    "tests/test_acceptance.py": "17262330807af86b22e602d4ac9cb7c5f109cb3e8ea755595e4c4d60f9b6014e"
+  },
+  "baseline": [
+    {
+      "command": "python -m unittest discover -s tests -v",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "test_default (test_acceptance.Acceptance.test_default) ... ok\ntest_escape (test_acceptance.Acceptance.test_escape) ... ok\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... ok\ntest_lines (test_acceptance.Acceptance.test_lines) ... FAIL\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... ok\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\n\n======================================================================\nFAIL: test_lines (test_acceptance.Acceptance.test_lines)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/tests/test_acceptance.py\", line 39, in test_lines\n    self.assertEqual([row.original.line for row in rows], [1, 2, 3])\nAssertionError: Lists differ: [1, 1, 1] != [1, 2, 3]\n\nFirst differing element 1:\n1\n2\n\n- [1, 1, 1]\n?     ^  ^\n\n+ [1, 2, 3]\n?     ^  ^\n\n\n----------------------------------------------------------------------\nRan 9 tests in 0.004s\n\nFAILED (failures=1)\n",
+      "timed_out": false,
+      "duration": 1.8937816419997944,
+      "category": "test_failure",
+      "passed": false
+    }
+  ],
+  "reason": "repair model call/token budget exhausted",
+  "duration": 16.128280668000116,
+  "llm_calls": 7,
+  "usage": {
+    "input_tokens": 64313,
+    "output_tokens": 1486,
+    "cache_hit_tokens": 35200,
+    "cache_miss_tokens": 29113,
+    "reasoning_tokens": 779,
+    "total_tokens": 65799
+  }
+}

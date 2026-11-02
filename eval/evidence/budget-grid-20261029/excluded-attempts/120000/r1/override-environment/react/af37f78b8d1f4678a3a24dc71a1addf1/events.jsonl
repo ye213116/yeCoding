@@ -1,0 +1,5 @@
+{"type": "model.started", "call": 1}
+{"type": "model.event", "call": 1, "event": {"type": "message_start", "model": "deepseek-v4-flash"}}
+{"type": "model.event", "call": 1, "event": {"type": "error", "error": "deepseek API returned HTTP 402. Check the API key, model access, account balance, and provider status."}}
+{"type": "engine.event", "event": {"type": "error", "error": "deepseek API returned HTTP 402. Check the API key, model access, account balance, and provider status."}}
+{"type": "model.ended", "call": 1}

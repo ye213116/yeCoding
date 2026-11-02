@@ -1,0 +1,39 @@
+%%{init: {'themeVariables': {'fontSize': '24px'}, 'flowchart': {'nodeSpacing': 10, 'rankSpacing': 18, 'padding': 6, 'wrappingWidth': 125}}}%%
+flowchart TB
+    subgraph A[Interfaces]
+        CLI[CLI]
+        REPL[REPL]
+        SDK[SDK]
+        API[Runtime / Worker]
+    end
+    subgraph B[Orchestration]
+        QE[QueryEngine]
+        GENERAL[ReAct / Plan / Team]
+        REPAIR[VerifiedRepair]
+    end
+    subgraph C[Agent capabilities]
+        QUERY[query]
+        MODEL[Model and tools]
+        CONTEXT[Code context]
+        KNOWLEDGE[Skills / Memory]
+    end
+    subgraph D[Execution and storage]
+        WS[Workspace copies]
+        DOCKER[Docker]
+        STORE[Local records]
+    end
+    CLI --> REPAIR
+    REPL --> QE
+    SDK --> QE
+    API --> QE
+    QE --> GENERAL
+    QE --> REPAIR
+    GENERAL --> QUERY
+    REPAIR --> QUERY
+    QUERY --> MODEL
+    QUERY --> CONTEXT
+    QUERY --> KNOWLEDGE
+    REPAIR --> WS
+    REPAIR --> DOCKER
+    REPAIR --> STORE
+    KNOWLEDGE --> STORE

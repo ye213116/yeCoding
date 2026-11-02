@@ -1,0 +1,13 @@
+%%{init: {'flowchart': {'wrappingWidth': 400}}}%%
+flowchart TD
+    A[Pinned production source] --> B[Confirm clean acceptance]
+    B --> C[Inject one defect and add fixed tests]
+    C --> D[Confirm genuine baseline failure]
+    D --> E[Run three strategies independently]
+    E --> F[Freeze run state and exported patches]
+    F --> G{Patch?}
+    G -->|Yes| H[Apply in fresh copy and add extra tests]
+    H --> I[Record extra results without feedback]
+    G -->|No| J[Mark extra checks not performed]
+    I --> K[Aggregate all runs and consumption]
+    J --> K

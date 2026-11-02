@@ -1,0 +1,40 @@
+{
+  "purpose": "Executable source checks for D05/D06; agent-assisted verification, not human scoring.",
+  "upstream_revision": "16e660d384b942b11879b44500afbbe021650448",
+  "checks": [
+    {
+      "task_id": "D06",
+      "input": "KEY\\nKEY2=\\n",
+      "observed": {
+        "KEY": null,
+        "KEY2": ""
+      },
+      "passed": true
+    },
+    {
+      "task_id": "D05",
+      "environment": {
+        "A": "from_environment"
+      },
+      "file_values": [
+        [
+          "A",
+          "from_file"
+        ],
+        [
+          "B",
+          "${A}"
+        ]
+      ],
+      "override_true": {
+        "A": "from_file",
+        "B": "from_file"
+      },
+      "override_false": {
+        "A": "from_file",
+        "B": "from_environment"
+      },
+      "passed": true
+    }
+  ]
+}

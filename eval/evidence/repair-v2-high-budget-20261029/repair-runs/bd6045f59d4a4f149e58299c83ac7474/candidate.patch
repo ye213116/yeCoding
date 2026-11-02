@@ -1,0 +1,12 @@
+diff --git a/dotenv/main.py b/dotenv/main.py
+--- a/dotenv/main.py
++++ b/dotenv/main.py
+@@ -94,7 +94,7 @@
+             return False
+ 
+         for k, v in self.dict().items():
+-            if k in os.environ:
++            if k in os.environ and not self.override:
+                 continue
+             if v is not None:
+                 os.environ[k] = v

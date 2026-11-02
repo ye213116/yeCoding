@@ -1,0 +1,10 @@
+{
+  "eval/prepare_external.py": {
+    "sha256": "3255781ae37dabb975141e316f900d16772e4046ab6635f581f0527d9bdefbc9",
+    "matches_git_head": true
+  },
+  "eval/fixtures/python-dotenv-v1.1.1.json": {
+    "sha256": "30517a5a1ae8c5f6cdb76cf731810d4a0b08ad39b834fd78903bae99d0bf350c",
+    "matches_git_head": true
+  }
+}

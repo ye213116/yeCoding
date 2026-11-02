@@ -1,0 +1,54 @@
+{
+  "mode": "team",
+  "task": "escape-decoding",
+  "prompt": "Quoted values retain supported backslash escapes literally. Restore quote-specific escape decoding while preserving literal unquoted text.\n\nImplement the fix in the repository using tools. Do not modify tests or test/build configuration. Commands run in Docker at /workspace; file tools use repository-relative paths. No network or package installation is available. Acceptance command: python -m unittest discover -s tests -v. Run it to check your fix.",
+  "status": "budget_exhausted",
+  "tools": [
+    "bash",
+    "edit_file",
+    "execute_command",
+    "get_context",
+    "get_file_info",
+    "glob",
+    "glob_files",
+    "grep",
+    "grep_code",
+    "list_dir",
+    "read_file",
+    "search_code",
+    "write_file"
+  ],
+  "duration": 132.4204701309991,
+  "changed_files": [],
+  "usage": {
+    "input_tokens": 228525,
+    "output_tokens": 17003,
+    "cache_hit_tokens": 158848,
+    "cache_miss_tokens": 69677,
+    "reasoning_tokens": 8109,
+    "total_tokens": 245528
+  },
+  "llm_calls": 26,
+  "completed": false,
+  "candidate_available": true,
+  "acceptance": {
+    "command": "python -m unittest discover -s tests -v",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "test_default (test_acceptance.Acceptance.test_default) ... ok\ntest_escape (test_acceptance.Acceptance.test_escape) ... FAIL\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... ok\ntest_lines (test_acceptance.Acceptance.test_lines) ... ok\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... ok\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\n\n======================================================================\nFAIL: test_escape (test_acceptance.Acceptance.test_escape)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/tests/test_acceptance.py\", line 35, in test_escape\n    self.assertEqual(rows[0].value, \"line\\nnext\")\nAssertionError: 'line\\\\nnext' != 'line\\nnext'\n- line\\nnext\n?     ^^\n+ line\nnext\n?     ^\n\n\n----------------------------------------------------------------------\nRan 9 tests in 0.002s\n\nFAILED (failures=1)\n",
+    "timed_out": false,
+    "duration": 1.1938378689992533,
+    "category": "test_failure",
+    "passed": false
+  },
+  "independent": {
+    "command": "python -m unittest discover -s tests -v",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "test_default (test_acceptance.Acceptance.test_default) ... ok\ntest_escape (test_acceptance.Acceptance.test_escape) ... FAIL\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... ok\ntest_lines (test_acceptance.Acceptance.test_lines) ... ok\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... ok\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\ntest_atom_edges (test_independent.Independent.test_atom_edges) ... ok\ntest_environment_edges (test_independent.Independent.test_environment_edges) ... ok\ntest_line_and_escape_edges (test_independent.Independent.test_line_and_escape_edges) ... FAIL\ntest_parser_edges (test_independent.Independent.test_parser_edges) ... ok\n\n======================================================================\nFAIL: test_escape (test_acceptance.Acceptance.test_escape)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/tests/test_acceptance.py\", line 35, in test_escape\n    self.assertEqual(rows[0].value, \"line\\nnext\")\nAssertionError: 'line\\\\nnext' != 'line\\nnext'\n- line\\nnext\n?     ^^\n+ line\nnext\n?     ^\n\n\n======================================================================\nFAIL: test_line_and_escape_edges (test_independent.Independent.test_line_and_escape_edges)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/tests/test_independent.py\", line 34, in test_line_and_escape_edges\n    self.assertEqual(rows[0].value, \"a\\tb\")\nAssertionError: 'a\\\\tb' != 'a\\tb'\n- a\\tb\n+ a\tb\n\n\n----------------------------------------------------------------------\nRan 13 tests in 0.002s\n\nFAILED (failures=2)\n",
+    "timed_out": false,
+    "duration": 0.8467177819984499,
+    "category": "test_failure",
+    "passed": false
+  }
+}

@@ -1,0 +1,318 @@
+{
+  "description": "Independent code-understanding tasks labeled by source reading before retrieval evaluation. Fixed English terms are shared across all strategies; reference_facts are for human review only, never retrieval input. Production source only, no tests.",
+  "repository": {
+    "name": "python-dotenv",
+    "url": "https://github.com/theskumar/python-dotenv",
+    "version": "v1.1.1",
+    "revision": "16e660d384b942b11879b44500afbbe021650448",
+    "scope": "src",
+    "archive_sha256": "2a8a6c5c58d04de8953c2f469813a47d0b0cf4cbc7407931850e1d641a095cd9",
+    "source_files_sha256": {
+      "dotenv/__init__.py": "58153949f4a2280852de1ceed7bca436ebb06eec320c25fdd52cefe2f51e3ae3",
+      "dotenv/__main__.py": "3744612c6ee71c8aad9491f0c1ea48a3ecdb24f371f6c7b0082446639dbc87fe",
+      "dotenv/cli.py": "badf37488b5b59c9846a102448ece41eabd12a1aa18f4b40e77bdc5e9ca578e3",
+      "dotenv/ipython.py": "6af23a69ecff4719c1a6d62072122ab85d934a0288f863a1637a698aedd5b961",
+      "dotenv/main.py": "1c98244b45d971dd1fd9565a546c6551cace121a8172643a2f3f6142b31f6aeb",
+      "dotenv/parser.py": "4205391f0330336c0caadd2fcfa7474c9e27ccf9b0a91aaf8b8312c9e5627e05",
+      "dotenv/variables.py": "083d2a5cebefa41deae51a4140c0fda97eaf1d7ed2c96f92ba2c063054a5b74f",
+      "dotenv/version.py": "abcff90b47fef261d635bea6330d36ce560f9c419706abce98fdf3d0213064a3"
+    },
+    "license_file": "LICENSE",
+    "description": "Unmodified upstream production source snapshot; excludes tests and documentation. Tasks labeled from source before evaluating retrieval."
+  },
+  "tasks": [
+    {
+      "id": "D01",
+      "query": "load_dotenv 在已有环境变量时如何处理 override，返回值代表什么",
+      "en_terms": [
+        "load_dotenv",
+        "override",
+        "set_as_environment_variables"
+      ],
+      "primary_symbols": [
+        "main.load_dotenv",
+        "main.DotEnv.set_as_environment_variables"
+      ],
+      "dep_symbols": [
+        "main.DotEnv.dict",
+        "main.find_dotenv"
+      ],
+      "relevant_files": [
+        "dotenv/main.py"
+      ],
+      "reference_facts": [
+        "override=False 时跳过已有键；值为 None 不写入。",
+        "空字典返回 False；非空字典返回 True 不保证实际修改了环境变量。"
+      ]
+    },
+    {
+      "id": "D02",
+      "query": "find_dotenv 如何选择搜索起点并向父目录查找，找不到时如何处理",
+      "en_terms": [
+        "find_dotenv",
+        "usecwd",
+        "_walk_to_root"
+      ],
+      "primary_symbols": [
+        "main.find_dotenv",
+        "main._walk_to_root"
+      ],
+      "dep_symbols": [
+        "main.find_dotenv._is_interactive",
+        "main.find_dotenv._is_debugger"
+      ],
+      "relevant_files": [
+        "dotenv/main.py"
+      ],
+      "reference_facts": [
+        "usecwd、交互、调试或 frozen 场景从 cwd 开始，否则从调用栈找到有效文件路径。",
+        "逐级向根目录找文件；未找到时按参数抛 IOError 或返回空字符串。"
+      ]
+    },
+    {
+      "id": "D03",
+      "query": "DotEnv 如何选择文件或传入的 stream，缺少两者时如何继续解析",
+      "en_terms": [
+        "_get_stream",
+        "stream",
+        "parse"
+      ],
+      "primary_symbols": [
+        "main.DotEnv._get_stream",
+        "main.DotEnv.parse"
+      ],
+      "dep_symbols": [
+        "parser.parse_stream",
+        "main.with_warn_for_invalid_lines"
+      ],
+      "relevant_files": [
+        "dotenv/main.py",
+        "dotenv/parser.py"
+      ],
+      "reference_facts": [
+        "存在的 dotenv_path 文件优先于 stream；否则用 stream；两者无效时使用空 StringIO。",
+        "verbose 只控制缺失文件提示；parse 过滤 key 为 None 的绑定。"
+      ]
+    },
+    {
+      "id": "D04",
+      "query": "DotEnv.dict 如何缓存解析结果，关闭 interpolate 后有什么区别",
+      "en_terms": [
+        "DotEnv",
+        "dict",
+        "interpolate"
+      ],
+      "primary_symbols": [
+        "main.DotEnv.dict"
+      ],
+      "dep_symbols": [
+        "main.DotEnv.parse",
+        "main.resolve_variables"
+      ],
+      "relevant_files": [
+        "dotenv/main.py"
+      ],
+      "reference_facts": [
+        "真值非空缓存直接返回；空字典仍会再次解析。",
+        "开启插值使用 resolve_variables；关闭时把原始键值组装成 OrderedDict。"
+      ]
+    },
+    {
+      "id": "D05",
+      "query": "resolve_variables 中 override 如何影响系统环境和此前已解析变量的优先级",
+      "en_terms": [
+        "resolve_variables",
+        "override",
+        "parse_variables"
+      ],
+      "primary_symbols": [
+        "main.resolve_variables"
+      ],
+      "dep_symbols": [
+        "variables.parse_variables",
+        "variables.Variable.resolve",
+        "variables.Literal.resolve"
+      ],
+      "relevant_files": [
+        "dotenv/main.py",
+        "dotenv/variables.py"
+      ],
+      "reference_facts": [
+        "override=True 先加入系统环境再加入已解析值，文件优先；False 则系统环境优先。",
+        "按文件顺序处理；None 保留为 None；atom 解析后拼接为字符串。"
+      ]
+    },
+    {
+      "id": "D06",
+      "query": "解析 dotenv 时没有等号的键与等号后空值有什么区别",
+      "en_terms": [
+        "parse_binding",
+        "parse_value",
+        "parse_key"
+      ],
+      "primary_symbols": [
+        "parser.parse_binding",
+        "parser.parse_value"
+      ],
+      "dep_symbols": [
+        "parser.parse_key",
+        "main.DotEnv.parse"
+      ],
+      "relevant_files": [
+        "dotenv/parser.py",
+        "dotenv/main.py"
+      ],
+      "reference_facts": [
+        "没有等号的 key 得到 None；有等号但没有内容时得到空字符串。",
+        "注释键返回 None 并被 DotEnv.parse 过滤；保留有效键的 None 值。"
+      ]
+    },
+    {
+      "id": "D07",
+      "query": "parse_value 如何处理单双引号转义以及未加引号值的行尾注释",
+      "en_terms": [
+        "parse_value",
+        "decode_escapes",
+        "parse_unquoted_value"
+      ],
+      "primary_symbols": [
+        "parser.parse_value",
+        "parser.decode_escapes"
+      ],
+      "dep_symbols": [
+        "parser.parse_unquoted_value",
+        "parser.Reader.read_regex"
+      ],
+      "relevant_files": [
+        "dotenv/parser.py"
+      ],
+      "reference_facts": [
+        "单双引号使用不同 regex 及转义集合；unicode-escape 只应用到匹配的转义。",
+        "未加引号值移除空白后开始的注释并 rstrip；无前导空白的 # 保留。"
+      ]
+    },
+    {
+      "id": "D08",
+      "query": "遇到格式错误的 dotenv 行后 parse_stream 是否停止，错误位置如何保留",
+      "en_terms": [
+        "parse_stream",
+        "parse_binding",
+        "error"
+      ],
+      "primary_symbols": [
+        "parser.parse_stream",
+        "parser.parse_binding"
+      ],
+      "dep_symbols": [
+        "parser.Reader.get_marked",
+        "parser.Reader.read_regex",
+        "main.with_warn_for_invalid_lines"
+      ],
+      "relevant_files": [
+        "dotenv/parser.py",
+        "dotenv/main.py"
+      ],
+      "reference_facts": [
+        "parse_binding 捕获 Error，消费剩余行，返回 error=True 的 Binding；stream 循环继续。",
+        "原文和起始行号通过 Reader mark 保留；warning 包装器提示但继续 yield。"
+      ]
+    },
+    {
+      "id": "D09",
+      "query": "Variable.resolve 如何处理缺失变量、默认值和环境中显式的 None",
+      "en_terms": [
+        "Variable",
+        "resolve",
+        "default"
+      ],
+      "primary_symbols": [
+        "variables.Variable.resolve"
+      ],
+      "dep_symbols": [
+        "variables.Literal.resolve"
+      ],
+      "relevant_files": [
+        "dotenv/variables.py"
+      ],
+      "reference_facts": [
+        "缺失键使用默认值；默认值为 None 时使用空字符串。",
+        "存在键但值为 None 时返回空字符串而非默认值；Literal 原样返回文字。"
+      ]
+    },
+    {
+      "id": "D10",
+      "query": "parse_variables 怎样把含变量占位符的字符串切分为 Literal 和 Variable",
+      "en_terms": [
+        "parse_variables",
+        "Literal",
+        "Variable"
+      ],
+      "primary_symbols": [
+        "variables.parse_variables"
+      ],
+      "dep_symbols": [
+        "variables.Literal.__init__",
+        "variables.Variable.__init__",
+        "variables._posix_variable"
+      ],
+      "relevant_files": [
+        "dotenv/variables.py"
+      ],
+      "reference_facts": [
+        "正则识别 ${name} 和 ${name:-default}；按位置发出前缀 Literal 与 Variable。",
+        "cursor 随匹配移动，最后发出剩余文本；只有普通文字时发出一个 Literal。"
+      ]
+    },
+    {
+      "id": "D11",
+      "query": "set_key 如何决定引号和 export，并在末尾缺少换行时添加新键",
+      "en_terms": [
+        "set_key",
+        "quote_mode",
+        "missing_newline"
+      ],
+      "primary_symbols": [
+        "main.set_key"
+      ],
+      "dep_symbols": [
+        "main.rewrite",
+        "main.with_warn_for_invalid_lines",
+        "parser.parse_stream"
+      ],
+      "relevant_files": [
+        "dotenv/main.py",
+        "dotenv/parser.py"
+      ],
+      "reference_facts": [
+        "非法 quote_mode 抛 ValueError；always 总加引号、auto 对非纯字母数字加引号、never 不加。",
+        "单引号需要转义，可加 export；已有键替换，否则必要时先补换行再追加。",
+        "rewrite 使用临时文件，成功移动覆盖；失败清理并重新抛错。"
+      ]
+    },
+    {
+      "id": "D12",
+      "query": "unset_key 如何保留其他行，路径或键不存在时如何返回",
+      "en_terms": [
+        "unset_key",
+        "removed",
+        "rewrite"
+      ],
+      "primary_symbols": [
+        "main.unset_key"
+      ],
+      "dep_symbols": [
+        "main.rewrite",
+        "main.with_warn_for_invalid_lines",
+        "parser.parse_stream"
+      ],
+      "relevant_files": [
+        "dotenv/main.py",
+        "dotenv/parser.py"
+      ],
+      "reference_facts": [
+        "移除所有匹配键，其他行按 original.string 保留。",
+        "文件不存在或键不存在返回 (None, key) 并警告；成功返回 (True, key)。"
+      ]
+    }
+  ]
+}

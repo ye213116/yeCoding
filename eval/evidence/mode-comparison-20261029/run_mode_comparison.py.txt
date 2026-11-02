@@ -1,0 +1,348 @@
+"""Compare public SDK orchestration modes on identical isolated repair tasks.
+
+Run as: uv run python -m eval.run_mode_comparison --split heldout --out PATH
+The ordinary modes retain their orchestration but use the repair tool envelope.
+"""
+
+from __future__ import annotations
+
+import argparse
+import asyncio
+import hashlib
+import json
+import statistics
+import subprocess
+import tempfile
+import time
+from collections import Counter
+from copy import deepcopy
+from datetime import UTC, datetime
+from pathlib import Path
+
+from eval.run_repair_eval import ACCEPTANCE, COMMAND, INDEPENDENT, prepare_task, tasks
+from yecoding.agent import QueryEngine
+from yecoding.agent.repair import BudgetClient, BudgetExhausted, VerifiedRepair
+from yecoding.config import load_config
+from yecoding.llm import create_llm_client
+from yecoding.rag import CodeIndex
+from yecoding.sandbox.docker import DockerSandbox
+from yecoding.sandbox.workspace import RepairWorkspace, fingerprint, inventory
+from yecoding.tools import ToolRegistry
+
+HERE = Path(__file__).resolve().parent
+MODES = ("react", "plan", "team", "repair")
+
+
+def save(path: Path, data) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(path.suffix + ".tmp")
+    temporary.write_text(json.dumps(data, ensure_ascii=False, indent=2, default=str))
+    temporary.replace(path)
+
+
+class ObservedClient(BudgetClient):
+    """Account at the shared model boundary, including swallowed worker failures."""
+
+    def __init__(self, client, options, log: Path, secret: str):
+        super().__init__(client, options)
+        self.log = log
+        self.secret = secret
+        self.exhausted = False
+        self.model_errors = 0
+
+    def record(self, event):
+        body = json.dumps(event, ensure_ascii=False, default=str)
+        if self.secret:
+            body = body.replace(self.secret, "[REDACTED]")
+        with self.log.open("a") as stream:
+            stream.write(body + "\n")
+
+    async def chat(self, *args, **kwargs):
+        # BudgetClient reserves a call before the first await. Concurrent workers
+        # share this object; token checks use completed usage, as repair does.
+        call = self.calls + 1
+        self.record({"type": "model.started", "call": call})
+        try:
+            async for event in super().chat(*args, **kwargs):
+                if event.get("type") == "error":
+                    self.model_errors += 1
+                self.record({"type": "model.event", "call": call, "event": event})
+                yield event
+        except BudgetExhausted:
+            self.exhausted = True
+            raise
+        finally:
+            self.record({"type": "model.ended", "call": call})
+
+
+async def grade_patch(base, patch: str | None, directory: Path, sandbox) -> dict:
+    """Grade exported code in fresh copies with evaluator-owned test contents."""
+    result = {"candidate_available": patch is not None, "acceptance": None, "independent": None}
+    if patch is None:
+        return result
+    RepairWorkspace.materialize(directory, base)
+    if patch:
+        applied = subprocess.run(
+            ["git", "apply", "--whitespace=nowarn", "-"],
+            input=patch,
+            text=True,
+            capture_output=True,
+            cwd=directory,
+            check=False,
+        )
+        if applied.returncode:
+            return {**result, "patch_error": applied.stderr}
+    # Never trust tests produced by a model. Keep hidden checks out of model runs.
+    (directory / "tests/test_acceptance.py").write_text(ACCEPTANCE)
+    result["acceptance"] = (await sandbox.execute(directory, COMMAND, readonly=True)).to_dict()
+    (directory / "tests/test_independent.py").write_text(INDEPENDENT)
+    result["independent"] = (await sandbox.execute(directory, COMMAND, readonly=True)).to_dict()
+    return result
+
+
+def summarize(records):
+    summary = {}
+    for mode in MODES:
+        runs = [run for row in records for run in row["runs"] if run["mode"] == mode]
+        if not runs:
+            continue
+        passed = lambda run: bool(run.get("independent") and run["independent"]["passed"])  # noqa: E731
+        summary[mode] = {
+            "runs": len(runs),
+            "statuses": dict(Counter(run["status"] for run in runs)),
+            "acceptance_passed": sum(
+                bool(r.get("acceptance") and r["acceptance"]["passed"]) for r in runs
+            ),
+            "independent_passed": sum(passed(r) for r in runs),
+            "completed_and_passed": sum(r["completed"] and passed(r) for r in runs),
+            "mean_tokens": statistics.mean(r["usage"]["total_tokens"] for r in runs),
+            "mean_calls": statistics.mean(r["llm_calls"] for r in runs),
+            "mean_seconds": statistics.mean(r["duration"] for r in runs),
+        }
+    return summary
+
+
+async def run_mode(mode, source, task, config, destination, options):
+    destination.mkdir(parents=True)
+    cfg = deepcopy(config)
+    cfg.policy.audit_log_path = str(destination / "audit.jsonl")
+    client = ObservedClient(
+        create_llm_client(cfg.llm), options, destination / "events.jsonl", cfg.llm.api_key
+    )
+    prompt = (
+        task["prompt"] + "\n\nImplement the fix in the repository using tools. "
+        "Do not modify tests or test/build configuration. "
+        "Commands run in Docker at /workspace; file tools use repository-relative paths. "
+        "No network or package installation is available. "
+        f"Acceptance command: {COMMAND}. Run it to check your fix."
+    )
+    result = {"mode": mode, "task": task["id"], "prompt": prompt, "status": "running"}
+    patch = None
+    started = time.monotonic()
+    workspace = None
+    try:
+        if mode == "repair":
+            engine = QueryEngine(
+                llm_client=client, tool_registry=ToolRegistry(), config=cfg, cwd=str(source)
+            )
+            report = await engine.repair_complete_async(prompt, options=options)
+            result["repair_report"] = report
+            result["status"] = report["status"]
+            artifact = Path(report["artifacts"])
+            patch_file = artifact / "candidate.patch"
+            if not patch_file.exists() and report["attempts"]:
+                patch_file = artifact / f"attempt-{len(report['attempts'])}.patch"
+            if patch_file.exists():
+                patch = patch_file.read_text()
+        else:
+            workspace = RepairWorkspace(source)
+            # Reuse only the same tools/guards, never the repair agent loop.
+            envelope = VerifiedRepair(
+                llm_client=client, config=cfg, cwd=str(source), options=options
+            )
+            envelope.artifacts = destination
+            registry = envelope._registry(workspace.work)
+            result["tools"] = registry.list_names()
+            if cfg.features.code_index:
+                CodeIndex(str(workspace.work)).rebuild()
+            engine = QueryEngine(
+                llm_client=client, tool_registry=registry, config=cfg, cwd=str(workspace.work)
+            )
+            method = {"react": engine.ask, "plan": engine.plan, "team": engine.team}[mode]
+            done = False
+            async with asyncio.timeout(options.timeout):
+                async for event in method(prompt):
+                    client.record({"type": "engine.event", "event": event})
+                    if event.get("type") == "error":
+                        raise event["error"]
+                    done |= event.get("type") == "done"
+            result["status"] = "completed" if done else "incomplete"
+    except BudgetExhausted:
+        result["status"] = "budget_exhausted"
+    except TimeoutError:
+        result["status"] = "timeout"
+    except Exception as exc:  # noqa: BLE001
+        result.update(status="error", error=str(exc).replace(cfg.llm.api_key, "[REDACTED]"))
+    finally:
+        result["duration"] = time.monotonic() - started
+        if workspace:
+            try:
+                patch, _, result["changed_files"] = workspace.candidate()
+            except ValueError as exc:
+                result["candidate_error"] = str(exc)
+            finally:
+                workspace.close()
+    if client.exhausted:
+        result["status"] = "budget_exhausted"
+    if client.model_errors and result["status"] == "completed":
+        result["status"] = "model_error"
+    result.update(
+        usage=client.usage.to_dict(),
+        llm_calls=client.calls,
+        completed=result["status"] in {"completed", "verified"},
+    )
+    if patch is not None:
+        (destination / "final.patch").write_text(patch)
+    with tempfile.TemporaryDirectory(prefix="yecoding-mode-oracle-") as tmp:
+        result.update(
+            await grade_patch(
+                inventory(source), patch, Path(tmp) / "oracle", DockerSandbox(options.image)
+            )
+        )
+    save(destination / "result.json", result)
+    return result
+
+
+async def run(args):
+    output = args.out.resolve()
+    if output.exists():
+        raise ValueError("output already exists; use a new path to preserve prior evidence")
+    selected = [task for task in tasks() if task["split"] == args.split]
+    if args.limit:
+        selected = selected[: args.limit]
+    config = load_config(args.config_root)
+    if not config.llm.api_key:
+        raise ValueError("configured model API key required")
+    config.features.memory = False
+    config.features.mcp = False
+    config.policy.hitl_mode = "never"
+    config.policy.path_guard_enabled = True
+    config.prompt.custom_prompt_paths = []
+    config.llm.temperature = 0
+    config.llm.max_tokens = 2048
+    options = deepcopy(config.repair)
+    options.image = args.image
+    options.strategy = "verified"
+    options.test_commands = [COMMAND]
+    options.max_attempts, options.max_llm_calls = 3, args.calls
+    options.max_tokens, options.timeout = args.tokens, args.timeout
+    options.artifacts_dir = str(output.parent / (output.stem + "-runs") / "repair")
+    config.repair = deepcopy(options)
+    source_paths = sorted((HERE.parent / "src/yecoding").rglob("*.py")) + [
+        Path(__file__).resolve(),
+        HERE / "run_repair_eval.py",
+        HERE / "repair_tasks.json",
+        HERE / "fixtures/python-dotenv-v1.1.1.zip",
+    ]
+    evidence = {
+        "kind": "public SDK mode comparison with matched repair tool envelope",
+        "started_at": datetime.now(UTC).isoformat(),
+        "live": True,
+        "model": config.llm.model,
+        "provider": config.llm.provider,
+        "split": args.split,
+        "memory": False,
+        "skill": config.features.skill,
+        "temperature": 0,
+        "max_output_tokens": 2048,
+        "budgets": {"tokens": args.tokens, "calls": args.calls, "seconds": args.timeout},
+        "image": args.image,
+        "image_id": subprocess.check_output(
+            ["docker", "image", "inspect", args.image, "--format", "{{.Id}}"], text=True
+        ).strip(),
+        "git_head": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
+        "implementation_sha256": {
+            str(p.relative_to(HERE.parent)): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in source_paths
+        },
+        "acceptance_sha256": hashlib.sha256(ACCEPTANCE.encode()).hexdigest(),
+        "independent_sha256": hashlib.sha256(INDEPENDENT.encode()).hexdigest(),
+        "protocol": {
+            "entrypoints": [
+                "QueryEngine.ask",
+                "QueryEngine.plan",
+                "QueryEngine.team",
+                "QueryEngine.repair",
+            ],
+            "tools": "ordinary modes reuse VerifiedRepair._registry (Docker and protected files)",
+            "order": "rotate react,plan,team,repair by task index; no concurrent runs",
+            "grading": "fresh copy, original acceptance plus hidden checks; no model judges",
+            "budget": "check before requests; in-flight requests can overshoot token limit",
+            "candidate": "ordinary final workspace; repair last exported patch; includes failures",
+            "completed": "ordinary done without error/budget rejection; repair status verified",
+        },
+        "records": [],
+    }
+    sandbox = DockerSandbox(args.image)
+    with tempfile.TemporaryDirectory(prefix="yecoding-mode-eval-") as temporary:
+        root = Path(temporary)
+        clean = prepare_task(root / "clean", selected[0], mutate=False)
+        reference = await sandbox.execute(clean, COMMAND, readonly=True)
+        (clean / "tests/test_independent.py").write_text(INDEPENDENT)
+        hidden_reference = await sandbox.execute(clean, COMMAND, readonly=True)
+        evidence.update(
+            reference=reference.to_dict(), independent_reference=hidden_reference.to_dict()
+        )
+        if not reference.passed or not hidden_reference.passed:
+            raise RuntimeError("clean reference must pass both test suites")
+        save(output, evidence)
+        for index, task in enumerate(selected):
+            source = prepare_task(root / task["id"], task)
+            base_hash = fingerprint(inventory(source))
+            baseline = await sandbox.execute(source, COMMAND, readonly=True)
+            if baseline.category != "test_failure":
+                raise RuntimeError(f"mutation must produce a test failure: {task['id']}")
+            order = MODES[index % 4 :] + MODES[: index % 4]
+            row = {
+                "task": task["id"],
+                "base_hash": base_hash,
+                "baseline": baseline.to_dict(),
+                "order": order,
+                "runs": [],
+            }
+            evidence["records"].append(row)
+            for mode in order:
+                print(f"START {task['id']} / {mode}", flush=True)
+                destination = output.parent / (output.stem + "-runs") / task["id"] / mode
+                result = await run_mode(mode, source, task, config, destination, options)
+                if fingerprint(inventory(source)) != base_hash:
+                    raise RuntimeError("source changed between modes")
+                row["runs"].append(result)
+                evidence["summary"] = summarize(evidence["records"])
+                save(output, evidence)
+                passed = bool(result["independent"] and result["independent"]["passed"])
+                print(
+                    f"DONE {task['id']} / {mode}: {result['status']}, "
+                    f"hidden={passed}, tokens={result['usage']['total_tokens']}",
+                    flush=True,
+                )
+    evidence["finished_at"] = datetime.now(UTC).isoformat()
+    save(output, evidence)
+    return evidence
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--split", choices=["dev", "heldout"], default="heldout")
+    parser.add_argument("--limit", type=int, default=0)
+    parser.add_argument("--calls", type=int, default=18)
+    parser.add_argument("--tokens", type=int, default=60_000)
+    parser.add_argument("--timeout", type=float, default=300)
+    parser.add_argument("--image", default="python:3.11-slim")
+    parser.add_argument("--config-root", type=Path, default=HERE.parent)
+    parser.add_argument("--out", type=Path, required=True)
+    asyncio.run(run(parser.parse_args()))
+
+
+if __name__ == "__main__":
+    main()

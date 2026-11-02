@@ -1,0 +1,10 @@
+%%{init: {'flowchart': {'wrappingWidth': 400}}}%%
+flowchart TD
+    A[Build messages and tool definitions] --> B[Prepare context budget]
+    B --> C[Collect model stream]
+    C --> E{Tools?}
+    E -->|No| F[Return query statistics]
+    E -->|Yes| G[Execute tools and attach results]
+    G --> I{Limit?}
+    I -->|No| B
+    I -->|Yes| F

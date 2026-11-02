@@ -1,0 +1,16 @@
+diff --git a/.probe_marker b/.probe_marker
+new file mode 100644
+--- /dev/null
++++ b/.probe_marker
+@@ -0,0 +1 @@
++MARKER-1793263996
+diff --git a/dotenv/variables.py b/dotenv/variables.py
+--- a/dotenv/variables.py
++++ b/dotenv/variables.py
+@@ -82,5 +82,5 @@
+         cursor = end
+ 
+     length = len(value)
+-    if False:
++    if cursor < length:
+         yield Literal(value=value[cursor:length])

@@ -1,0 +1,18 @@
+......................................F................................. [ 43%]
+....................................................sssssssssssss....... [ 87%]
+....................                                                     [100%]
+=================================== FAILURES ===================================
+_____________ test_grep_and_symbol_beat_zero_recall_on_first_task ______________
+
+repo_index = <yecoding.rag.code_index.CodeIndex object at 0x7dae0ba09320>
+tasks = [EvalTask(id='T01', query='ContextWindowManager 是如何在 token 预算内压缩对话历史的', en_terms=['ContextWindowManager', 'compression...Index.ranked_symbols'], relevant_files=['src/yecoding/rag/context_builder.py', 'src/yecoding/rag/code_index.py']), ...]
+
+>   ???
+E   AssertionError: grep
+E   assert 0.0 > 0.0
+E    +  where 0.0 = TaskMetrics(task_id='T01', strategy='grep', token_estimate=3959, budget_tokens=4000, primary_recall=0.0, overall_recal...lness_score=None, answer_text=None, context_sha256=None, context_text=None, judge_text=None, overall_line_coverage=0.0).primary_recall
+
+/home/zyh/projects/PaiCLI-Python/tests/test_eval_harness.py:137: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_eval_harness.py::test_grep_and_symbol_beat_zero_recall_on_first_task
+1 failed, 150 passed, 13 skipped in 6.72s

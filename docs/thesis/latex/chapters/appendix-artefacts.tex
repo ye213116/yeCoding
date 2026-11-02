@@ -1,0 +1,205 @@
+% Generated from en/appendix-artefacts.md; edit Markdown, then rebuild.
+\chapter{Supporting Details and Project Records}\label{app:artefacts}
+
+\section{Per-task results}\label{per-task-results}
+
+Table~\ref{tab:A-1} supplements the aggregate results in Chapter~\ref{chap:6}. Each cell pairs the recorded workflow status with the post-run check outcome. Budget means token-budget termination; not checked means no exported patch.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3700}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2100}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2100}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2100}}@{}}
+\caption[Per-task outcomes]{Workflow and additional-test outcomes for the eight held-out injected defects.}\label{tab:A-1}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Task
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\texttt{single}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\texttt{team}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\texttt{verified}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Task
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\texttt{single}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\texttt{team}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\texttt{verified}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\code|none-value| & Success/pass & Success/pass & Success/pass \\
+\code|trailing-literal| & Success/pass & Budget/not checked & Budget/pass \\
+\code|variable-cursor| & Success/pass & Success/pass & Success/pass \\
+\code|unquoted-whitespace| & Success/pass & Success/pass & Success/pass \\
+\code|escape-decoding| & Success/pass & Success/pass & Success/pass \\
+\code|line-tracking| & Success/pass & Success/pass & Budget/not checked \\
+\code|override-environment| & Success/pass & Budget/not checked & Budget/not checked \\
+\code|disable-interpolation| & Success/pass & Budget/not checked & Budget/not checked \\
+\end{longtable}
+
+\section{Functional traceability}\label{functional-traceability}
+
+Table~\ref{tab:A-2} expands the essential acceptance conditions specified in Chapter~\ref{chap:3}. Functional checks do not establish an independent repair-quality gain.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.4300}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2200}}@{}}
+\caption[Acceptance traceability]{Functional acceptance scenarios and their requirement mappings.}\label{tab:A-2}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+ID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Scenario
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Expected condition
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Requirements
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+ID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Scenario
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Expected condition
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Requirements
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+AC-01 & Missing commands & Reject before model repair & FR-03, FR-04 \\
+AC-02 & Passing baseline & No new-repair claim & FR-04, FR-06 \\
+AC-03 & Failed then valid candidate & Feedback, patch/report, source unchanged & FR-05 to FR-08 \\
+AC-04 & Positive review, failing tests & Preserve failure and bounded retry & FR-06, FR-07 \\
+AC-05 & Protected or out-of-scope edit & Reject operation or candidate & FR-01, FR-06 \\
+AC-06 & Budget/no progress & Explicit stop and available evidence & FR-07, FR-08 \\
+AC-07 & Timeout, cancellation, missing image & Cleanup; no host fallback & NFR-02, NFR-04 \\
+AC-08 & Skills/memory & Attributable input; filtering; disabled mode & FR-09, FR-10 \\
+AC-09 & Entry change/late result & Shared acceptance; cancelled state retained & FR-03, NFR-05 \\
+\end{longtable}
+
+\section{Execution parameters}\label{execution-parameters}
+
+Table~\ref{tab:A-3} lists container arguments supporting the boundary described in Chapters4 and5. These are implemented settings, not proof of universal isolation.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2200}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4700}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3100}}@{}}
+\caption[Container arguments]{Container arguments and their intended execution constraints.}\label{tab:A-3}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Mechanism
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Setting
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Effect
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Mechanism
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Setting
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Effect
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Image/lifecycle & \code|--pull=never|, \code|--rm|, unique name & Prepared image; cleanup \\
+Network/root & \code|--network=none|, \code|--read-only| & No network; restricted writes \\
+Privileges & \code|--cap-drop=ALL|, \code|no-new-privileges| & Reduced authority \\
+Resources & \code|--cpus=1|, \code|--memory=512m|, \code|--pids-limit=128| & Per-command bounds \\
+Identity & Host UID and GID & Deployment-dependent identity \\
+Temporary files & Approximately 64 MiB tmpfs at \code|/tmp| & Bounded writes \\
+Workspace & Selected copy at \code|/workspace| & Task source mount \\
+Environment/logs & Explicit variables; Docker logging disabled & Limited forwarding/storage \\
+\end{longtable}
+
+Table~\ref{tab:A-4} specifies bounded source handling. The source fingerprint covers supported files only.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.2300}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4300}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3400}}@{}}
+\caption[Snapshot limits]{Snapshot and candidate limits used by the repair workspace.}\label{tab:A-4}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Check
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Limit or rule
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Purpose
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Check
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Limit or rule
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Purpose
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Individual file & 2,000,000 bytes & Bound reads \\
+Total bytes & 100,000,000 & Bound memory \\
+Snapshot files & 10,000 & Bound scope \\
+Safety traversal & 20,000 entries & Bound generated tree \\
+Types/names & No links, special files or unsupported path characters & Avoid traversal/diff ambiguity \\
+Protected files & Tests and selected configuration & Preserve acceptance \\
+\end{longtable}
+
+\section{Artefact locations}\label{artefact-locations}
+
+\begin{itemize}
+\tightlist
+\item
+  Repair orchestration: \code|src/yecoding/agent/repair.py|.
+\item
+  Workspace and command execution: \code|src/yecoding/sandbox/|.
+\item
+  Functional tests: \code|tests/test_repair.py|.
+\item
+  Evaluation harness and tasks: \code|eval/run_repair_eval.py|, \code|eval/repair_tasks.json|.
+\item
+  Implementation fingerprints: \code|eval/evidence/repair-implementation.json|.
+\item
+  Held-out results: \code|eval/evidence/repair-heldout-live.json|.
+\item
+  Per-run evidence: \code|eval/evidence/repair-runs/|.
+\item
+  Statistics: \code|docs/thesis/notes/ch06-statistics.json|.
+\item
+  Fresh retrieval sweep and Docker fixture checks: \code|eval/evidence/visual-refresh-20261026/|.
+\item
+  Figure inputs, role reconciliation and derived data: \code|docs/thesis/notes/visual-evidence-statistics.json|.
+\item
+  Empirical figure generator: \code|docs/thesis/figures/plot_evidence_figures.py|.
+\end{itemize}
+
+\section{Project records and plan status}\label{project-records-and-plan-status}
+
+Records identify experiment evidence on 20 October, Chinese typesetting on 23 October and English adaptation/model-free supplementation on 26 October 2026. The supplement adds 240 retrieval contexts and 12 Docker checks, not repeated model runs. These are milestones, not an approved schedule. An approved original plan and submitted interim reports were not supplied; genuine acknowledgements remain the responsibility of the author.

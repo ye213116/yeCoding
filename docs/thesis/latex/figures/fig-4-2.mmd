@@ -1,0 +1,25 @@
+sequenceDiagram
+    participant F as Repair
+    participant W as Copies
+    participant D as Docker
+    participant C as Coord.
+    participant A as Worker
+    participant V as Verify
+    F->>W: Create copies
+    F->>D: Baseline tests
+    D-->>F: Baseline evidence
+    Note over F,W: Test failure required
+    F->>C: Task and read tools
+    C-->>F: Plan
+    F->>A: Task, plan, latest feedback
+    A->>W: Edit work copy
+    A-->>F: Summary
+    F->>W: Check and rebuild
+    W-->>F: Patch and hashes
+    F->>D: Candidate tests
+    D-->>F: Status and output
+    F->>V: Candidate and test evidence
+    V-->>F: Review
+    Note over F,W: Complete or retry
+    F->>W: Remove temporary copies
+    Note over F,W: Retain delivery evidence

@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-20",
+  "head": "b90335dbe1e739b2092c846aec59983bfa15ce04",
+  "branch": "main",
+  "implementation": "uncommitted working tree",
+  "files": {
+    "src/yecoding/agent/repair.py": "b7900f352e61638f874b89f349d326064337857fd4d5dfec16b2c8d3f98e4c22",
+    "src/yecoding/sandbox/docker.py": "9392980a97561b2e50404044d224d7e50d1f7e495ce2ba4c6915011edeb0798a",
+    "src/yecoding/sandbox/workspace.py": "8dff481afd3e69d3514bd9eb2a19b71da081dac74e8d8def0aab1c335da94d6e",
+    "eval/run_repair_eval.py": "6d5254d47aa159b71066758434afaeb926745cf2f2b8e9e146884fffad304cd5",
+    "eval/repair_tasks.json": "8635f553196982202623b9b60f83ec3343b6ff8575c908fa4c92e98e1225c184",
+    "src/yecoding/config.py": "2e29e6ee74f88dea514b57c8eac3c8c5a78c8bfe40de46d66d773293b6d93014",
+    "src/yecoding/agent/query_engine.py": "56083729a6c05ce4862ee75d040e481cf713f63f9f639267b686cf9bf5e20ccf",
+    "src/yecoding/entrypoints/cli.py": "b024713bc67fc855293621fbc3219f5bd1cc32a78606ca2c8865b3ea620ccdd2",
+    "src/yecoding/entrypoints/repl.py": "1ea83c1ac3ebb1de7670a5f1dffb9139a508f4ed04bfafa5f77fb2c7055970b1",
+    "src/yecoding/runtime/api.py": "7fde3619e1d8378bd70966a551364e71e5e0f7c49939df7828a0735393ea325c",
+    "src/yecoding/runtime/tasks.py": "77266970c6c90fd9bedcb206ef1df34b6e59606ebf25419fe87da345b9e3d644",
+    "src/yecoding/snapshot/service.py": "c2a3384cddef86f8b1aa45e4d864c40948a725423790bbe35b19151d084bef7d",
+    "tests/test_repair.py": "d1777eb42b8c3886e157a1cf82c20c68b37d4ceecc005b9697e4b99c9272b2e3",
+    "tests/test_snapshot.py": "6619051c505edf03938675acfbfd96e00ea0c4953afe2d6af525f5737035f1bf",
+    "src/yecoding/builtin_skills/repair-verify/SKILL.md": "9e07803223513116cfb874aec19b42042f1610ec732a5b2c5bdc443631ddf6f6",
+    "src/yecoding/builtin_skills/repair-minimal/SKILL.md": "050e49da7411a009dbc91264f2227fb2bb218b6df8a37f742f297dd3c4b80b3d",
+    "src/yecoding/builtin_skills/repair-reproduce/SKILL.md": "bc50578f0ad21aa0e4c288f2819a6ee169f454839f82af14b292ad430c2555ed"
+  },
+  "image_id": "sha256:e88e9763f943ec1834f992a4b51e0f24500486803e8bc534e5767af9ea65f6ce"
+}

@@ -1,0 +1,10 @@
+flowchart TB
+    S[Original source] -->|Read| B[Snapshot and hashes]
+    B --> W[work copy]
+    B -->|Baseline| V[verify copy]
+    W -->|Compare| C[Check candidate]
+    C -->|Rebuild| V
+    V -->|Read-only| D[Acceptance container]
+    W -->|Writable| X[Worker container]
+    C --> A[Delivery directory]
+    D -->|Results| A

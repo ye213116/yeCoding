@@ -1,0 +1,12 @@
+diff --git a/dotenv/variables.py b/dotenv/variables.py
+--- a/dotenv/variables.py
++++ b/dotenv/variables.py
+@@ -64,6 +64,8 @@
+     def resolve(self, env: Mapping[str, Optional[str]]) -> str:
+         default = self.default if self.default is not None else ""
+         result = env.get(self.name, default)
++        if result is None:
++            return ""
+         return str(result)
+ 
+ 

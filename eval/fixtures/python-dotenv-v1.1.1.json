@@ -1,0 +1,20 @@
+{
+  "name": "python-dotenv",
+  "url": "https://github.com/theskumar/python-dotenv",
+  "version": "v1.1.1",
+  "revision": "16e660d384b942b11879b44500afbbe021650448",
+  "scope": "src",
+  "archive_sha256": "2a8a6c5c58d04de8953c2f469813a47d0b0cf4cbc7407931850e1d641a095cd9",
+  "source_files_sha256": {
+    "dotenv/__init__.py": "58153949f4a2280852de1ceed7bca436ebb06eec320c25fdd52cefe2f51e3ae3",
+    "dotenv/__main__.py": "3744612c6ee71c8aad9491f0c1ea48a3ecdb24f371f6c7b0082446639dbc87fe",
+    "dotenv/cli.py": "badf37488b5b59c9846a102448ece41eabd12a1aa18f4b40e77bdc5e9ca578e3",
+    "dotenv/ipython.py": "6af23a69ecff4719c1a6d62072122ab85d934a0288f863a1637a698aedd5b961",
+    "dotenv/main.py": "1c98244b45d971dd1fd9565a546c6551cace121a8172643a2f3f6142b31f6aeb",
+    "dotenv/parser.py": "4205391f0330336c0caadd2fcfa7474c9e27ccf9b0a91aaf8b8312c9e5627e05",
+    "dotenv/variables.py": "083d2a5cebefa41deae51a4140c0fda97eaf1d7ed2c96f92ba2c063054a5b74f",
+    "dotenv/version.py": "abcff90b47fef261d635bea6330d36ce560f9c419706abce98fdf3d0213064a3"
+  },
+  "license_file": "LICENSE",
+  "description": "Unmodified upstream production source snapshot; excludes tests and documentation. Tasks labeled from source before evaluating retrieval."
+}

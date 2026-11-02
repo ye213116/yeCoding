@@ -1,0 +1,525 @@
+{
+  "kind": "public SDK mode comparison with matched repair tool envelope",
+  "started_at": "2026-10-29T07:46:27.300997+00:00",
+  "live": true,
+  "model": "deepseek-v4-flash",
+  "provider": "deepseek",
+  "split": "dev",
+  "memory": false,
+  "skill": true,
+  "temperature": 0,
+  "max_output_tokens": 2048,
+  "budgets": {
+    "tokens": 60000,
+    "calls": 18,
+    "seconds": 300
+  },
+  "image": "python:3.11-slim",
+  "image_id": "sha256:e88e9763f943ec1834f992a4b51e0f24500486803e8bc534e5767af9ea65f6ce",
+  "git_head": "7a1783bc723d358090a3c9f318d7bf795903138e",
+  "implementation_sha256": {
+    "src/yecoding/__init__.py": "c265c8a3aa86fc71de0ce5948568fcdc399ead74776e61266575433590fe84d4",
+    "src/yecoding/__main__.py": "d9f253ee04ea1e4c15c32a53a338391d654483e910019f02191a53c04815b2b8",
+    "src/yecoding/agent/__init__.py": "a3b54d6ce4be13cbe1729d810492d89c1f9827123a08a64b23503ef49047fee5",
+    "src/yecoding/agent/agent.py": "1e75a6e70c3d00d86ce4f5f80c0d12054adac6b0ae876e2ad02ef67d24679459",
+    "src/yecoding/agent/orchestrator.py": "08ae71770f3624e5d106fd6fa69f9f0608f28a02fccb97376f195e7c09bbdf37",
+    "src/yecoding/agent/plan_execute.py": "4c4117326cfda469259e546c7f2f1e7d32649ba6608368d587b379e6ad6492c8",
+    "src/yecoding/agent/query.py": "35071af203199d3d9882161cf57409286344e3ccdf5c78d6ed2532303f77967e",
+    "src/yecoding/agent/query_engine.py": "56083729a6c05ce4862ee75d040e481cf713f63f9f639267b686cf9bf5e20ccf",
+    "src/yecoding/agent/repair.py": "b7900f352e61638f874b89f349d326064337857fd4d5dfec16b2c8d3f98e4c22",
+    "src/yecoding/bootstrap.py": "4c7801e40b5d68a23816c75e8d3c34f5849c600e73f7c6dd60c75d4dca6479ad",
+    "src/yecoding/config.py": "2e29e6ee74f88dea514b57c8eac3c8c5a78c8bfe40de46d66d773293b6d93014",
+    "src/yecoding/context/__init__.py": "da74c5fff469a59615530a66c4a247f43b5e391a3bf6ab848797b00ec934ff90",
+    "src/yecoding/context/manager.py": "8567e642a47a8c639a1d9249c620fe6dd8b993675839e4043645f095a1434a23",
+    "src/yecoding/entrypoints/__init__.py": "a77b1160d9602dc608d3c2607ad0b2a9fd70a60bd995105dcff47a31bc54fdc2",
+    "src/yecoding/entrypoints/cli.py": "ef5e18a4b462822cdd0abc27353a17f5e59aaec9345f9edac7bee0fd4904a667",
+    "src/yecoding/entrypoints/model_selector.py": "c6d01b710c2f40c35edfc0874066bcee2c1782a3e9f0a2409ce7931ba7475311",
+    "src/yecoding/entrypoints/repl.py": "d6f75b2b298b60de975c6994e192f72edcda5214dd9c85262ec52990cdc7fb6b",
+    "src/yecoding/image/__init__.py": "18ee69f9e3b1af7a0087684278bc1b23ae88651fc875a834957bbdfd17e2165f",
+    "src/yecoding/image/processor.py": "85896c4808ae5013e86afca93fd10d9ae07bcbe2f9b9959d192f4482543ff048",
+    "src/yecoding/llm/__init__.py": "211693be27bfc2ee51e9ff82fb225c86472075b6f19dc6cfce1d706ab462da30",
+    "src/yecoding/llm/base.py": "36888463c0354ff5820db4dac2e59577b760d425d6b4d219781b32cb00f86b2c",
+    "src/yecoding/llm/factory.py": "2f0624281bcda0cc22946ea4a93ec416c74efd06daf321944245c32d40b965c3",
+    "src/yecoding/llm/model_profiles.py": "ef5c38b9acc3efcd712b4d9d9889068d10c6f0092003722c6ed47739ce3b52ac",
+    "src/yecoding/llm/models.py": "57722eea2f0a068a517db3109e4305ab4792df5e60b20a21f26eb0b36698b1f1",
+    "src/yecoding/llm/openai_compatible.py": "b019cf2b10d8721052cb33742278fbce5a9bad9cb178be2be41bcf2f121e862e",
+    "src/yecoding/llm/pricing.py": "3f05e5009f4a56de87499c131d632839b3e26606ee99da0830d16408e2724f21",
+    "src/yecoding/lsp/__init__.py": "3ed66cc2746efc859ae5d158432254502204f13de5bd6732baabc9a3d8d6b705",
+    "src/yecoding/lsp/diagnostics.py": "267e96f353e3d494dfe46221818faa598cf3f06da7057eed094626ec94a97b85",
+    "src/yecoding/mcp/__init__.py": "754f6620d0756cc66d346289e645c7e5b5c10ece778d72d90575944530c11ae2",
+    "src/yecoding/mcp/client.py": "d94c5a1c7d78ea91a6ff74bf9f5d374cd0ae767d8803ce1ffe4d3ecd852cd5db",
+    "src/yecoding/mcp/config.py": "f3a4a080000b87f1b95f85de41aad55adcaa069f41792110d835d9ffe575b068",
+    "src/yecoding/mcp/server.py": "317ca04286a829ec95ee384c4fe4f45db0aeb0b3a58582b07eba6e70ff058439",
+    "src/yecoding/memory/__init__.py": "ab7af84c767fb60b318e29ead6b151820c0143d28d0b7e5c63021028b87f4c96",
+    "src/yecoding/memory/manager.py": "054e45313cfc121825d79d7983f3a84efd02825473aca20137aa0a37f01639e2",
+    "src/yecoding/plan/__init__.py": "42bbee8e4f32351a3da5d2383bd0a1099245c0b41d787a26af8d8836de0f4728",
+    "src/yecoding/plan/models.py": "27388c50610a4f6bc09deb3fe442e4b4b09c8ebb6a711d7e9fa12bc199948f7f",
+    "src/yecoding/plan/planner.py": "e8cd32db3e83138685aeceb1b8894c810a5136308fb4f45900746566c3a63d2c",
+    "src/yecoding/policy/__init__.py": "70ea47c561d0a3a5c10c4f053f9a0b3b042860a734d4df1df27e85e8996dd71a",
+    "src/yecoding/policy/audit_log.py": "125b8d8d4f337c505689f8aced544c69654023f2e737123b690c6d24f7d6819b",
+    "src/yecoding/policy/command_guard.py": "20c647edd7fa937e54538d5826cedede5ddb5d5f36886b406835a37d57aa95c6",
+    "src/yecoding/policy/path_guard.py": "dac5ee9588219240ac7ee3e0c464960823b3ef2143efd2cefda422e313f67ec1",
+    "src/yecoding/prompt/__init__.py": "4fe934ba7f7aa7782f7630775190adb7b74b88fbe706716564bf8c0c97b8b693",
+    "src/yecoding/prompt/assembler.py": "eadae4361cead472212870599b619db181ea15ee40f62a924db08232a12365fa",
+    "src/yecoding/rag/__init__.py": "247009ef6984d3433c148ce68c8c3c683a0912754239f89a554ac5fe9fabd954",
+    "src/yecoding/rag/code_index.py": "a0aa93a6b99d645a68746c4dd002a1336301f688243f0d9525d26e3cb15aedbf",
+    "src/yecoding/rag/context_builder.py": "1823f96fece7d55b129b4c9b70afa6454e79a8645bb1082fa86a34d418d90c42",
+    "src/yecoding/rag/evaluation.py": "936ffa491fb179b302acca63edaa16cf9976bf40338135fa6c44a4c284f7fc43",
+    "src/yecoding/rag/parser.py": "ebb124a6c2618db1d6f5a22f73bcaa75d03cea4d1e9696694cad4f9433ff65e5",
+    "src/yecoding/render/__init__.py": "82dee1e83de44ae76c8aa29ccd7b0ad160205c3af3d5e1ea532f8bd6a40e98da",
+    "src/yecoding/render/plain.py": "dccdc0709593ada1184e40f878964640c2aa353994642edfcb3ea4ea114a6165",
+    "src/yecoding/render/rich_renderer.py": "d142dff598a1a3411a3bc26658ceeb393cd768e54b6368fcac75bca6d01a35c5",
+    "src/yecoding/runtime/__init__.py": "cd7a97828c0f39d2d2c663cef6648444fbc92d4bb84580c4ee34b4e8cf79ebc8",
+    "src/yecoding/runtime/api.py": "8829bb0af1fa9f757476c4efc1f7efc6c0e6fdc86e99d2d7fbbbae38006a282b",
+    "src/yecoding/runtime/tasks.py": "77266970c6c90fd9bedcb206ef1df34b6e59606ebf25419fe87da345b9e3d644",
+    "src/yecoding/sandbox/__init__.py": "2d18d32349bdbbd8fc3a32941c193810e889b2d91aff0cd21ff4e1820e5ff5b7",
+    "src/yecoding/sandbox/docker.py": "9392980a97561b2e50404044d224d7e50d1f7e495ce2ba4c6915011edeb0798a",
+    "src/yecoding/sandbox/workspace.py": "8dff481afd3e69d3514bd9eb2a19b71da081dac74e8d8def0aab1c335da94d6e",
+    "src/yecoding/sdk.py": "eef60f42e8af5db94077651cddc58256e86b4c5e237a293df5a697f4102188d0",
+    "src/yecoding/skill/__init__.py": "2ddbe546455364e7fe7dd75d43d34a444f94115a112f2700aa8285198a62f835",
+    "src/yecoding/skill/registry.py": "0b5a1ff15f1d2be52ce6115cbb231d60ed79b4a32f1dbe82b2e344f0761ed228",
+    "src/yecoding/snapshot/__init__.py": "140e9f46649118fc7ca828a956ee805ff0b1159d5cad3c68e5bbcf0cadfc57ee",
+    "src/yecoding/snapshot/service.py": "c2a3384cddef86f8b1aa45e4d864c40948a725423790bbe35b19151d084bef7d",
+    "src/yecoding/tools/__init__.py": "b52e8cdbaae563777a2d7cafd24775f6899727ed93bb74821fb4aa5335799c4e",
+    "src/yecoding/tools/base.py": "4308ac9c41554af36c989a7fded1272ced7d79b584178fcedd277028017ba920",
+    "src/yecoding/tools/builtins.py": "f85d8192bb07dc17efd4b3fa59035e4a06436d86f9aab0af85f772a20f650403",
+    "src/yecoding/tools/commands.py": "7466836f69d80c5f39e966dc30327781526df6ca3ace1d8b13f62674eb8351bc",
+    "src/yecoding/tools/executor.py": "a917a3567fa14db979137f84ba6a1d7556eb58d4f1413489bd5ff729e9039b8b",
+    "src/yecoding/tools/file_ops.py": "3fdb24b4c394564250ee9ed8e3324b785ede1aa7352dc6a682a4448476029de6",
+    "src/yecoding/tools/registry.py": "08719598589416b806848da766589a84a6efe4c882d399b0fab305c07ede2295",
+    "src/yecoding/types.py": "50bb90bce7103d8c32d5b02c9c7ce09fedc942996f26c93c926fc1eea580edad",
+    "src/yecoding/web/__init__.py": "68454db5ccdc61f4989a9eb759770797b98bde2eef557bb22bc6f5a90a5a501b",
+    "src/yecoding/web/fetch.py": "7e903b892550e5e3d6e4c9ce4e6d8ca891db074327dbda58155bb6b2ac347327",
+    "src/yecoding/web/search.py": "9baa17c1820cda86bd2778e99dc3e8c7533d493074189f9b4e80a10ae2f8cfdc",
+    "eval/run_mode_comparison.py": "1bdc7e3870165a8910535af4ebcbfa5b795f579046c4c40814af6c93880bc4b8",
+    "eval/run_repair_eval.py": "5a831fc286db7e8d49bcf65a0a6c0985cb0fbcbc37df5367522035118612b87c",
+    "eval/repair_tasks.json": "8635f553196982202623b9b60f83ec3343b6ff8575c908fa4c92e98e1225c184",
+    "eval/fixtures/python-dotenv-v1.1.1.zip": "2a8a6c5c58d04de8953c2f469813a47d0b0cf4cbc7407931850e1d641a095cd9"
+  },
+  "acceptance_sha256": "17262330807af86b22e602d4ac9cb7c5f109cb3e8ea755595e4c4d60f9b6014e",
+  "independent_sha256": "162ec3777e02ce21e3b5542fdbdd753ff0a4daaae38f0dda253b175d679c394d",
+  "protocol": {
+    "entrypoints": [
+      "QueryEngine.ask",
+      "QueryEngine.plan",
+      "QueryEngine.team",
+      "QueryEngine.repair"
+    ],
+    "tools": "ordinary modes reuse VerifiedRepair._registry (Docker and protected files)",
+    "order": "rotate react,plan,team,repair by task index; no concurrent runs",
+    "grading": "fresh copy, original acceptance plus hidden checks; no model judges",
+    "budget": "check before requests; in-flight requests can overshoot token limit",
+    "candidate": "ordinary final workspace; repair last exported patch; includes failures",
+    "completed": "ordinary done without error/budget rejection; repair status verified"
+  },
+  "records": [
+    {
+      "task": "default-value",
+      "base_hash": "712fbf5a0144e7d074b5acb7bc0ed79dbf41d10bf1664978da5dd6517ae7d279",
+      "baseline": {
+        "command": "python -m unittest discover -s tests -v",
+        "exit_code": 1,
+        "stdout": "",
+        "stderr": "test_default (test_acceptance.Acceptance.test_default) ... FAIL\ntest_escape (test_acceptance.Acceptance.test_escape) ... ok\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... ok\ntest_lines (test_acceptance.Acceptance.test_lines) ... ok\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... ok\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\n\n======================================================================\nFAIL: test_default (test_acceptance.Acceptance.test_default)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/tests/test_acceptance.py\", line 12, in test_default\n    self.assertEqual(Variable(\"MISSING\", \"fallback\").resolve({}), \"fallback\")\nAssertionError: '' != 'fallback'\n+ fallback\n\n----------------------------------------------------------------------\nRan 9 tests in 0.003s\n\nFAILED (failures=1)\n",
+        "timed_out": false,
+        "duration": 0.7462825789998533,
+        "category": "test_failure",
+        "passed": false
+      },
+      "order": [
+        "react",
+        "plan",
+        "team",
+        "repair"
+      ],
+      "runs": [
+        {
+          "mode": "react",
+          "task": "default-value",
+          "prompt": "Variable interpolation ignores the configured default when an environment variable is absent. Restore default handling while preserving existing environment values.\n\nImplement the fix in the repository using tools. Do not modify tests or test/build configuration. Commands run in Docker at /workspace; file tools use repository-relative paths. No network or package installation is available. Acceptance command: python -m unittest discover -s tests -v. Run it to check your fix.",
+          "status": "completed",
+          "tools": [
+            "bash",
+            "edit_file",
+            "execute_command",
+            "get_context",
+            "get_file_info",
+            "glob",
+            "glob_files",
+            "grep",
+            "grep_code",
+            "list_dir",
+            "read_file",
+            "search_code",
+            "write_file"
+          ],
+          "duration": 10.151942003999466,
+          "changed_files": [
+            "dotenv/variables.py"
+          ],
+          "usage": {
+            "input_tokens": 27475,
+            "output_tokens": 845,
+            "cache_hit_tokens": 21504,
+            "cache_miss_tokens": 5971,
+            "reasoning_tokens": 139,
+            "total_tokens": 28320
+          },
+          "llm_calls": 6,
+          "completed": true,
+          "candidate_available": true,
+          "acceptance": {
+            "command": "python -m unittest discover -s tests -v",
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "test_default (test_acceptance.Acceptance.test_default) ... ok\ntest_escape (test_acceptance.Acceptance.test_escape) ... ok\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... ok\ntest_lines (test_acceptance.Acceptance.test_lines) ... ok\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... ok\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.002s\n\nOK\n",
+            "timed_out": false,
+            "duration": 0.9122552939998059,
+            "category": "passed",
+            "passed": true
+          },
+          "independent": {
+            "command": "python -m unittest discover -s tests -v",
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "test_default (test_acceptance.Acceptance.test_default) ... ok\ntest_escape (test_acceptance.Acceptance.test_escape) ... ok\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... ok\ntest_lines (test_acceptance.Acceptance.test_lines) ... ok\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... ok\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\ntest_atom_edges (test_independent.Independent.test_atom_edges) ... ok\ntest_environment_edges (test_independent.Independent.test_environment_edges) ... ok\ntest_line_and_escape_edges (test_independent.Independent.test_line_and_escape_edges) ... ok\ntest_parser_edges (test_independent.Independent.test_parser_edges) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.002s\n\nOK\n",
+            "timed_out": false,
+            "duration": 0.8087138829996547,
+            "category": "passed",
+            "passed": true
+          }
+        },
+        {
+          "mode": "plan",
+          "task": "default-value",
+          "prompt": "Variable interpolation ignores the configured default when an environment variable is absent. Restore default handling while preserving existing environment values.\n\nImplement the fix in the repository using tools. Do not modify tests or test/build configuration. Commands run in Docker at /workspace; file tools use repository-relative paths. No network or package installation is available. Acceptance command: python -m unittest discover -s tests -v. Run it to check your fix.",
+          "status": "budget_exhausted",
+          "tools": [
+            "bash",
+            "edit_file",
+            "execute_command",
+            "get_context",
+            "get_file_info",
+            "glob",
+            "glob_files",
+            "grep",
+            "grep_code",
+            "list_dir",
+            "read_file",
+            "search_code",
+            "write_file"
+          ],
+          "duration": 24.626532932000373,
+          "changed_files": [
+            "dotenv/variables.py"
+          ],
+          "usage": {
+            "input_tokens": 58184,
+            "output_tokens": 3644,
+            "cache_hit_tokens": 44544,
+            "cache_miss_tokens": 13640,
+            "reasoning_tokens": 1361,
+            "total_tokens": 61828
+          },
+          "llm_calls": 13,
+          "completed": false,
+          "candidate_available": true,
+          "acceptance": {
+            "command": "python -m unittest discover -s tests -v",
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "test_default (test_acceptance.Acceptance.test_default) ... ok\ntest_escape (test_acceptance.Acceptance.test_escape) ... ok\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... ok\ntest_lines (test_acceptance.Acceptance.test_lines) ... ok\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... ok\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.003s\n\nOK\n",
+            "timed_out": false,
+            "duration": 0.7544252649995542,
+            "category": "passed",
+            "passed": true
+          },
+          "independent": {
+            "command": "python -m unittest discover -s tests -v",
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "test_default (test_acceptance.Acceptance.test_default) ... ok\ntest_escape (test_acceptance.Acceptance.test_escape) ... ok\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... ok\ntest_lines (test_acceptance.Acceptance.test_lines) ... ok\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... ok\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\ntest_atom_edges (test_independent.Independent.test_atom_edges) ... ok\ntest_environment_edges (test_independent.Independent.test_environment_edges) ... ok\ntest_line_and_escape_edges (test_independent.Independent.test_line_and_escape_edges) ... ok\ntest_parser_edges (test_independent.Independent.test_parser_edges) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.003s\n\nOK\n",
+            "timed_out": false,
+            "duration": 0.7078950310005894,
+            "category": "passed",
+            "passed": true
+          }
+        },
+        {
+          "mode": "team",
+          "task": "default-value",
+          "prompt": "Variable interpolation ignores the configured default when an environment variable is absent. Restore default handling while preserving existing environment values.\n\nImplement the fix in the repository using tools. Do not modify tests or test/build configuration. Commands run in Docker at /workspace; file tools use repository-relative paths. No network or package installation is available. Acceptance command: python -m unittest discover -s tests -v. Run it to check your fix.",
+          "status": "error",
+          "tools": [
+            "bash",
+            "edit_file",
+            "execute_command",
+            "get_context",
+            "get_file_info",
+            "glob",
+            "glob_files",
+            "grep",
+            "grep_code",
+            "list_dir",
+            "read_file",
+            "search_code",
+            "write_file"
+          ],
+          "error": "planner output could not be parsed:\n\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"bash\">\n<｜｜DSML｜｜ parameter name=\"command\" string=\"true\">ls -la /workspace && echo \"---\" && find /workspace -maxdepth 2 -type f -name \"*.py\" | head -50</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n<｜｜DSML｜｜ invoke name=\"bash\">\n<｜｜DSML｜｜ parameter name=\"command\" string=\"true\">cd /workspace && grep -rn \"default\" --include=*.py -l | head -30</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>",
+          "duration": 1.939837386000363,
+          "changed_files": [],
+          "usage": {
+            "input_tokens": 416,
+            "output_tokens": 227,
+            "cache_hit_tokens": 128,
+            "cache_miss_tokens": 288,
+            "reasoning_tokens": 109,
+            "total_tokens": 643
+          },
+          "llm_calls": 1,
+          "completed": false,
+          "candidate_available": true,
+          "acceptance": {
+            "command": "python -m unittest discover -s tests -v",
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "test_default (test_acceptance.Acceptance.test_default) ... FAIL\ntest_escape (test_acceptance.Acceptance.test_escape) ... ok\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... ok\ntest_lines (test_acceptance.Acceptance.test_lines) ... ok\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... ok\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\n\n======================================================================\nFAIL: test_default (test_acceptance.Acceptance.test_default)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/tests/test_acceptance.py\", line 12, in test_default\n    self.assertEqual(Variable(\"MISSING\", \"fallback\").resolve({}), \"fallback\")\nAssertionError: '' != 'fallback'\n+ fallback\n\n----------------------------------------------------------------------\nRan 9 tests in 0.002s\n\nFAILED (failures=1)\n",
+            "timed_out": false,
+            "duration": 0.6894320999999763,
+            "category": "test_failure",
+            "passed": false
+          },
+          "independent": {
+            "command": "python -m unittest discover -s tests -v",
+            "exit_code": 1,
+            "stdout": "",
+            "stderr": "test_default (test_acceptance.Acceptance.test_default) ... FAIL\ntest_escape (test_acceptance.Acceptance.test_escape) ... ok\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... ok\ntest_lines (test_acceptance.Acceptance.test_lines) ... ok\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... ok\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\ntest_atom_edges (test_independent.Independent.test_atom_edges) ... FAIL\ntest_environment_edges (test_independent.Independent.test_environment_edges) ... ok\ntest_line_and_escape_edges (test_independent.Independent.test_line_and_escape_edges) ... ok\ntest_parser_edges (test_independent.Independent.test_parser_edges) ... FAIL\n\n======================================================================\nFAIL: test_default (test_acceptance.Acceptance.test_default)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/tests/test_acceptance.py\", line 12, in test_default\n    self.assertEqual(Variable(\"MISSING\", \"fallback\").resolve({}), \"fallback\")\nAssertionError: '' != 'fallback'\n+ fallback\n\n======================================================================\nFAIL: test_atom_edges (test_independent.Independent.test_atom_edges)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/tests/test_independent.py\", line 16, in test_atom_edges\n    self.assertEqual(variable.resolve({}), default or \"\")\nAssertionError: '' != 'fallback'\n+ fallback\n\n======================================================================\nFAIL: test_parser_edges (test_independent.Independent.test_parser_edges)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/tests/test_independent.py\", line 28, in test_parser_edges\n    self.assertEqual(resolve(text), expected)\nAssertionError: '' != 'fallback'\n+ fallback\n\n----------------------------------------------------------------------\nRan 13 tests in 0.003s\n\nFAILED (failures=3)\n",
+            "timed_out": false,
+            "duration": 0.8631481080001322,
+            "category": "test_failure",
+            "passed": false
+          }
+        },
+        {
+          "mode": "repair",
+          "task": "default-value",
+          "prompt": "Variable interpolation ignores the configured default when an environment variable is absent. Restore default handling while preserving existing environment values.\n\nImplement the fix in the repository using tools. Do not modify tests or test/build configuration. Commands run in Docker at /workspace; file tools use repository-relative paths. No network or package installation is available. Acceptance command: python -m unittest discover -s tests -v. Run it to check your fix.",
+          "status": "verified",
+          "repair_report": {
+            "id": "d27ca3e5f47d42949ccafac03df6d001",
+            "status": "verified",
+            "strategy": "verified",
+            "source": "/tmp/yecoding-mode-eval-n2nj622u/default-value/src",
+            "model": "deepseek-v4-flash",
+            "provider": "deepseek",
+            "options": {
+              "image": "python:3.11-slim",
+              "test_commands": [
+                "python -m unittest discover -s tests -v"
+              ],
+              "max_attempts": 3,
+              "max_llm_calls": 18,
+              "max_tokens": 60000,
+              "timeout": 300,
+              "command_timeout": 60.0,
+              "artifacts_dir": "/home/zyh/projects/yeCoding/eval/evidence/mode-comparison-20261029/pilot-runs/repair",
+              "strategy": "verified"
+            },
+            "started_at": "2026-10-29T07:47:11.079452+00:00",
+            "attempts": [
+              {
+                "number": 1,
+                "worker_summary": "修复完成。\n\n**变更文件**: `dotenv/variables.py` — `Variable.resolve()`\n\n**原因**: `resolve()` 用硬编码的空字符串作为 `env.get(name, default)` 的默认值，忽略了 `Variable.default`（即 `${VAR:-fallback}` 中的 `fallback`），导致缺失变量返回 `\"\"` 而非配置的默认值。\n\n**修复**: 将默认值改为 `self.default if self.default is not None else \"\"`。这样：\n- 变量缺失时返回配置的默认值（`MISSING` → `\"fallback\"`）\n- 变量存在时保留环境值（`X=\"present\"` → `\"present\"`）\n- 变量存在但为 `None` 时仍返回 `\"\"`（保持原行为）\n\n**验证**: `python -m unittest discover -s tests -v` 全部 9 个测试通过。",
+                "patch_hash": "f6d757aec89faf9b6a4359dc610ab3164cbf518581a23d0815cb5d9e4fba0af6",
+                "changed_files": [
+                  "dotenv/variables.py"
+                ],
+                "verification": [
+                  {
+                    "command": "python -m unittest discover -s tests -v",
+                    "exit_code": 0,
+                    "stdout": "",
+                    "stderr": "test_default (test_acceptance.Acceptance.test_default) ... ok\ntest_escape (test_acceptance.Acceptance.test_escape) ... ok\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... ok\ntest_lines (test_acceptance.Acceptance.test_lines) ... ok\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... ok\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.003s\n\nOK\n",
+                    "timed_out": false,
+                    "duration": 0.6578561660007836,
+                    "category": "passed",
+                    "passed": true
+                  }
+                ],
+                "passed": true,
+                "review": "I'll verify the candidate diff against the actual repository code and callers."
+              }
+            ],
+            "skills": [
+              {
+                "name": "repair-reproduce",
+                "version": "1.0.0",
+                "role": "coordinator",
+                "sha256": "08c62f4e3b40007ff17c062cf458e18f2a771a354a7847d7eb698a7fda8abbd2"
+              },
+              {
+                "name": "repair-reproduce",
+                "version": "1.0.0",
+                "role": "worker",
+                "sha256": "08c62f4e3b40007ff17c062cf458e18f2a771a354a7847d7eb698a7fda8abbd2"
+              },
+              {
+                "name": "repair-minimal",
+                "version": "1.0.0",
+                "role": "worker",
+                "sha256": "4c790f5e7acfe7c6e4c84f13929293435c91e788472b370cb388bc4a6bd06414"
+              },
+              {
+                "name": "repair-verify",
+                "version": "1.0.0",
+                "role": "verifier",
+                "sha256": "cac1fa9d87660b78ae6e019ef313053ed8356d31bb99cd63ed3531ac1451c779"
+              }
+            ],
+            "recalled_memory_ids": [],
+            "artifacts": "/home/zyh/projects/yeCoding/eval/evidence/mode-comparison-20261029/pilot-runs/repair/d27ca3e5f47d42949ccafac03df6d001",
+            "task": "Variable interpolation ignores the configured default when an environment variable is absent. Restore default handling while preserving existing environment values.\n\nImplement the fix in the repository using tools. Do not modify tests or test/build configuration. Commands run in Docker at /workspace; file tools use repository-relative paths. No network or package installation is available. Acceptance command: python -m unittest discover -s tests -v. Run it to check your fix.",
+            "base_hash": "712fbf5a0144e7d074b5acb7bc0ed79dbf41d10bf1664978da5dd6517ae7d279",
+            "base_files": {
+              "dotenv/__init__.py": "58153949f4a2280852de1ceed7bca436ebb06eec320c25fdd52cefe2f51e3ae3",
+              "dotenv/__main__.py": "3744612c6ee71c8aad9491f0c1ea48a3ecdb24f371f6c7b0082446639dbc87fe",
+              "dotenv/cli.py": "badf37488b5b59c9846a102448ece41eabd12a1aa18f4b40e77bdc5e9ca578e3",
+              "dotenv/ipython.py": "6af23a69ecff4719c1a6d62072122ab85d934a0288f863a1637a698aedd5b961",
+              "dotenv/main.py": "1c98244b45d971dd1fd9565a546c6551cace121a8172643a2f3f6142b31f6aeb",
+              "dotenv/parser.py": "4205391f0330336c0caadd2fcfa7474c9e27ccf9b0a91aaf8b8312c9e5627e05",
+              "dotenv/py.typed": "f0f8f2675695a10a5156fb7bd66bafbaae6a13e8d315990af862c792175e6e67",
+              "dotenv/variables.py": "e39d5ea3aab17ca3d7ffc80fb15c1f130f6512bbc0e8c1750e417ec652226ae6",
+              "dotenv/version.py": "abcff90b47fef261d635bea6330d36ce560f9c419706abce98fdf3d0213064a3",
+              "tests/test_acceptance.py": "17262330807af86b22e602d4ac9cb7c5f109cb3e8ea755595e4c4d60f9b6014e"
+            },
+            "baseline": [
+              {
+                "command": "python -m unittest discover -s tests -v",
+                "exit_code": 1,
+                "stdout": "",
+                "stderr": "test_default (test_acceptance.Acceptance.test_default) ... FAIL\ntest_escape (test_acceptance.Acceptance.test_escape) ... ok\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... ok\ntest_lines (test_acceptance.Acceptance.test_lines) ... ok\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... ok\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\n\n======================================================================\nFAIL: test_default (test_acceptance.Acceptance.test_default)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/tests/test_acceptance.py\", line 12, in test_default\n    self.assertEqual(Variable(\"MISSING\", \"fallback\").resolve({}), \"fallback\")\nAssertionError: '' != 'fallback'\n+ fallback\n\n----------------------------------------------------------------------\nRan 9 tests in 0.003s\n\nFAILED (failures=1)\n",
+                "timed_out": false,
+                "duration": 0.9020280730001105,
+                "category": "test_failure",
+                "passed": false
+              }
+            ],
+            "duration": 18.671393571000408,
+            "llm_calls": 11,
+            "usage": {
+              "input_tokens": 37805,
+              "output_tokens": 1728,
+              "cache_hit_tokens": 25600,
+              "cache_miss_tokens": 12205,
+              "reasoning_tokens": 614,
+              "total_tokens": 39533
+            }
+          },
+          "duration": 18.67205749200002,
+          "usage": {
+            "input_tokens": 37805,
+            "output_tokens": 1728,
+            "cache_hit_tokens": 25600,
+            "cache_miss_tokens": 12205,
+            "reasoning_tokens": 614,
+            "total_tokens": 39533
+          },
+          "llm_calls": 11,
+          "completed": true,
+          "candidate_available": true,
+          "acceptance": {
+            "command": "python -m unittest discover -s tests -v",
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "test_default (test_acceptance.Acceptance.test_default) ... ok\ntest_escape (test_acceptance.Acceptance.test_escape) ... ok\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... ok\ntest_lines (test_acceptance.Acceptance.test_lines) ... ok\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... ok\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.002s\n\nOK\n",
+            "timed_out": false,
+            "duration": 0.6640805549996003,
+            "category": "passed",
+            "passed": true
+          },
+          "independent": {
+            "command": "python -m unittest discover -s tests -v",
+            "exit_code": 0,
+            "stdout": "",
+            "stderr": "test_default (test_acceptance.Acceptance.test_default) ... ok\ntest_escape (test_acceptance.Acceptance.test_escape) ... ok\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... ok\ntest_lines (test_acceptance.Acceptance.test_lines) ... ok\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... ok\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\ntest_atom_edges (test_independent.Independent.test_atom_edges) ... ok\ntest_environment_edges (test_independent.Independent.test_environment_edges) ... ok\ntest_line_and_escape_edges (test_independent.Independent.test_line_and_escape_edges) ... ok\ntest_parser_edges (test_independent.Independent.test_parser_edges) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.002s\n\nOK\n",
+            "timed_out": false,
+            "duration": 0.8116772299999866,
+            "category": "passed",
+            "passed": true
+          }
+        }
+      ]
+    }
+  ],
+  "reference": {
+    "command": "python -m unittest discover -s tests -v",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "test_default (test_acceptance.Acceptance.test_default) ... ok\ntest_escape (test_acceptance.Acceptance.test_escape) ... ok\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... ok\ntest_lines (test_acceptance.Acceptance.test_lines) ... ok\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... ok\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.005s\n\nOK\n",
+    "timed_out": false,
+    "duration": 1.0516414690000602,
+    "category": "passed",
+    "passed": true
+  },
+  "independent_reference": {
+    "command": "python -m unittest discover -s tests -v",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "test_default (test_acceptance.Acceptance.test_default) ... ok\ntest_escape (test_acceptance.Acceptance.test_escape) ... ok\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... ok\ntest_lines (test_acceptance.Acceptance.test_lines) ... ok\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... ok\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\ntest_atom_edges (test_independent.Independent.test_atom_edges) ... ok\ntest_environment_edges (test_independent.Independent.test_environment_edges) ... ok\ntest_line_and_escape_edges (test_independent.Independent.test_line_and_escape_edges) ... ok\ntest_parser_edges (test_independent.Independent.test_parser_edges) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.002s\n\nOK\n",
+    "timed_out": false,
+    "duration": 0.6579693240000779,
+    "category": "passed",
+    "passed": true
+  },
+  "summary": {
+    "react": {
+      "runs": 1,
+      "statuses": {
+        "completed": 1
+      },
+      "acceptance_passed": 1,
+      "independent_passed": 1,
+      "completed_and_passed": 1,
+      "mean_tokens": 28320,
+      "mean_calls": 6,
+      "mean_seconds": 10.151942003999466
+    },
+    "plan": {
+      "runs": 1,
+      "statuses": {
+        "budget_exhausted": 1
+      },
+      "acceptance_passed": 1,
+      "independent_passed": 1,
+      "completed_and_passed": 0,
+      "mean_tokens": 61828,
+      "mean_calls": 13,
+      "mean_seconds": 24.626532932000373
+    },
+    "team": {
+      "runs": 1,
+      "statuses": {
+        "error": 1
+      },
+      "acceptance_passed": 0,
+      "independent_passed": 0,
+      "completed_and_passed": 0,
+      "mean_tokens": 643,
+      "mean_calls": 1,
+      "mean_seconds": 1.939837386000363
+    },
+    "repair": {
+      "runs": 1,
+      "statuses": {
+        "verified": 1
+      },
+      "acceptance_passed": 1,
+      "independent_passed": 1,
+      "completed_and_passed": 1,
+      "mean_tokens": 39533,
+      "mean_calls": 11,
+      "mean_seconds": 18.67205749200002
+    }
+  },
+  "finished_at": "2026-10-29T07:47:30.503684+00:00"
+}

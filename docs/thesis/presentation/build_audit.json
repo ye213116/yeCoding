@@ -1,0 +1,54 @@
+{
+  "slides": 21,
+  "main_slides": 18,
+  "backup_slides": 3,
+  "main_seconds": 805,
+  "text_boxes": 379,
+  "geometry_violations": [],
+  "sources_sha256": {
+    "src/yecoding/agent/repair.py": "b7900f352e61638f874b89f349d326064337857fd4d5dfec16b2c8d3f98e4c22",
+    "src/yecoding/sandbox/workspace.py": "8dff481afd3e69d3514bd9eb2a19b71da081dac74e8d8def0aab1c335da94d6e",
+    "src/yecoding/sandbox/docker.py": "9392980a97561b2e50404044d224d7e50d1f7e495ce2ba4c6915011edeb0798a",
+    "src/yecoding/config.py": "2e29e6ee74f88dea514b57c8eac3c8c5a78c8bfe40de46d66d773293b6d93014",
+    "eval/evidence/repair-heldout-live.json": "79f7a86c54aabe7d2d1f723e68928c8e50164670a034e59949c963a732bb7746",
+    "eval/evidence/repair-verification.json": "0e9ebdc340bf918d8543afcf6ae4f47685831ef9e2c7477bcecf5c0e35f7c2ac",
+    "docs/thesis/latex/references.bib": "c6e2555116af2ec477b5b8eae4a3c4628d11296294338ad45ac5ac24506eb7d4",
+    "docs/thesis/en/01-introduction.md": "c2692e59c28be70946b0c6e6832dc39f21a0cfaaeb8829d27b66a983b4df7e0d",
+    "docs/thesis/en/02-related-technologies.md": "bd2c85f52a8bd0802d831b756c2e8b321092a749d1e1c05aedea3b7c5d4a34a8",
+    "docs/thesis/en/03-requirements-analysis.md": "63673d9b79658190d72ad835c01af2ad3cf7485ba712a48a6f681922ef1d83e0",
+    "docs/thesis/en/04-system-design.md": "1872b3b8ee1481c2afbd2eccc4f83b84e200656b0c53471fbd1fcc379b4020c7",
+    "docs/thesis/en/05-core-implementation.md": "9ec2074256b4bc257611fa624ec37aba7a0822d8a7e647f73b2ec1e6368ec954",
+    "eval/evidence/repair-runs/fcc748e586de4741a38212e5f4941de7/candidate.patch": "33434301ddeff861dd83d046e3280d6cfec7b8aa9b374f2e5784bb0b256ee6c4"
+  },
+  "scope": "Document generation only; archived business/model results, not rerun.",
+  "archived_implementation": {
+    "checked_files": 17,
+    "fingerprint_mismatches": [],
+    "business_tests_rerun": false
+  },
+  "rendered_pdf": {
+    "renderer": "LibreOffice Impress 7.3.7.2, headless, impress_pdf_Export",
+    "pages": 21,
+    "page_size_pt": [
+      0.0,
+      0.0,
+      960.0094604492188,
+      540.0
+    ],
+    "missing_titles": [],
+    "missing_text_lines": [],
+    "empty_notes": [],
+    "out_of_bounds_spans": [],
+    "substantive_span_overlap": [],
+    "font_names": [
+      "DejaVuSansMono",
+      "NotoSansCJKjp-Bold-VKana",
+      "NotoSansCJKjp-Regular-VK"
+    ]
+  },
+  "delivery_sha256": {
+    "stage1_report.pptx": "c825e05daaaeeda8d88eac45ca12314386535dafd4ee4ea8672edb99a791ad20",
+    "stage1_report.pdf": "a237316102ec594cbe57919bd3d586e4c4605846a074a257da00fe018b3aed57",
+    "stage1_speaker_notes.md": "6f67e5d27fc155b94caee806159482e2a5d70670ec667e807b66e7055ac8a442"
+  }
+}

@@ -1,0 +1,2 @@
+{"timestamp": "2026-10-29T08:41:21.811800+00:00", "tool_name": "bash", "input": {"command": "find . -maxdepth 3 -type f | head -50"}, "outcome": "allow", "approver": "hitl", "cwd": "/tmp/yecoding-repair-dfibe3_3/work"}
+{"timestamp": "2026-10-29T08:41:22.343243+00:00", "tool_name": "bash", "input": {"command": "ls -la"}, "outcome": "allow", "approver": "hitl", "cwd": "/tmp/yecoding-repair-dfibe3_3/work"}

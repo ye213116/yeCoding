@@ -1,0 +1,12 @@
+diff --git a/dotenv/variables.py b/dotenv/variables.py
+--- a/dotenv/variables.py
++++ b/dotenv/variables.py
+@@ -79,7 +79,7 @@
+             yield Literal(value=value[cursor:start])
+ 
+         yield Variable(name=name, default=default)
+-        cursor = start
++        cursor = end
+ 
+     length = len(value)
+     if cursor < length:

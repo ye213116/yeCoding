@@ -1,0 +1,66 @@
+% Generated from en/07-discussion.md; edit Markdown, then rebuild.
+\chapter{Discussion}\label{chap:7}
+
+This chapter interprets the observations in Chapter~\ref{chap:6} against the specification and research questions. It separates engineering capability from repair-quality evidence and identifies the limits of the comparison.
+
+\section{Assessment against the specification}\label{sec:7.1}
+
+The archived checks support a working integration of the original coding loop with dedicated repair boundaries. Role-specific registries preserve reading, searching and editing while constraining writable files and command execution. Source snapshots and disposable copies associate patches with an input state and avoid automatic changes to the original repository. Timeout and cancellation tests support the implemented cleanup paths.
+
+These observations address RQ1 within the supported Python setting. The boundary is layered: host file checks, candidate validation and container restrictions each perform a different function. A container cannot replace host path checks. Nor does repair-path testing establish equivalent isolation for general ReAct, Plan or Team modes. The evidence is functional validation of specified controls rather than proof against arbitrary malicious code.
+
+For RQ2, actual candidate files, fixed command results and reviews are associated within the same run. Tests remain authoritative even if a model claims success. Passing baselines, invalid candidates, no progress and unavailable environments are not relabelled as repaired defects. These behaviours meet the central requirement to distinguish model statements from execution evidence.
+
+The retry mechanism also has functional evidence: controlled fixtures exercise a failed candidate followed by a successful one. However, no real-model held-out run entered a second attempt. Functional support for retry must therefore not be described as observed quality improvement through repeated model feedback.
+
+\section{Candidate behaviour and workflow completion}\label{sec:7.2}
+
+The \code|trailing-literal| case demonstrates why patch behaviour and workflow completion require separate records. The candidate passed fixed and additional tests, but the verifier could not finish within the shared token threshold. It was correctly reported as an unsuccessful workflow under the implemented completion rule.
+
+Requiring all handoffs to finish makes process completeness explicit, yet adds cost after a candidate already passes acceptance. A future strategy could choose review by risk or reserve verifier budget, but such a change would alter the policy and must be evaluated separately. The current data do not establish that either optimisation would be effective.
+
+Likewise, absence of a patch means additional checks were unavailable, not that a candidate failed them. Preserving this distinction avoids assigning behavioural failure to incomplete interaction. Evidence fields and termination states should be interpreted together rather than collapsed into one success flag.
+
+\section{Collaboration and resource trade-offs}\label{sec:7.3}
+
+The single-role strategy completed all eight held-out tasks; multi-role review and verification feedback completed five and four. The latter used approximately 2.07 and 1.93 times the single-role mean tokens. Under these conditions, extra coordination and inspection did not produce a completion advantage.
+
+The event-derived allocation sharpens this observation: coordinator and verifier contexts consume 56.3\% of review-feedback tokens and 47.7\% of verification-feedback tokens. Worker consumption alone is not substantially lower in the verification-feedback condition. However, these are observed accounting shares, not a counterfactual estimate: some workers stop early, repeated input contributes to every role, and the tasks were not repeated. The failed post-test review in Figure~\ref{fig:6-4} identifies one policy-sensitive stopping point, not proof that removing review is generally preferable.
+
+The defects usually required local condition or assignment changes, with clear behavioural descriptions. Planning and repeated inspection could consume a substantial share of the allowance without requiring a cross-file design decision. This is consistent with the recorded budget failures, but is an interpretation rather than an isolated causal effect.
+
+All strategies retained fixed acceptance, and none exhibited a fixed-test pass followed by an extra-test failure. Consequently, observed zero false acceptance cannot be credited specifically to the verifier or used to rank strategies on detecting inadequately tested patches. More challenging independent tasks would be needed to expose such differences.
+
+The shared budget measures the overall trade-off of the current workflows, not performance after arbitrary retuning. Giving more calls or tokens to one strategy after seeing failures would define a new experiment. The original outcomes and all-run resource means have therefore been retained.
+
+The observations should also be placed against the repair literature. GenProg and Nopol differ substantially from LLM-based editing, yet retain the separation between candidate construction and executable constraints. Their results do not predict the ranking of the present strategies. Patch-assessment studies explain why passing the guiding suite remains a limited claim; the present extra tests provide only a small additional behavioural sample, not those studies' complete assessment methods. The useful comparison is therefore methodological: which evidence is retained and what it can establish, rather than whose published success percentage is larger. \citep{legoues2012genprog, xuan2017nopol, ye2021assessment}
+
+\section{Threats to validity}\label{sec:7.4}
+
+\subsection{Tasks and coverage}\label{sec:7.4.1}
+
+Only eight held-out mutations were evaluated, from one repository and three production files. They do not cover complex concurrency, dependency preparation, long diagnosis or broad cross-file changes. The observed 8/8 single-role completion is not an estimate for arbitrary repair tasks and does not imply that multi-agent collaboration is generally ineffective.
+
+Development and held-out splits prevent development cases from being included directly in the reported denominator. However, the same project produced tasks and tests, without independent expert validation. The shared fixed suite also covers development-task behaviours. This is held-out defect evaluation under shared acceptance, not comprehensive generalisation to unseen repositories and test distributions.
+
+Additional tests cover finite behaviours and may miss defects. Their independence is operational visibility and timing, not independent authorship. Passing them does not prove full upstream semantics.
+
+Pinned source improves repeatability but does not establish that the model has never encountered the library or related repair patterns during training. Clear task descriptions may also expose substantial localisation information. No training-data contamination measurement was performed, so apparent repair competence cannot be separated from prior familiarity in this corpus. Broader, independently constructed tasks would be needed to examine that distinction. This is another reason to avoid equating a benchmark identity, a repository snapshot and an unseen reasoning challenge. \citep{legoues2015manybugs, wong2016localization}
+
+\subsection{Experimental design}\label{sec:7.4.2}
+
+There was one run per task/strategy, no randomisation of condition order and incomplete control over remote-model changes or host load. Repeated-run variance and statistical significance cannot be inferred. Temperature 0 does not eliminate service variation.
+
+Common budgets impose different practical constraints on workflows needing different numbers of calls. Results describe that chosen operating point, not every possible budget allocation. No real-model second attempt occurred, limiting conclusions about the difference between review and verification feedback on retries. Duration is descriptive and does not support strict performance ratios.
+
+\subsection{Knowledge and traceability}\label{sec:7.4.3}
+
+Skills were enabled and cross-task memory disabled throughout the real-model experiment. Functional tests support loading, provenance, filtering and saving, but no independent knowledge-feature ablation establishes improved repair rates. Earlier AST context experiments likewise do not establish end-to-end repair gains here.
+
+The fresh budget sweep in Figure~\ref{fig:5-1} measures a narrower property: localisation and line exposure under a deterministic context packer. Its plateau and whole-file crossover show why compact symbol recall cannot substitute for inspecting implementation. The task labels and fixed query terms remain project-authored, the corpus is small and no new model-generated answer is scored. These findings support a design trade-off, not an end-to-end repair improvement or reduced billed-token claim.
+
+Fingerprints cover supported source files, not the full image, dependencies or remote service. Reports omit some raw model interactions and hardware state. They support delivery inspection and process analysis without guaranteeing exact model-output reproduction or recovery after arbitrary process failure.
+
+\section{Implications}\label{sec:7.5}
+
+The strongest supported contribution is an executable repair architecture with explicit evidence, boundaries and failure reporting. More roles should be justified by observed task benefit relative to their total cost. Candidate checks, acceptance evidence and stopping policies must be assessed together. A negative completion result remains useful because it identifies where the current orchestration spends resources and what a subsequent experiment must test.

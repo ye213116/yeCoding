@@ -1,0 +1,54 @@
+{
+  "mode": "plan",
+  "task": "none-value",
+  "prompt": "An environment variable set to None expands to the text None. It should expand to an empty string while ordinary values retain their contents.\n\nImplement the fix in the repository using tools. Do not modify tests or test/build configuration. Commands run in Docker at /workspace; file tools use repository-relative paths. No network or package installation is available. Acceptance command: python -m unittest discover -s tests -v. Run it to check your fix.",
+  "status": "budget_exhausted",
+  "tools": [
+    "bash",
+    "edit_file",
+    "execute_command",
+    "get_context",
+    "get_file_info",
+    "glob",
+    "glob_files",
+    "grep",
+    "grep_code",
+    "list_dir",
+    "read_file",
+    "search_code",
+    "write_file"
+  ],
+  "duration": 48.389868913998725,
+  "changed_files": [],
+  "usage": {
+    "input_tokens": 59863,
+    "output_tokens": 5380,
+    "cache_hit_tokens": 43136,
+    "cache_miss_tokens": 16727,
+    "reasoning_tokens": 1817,
+    "total_tokens": 65243
+  },
+  "llm_calls": 12,
+  "completed": false,
+  "candidate_available": true,
+  "acceptance": {
+    "command": "python -m unittest discover -s tests -v",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "test_default (test_acceptance.Acceptance.test_default) ... ok\ntest_escape (test_acceptance.Acceptance.test_escape) ... ok\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... ok\ntest_lines (test_acceptance.Acceptance.test_lines) ... ok\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... FAIL\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\n\n======================================================================\nFAIL: test_none (test_acceptance.Acceptance.test_none)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/tests/test_acceptance.py\", line 19, in test_none\n    self.assertEqual(Variable(\"X\", \"fallback\").resolve({\"X\": None}), \"\")\nAssertionError: 'None' != ''\n- None\n+ \n\n\n----------------------------------------------------------------------\nRan 9 tests in 0.002s\n\nFAILED (failures=1)\n",
+    "timed_out": false,
+    "duration": 1.1336268549985107,
+    "category": "test_failure",
+    "passed": false
+  },
+  "independent": {
+    "command": "python -m unittest discover -s tests -v",
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": "test_default (test_acceptance.Acceptance.test_default) ... ok\ntest_escape (test_acceptance.Acceptance.test_escape) ... ok\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... ok\ntest_lines (test_acceptance.Acceptance.test_lines) ... ok\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... FAIL\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\ntest_atom_edges (test_independent.Independent.test_atom_edges) ... FAIL\ntest_environment_edges (test_independent.Independent.test_environment_edges) ... ok\ntest_line_and_escape_edges (test_independent.Independent.test_line_and_escape_edges) ... ok\ntest_parser_edges (test_independent.Independent.test_parser_edges) ... ok\n\n======================================================================\nFAIL: test_none (test_acceptance.Acceptance.test_none)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/tests/test_acceptance.py\", line 19, in test_none\n    self.assertEqual(Variable(\"X\", \"fallback\").resolve({\"X\": None}), \"\")\nAssertionError: 'None' != ''\n- None\n+ \n\n\n======================================================================\nFAIL: test_atom_edges (test_independent.Independent.test_atom_edges)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/tests/test_independent.py\", line 17, in test_atom_edges\n    self.assertEqual(variable.resolve({\"X\": None}), \"\")\nAssertionError: 'None' != ''\n- None\n+ \n\n\n----------------------------------------------------------------------\nRan 13 tests in 0.009s\n\nFAILED (failures=2)\n",
+    "timed_out": false,
+    "duration": 1.1905803699992248,
+    "category": "test_failure",
+    "passed": false
+  }
+}

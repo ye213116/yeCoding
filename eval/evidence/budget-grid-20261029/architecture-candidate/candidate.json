@@ -1,0 +1,18 @@
+{
+  "state": "isolated candidate; not applied to baseline; no live comparison yet",
+  "workspace": "/tmp/yecoding-repair-terminal-n4hpvjl9",
+  "baseline_tests": "coordinator and verifier both failed with empty role conclusion",
+  "candidate_tests": [
+    "4 readonly-role regressions passed",
+    "27 repair tests including real Docker passed before adding the two negative terminal-call cases",
+    "22 Query/Plan/Team/Runtime tests passed"
+  ],
+  "modified_files": {
+    "src/yecoding/agent/query.py": "9d9be15b42d3913790e4d90e7895c9a8467466c737ab9cdf7d2c7dc3d43880c4",
+    "src/yecoding/agent/repair.py": "0c9ad27c653dea99b9b9f595001a0d250bcc9fdee1f9d60bc1212ce8617a8d0d",
+    "tests/test_repair.py": "cda5b6ba74aee0c5a3a19a451ffd6c77fd2679c646271af48cf5d980bae697d1"
+  },
+  "hypothesis": "Reserving the existing last readonly-role turn for a conclusion avoids consuming every role turn on tools; no extra model calls.",
+  "superseded_by": "V2 integrated the reserved final-response behavior, with workflow and strategy refactoring; see docs/repair-workflow.md",
+  "workspace_retained": false
+}

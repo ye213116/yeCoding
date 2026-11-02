@@ -1,0 +1,10 @@
+default-value: upstream passed, injected defect reproduced
+literal-value: upstream passed, injected defect reproduced
+none-value: upstream passed, injected defect reproduced
+trailing-literal: upstream passed, injected defect reproduced
+variable-cursor: upstream passed, injected defect reproduced
+unquoted-whitespace: upstream passed, injected defect reproduced
+escape-decoding: upstream passed, injected defect reproduced
+line-tracking: upstream passed, injected defect reproduced
+override-environment: upstream passed, injected defect reproduced
+disable-interpolation: upstream passed, injected defect reproduced

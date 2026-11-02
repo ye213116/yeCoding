@@ -1,0 +1,20 @@
+diff --git a/dotenv/parser.py b/dotenv/parser.py
+--- a/dotenv/parser.py
++++ b/dotenv/parser.py
+@@ -9,6 +9,7 @@
+ 
+ 
+ _newline = make_regex(r"(\r\n|\n|\r)")
++_line_break = make_regex(r"\r\n|\n|\r")
+ _multiline_whitespace = make_regex(r"\s*", extra_flags=re.MULTILINE)
+ _whitespace = make_regex(r"[^\S\r\n]*")
+ _export = make_regex(r"(?:export[^\S\r\n]+)?")
+@@ -52,7 +53,7 @@
+ 
+     def advance(self, string: str) -> None:
+         self.chars += len(string)
+-        self.line += 0
++        self.line += len(_line_break.findall(string))
+ 
+ 
+ class Error(Exception):

@@ -1,0 +1,4 @@
+{"type": "engine.event", "event": {"type": "text_delta", "text": "Phase 1: planner\n\n"}}
+{"type": "model.started", "call": 1}
+{"type": "model.event", "call": 1, "event": {"type": "message_start", "model": "deepseek-v4-flash"}}
+{"type": "model.ended", "call": 1}

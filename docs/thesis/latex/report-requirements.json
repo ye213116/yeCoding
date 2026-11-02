@@ -1,0 +1,21 @@
+{
+  "source": "Instructions on Project reports 22Feb16.pdf",
+  "source_sha256": "3d1be9a92c239e9dc557d29da0d860a90ac94235dab63543feef9b82c04be03a",
+  "source_pages": 4,
+  "degree_track": "BEng",
+  "degree_track_status": "BEng confirmed by the student; specific programme name not supplied",
+  "paper": "A4",
+  "font_size_pt": 12,
+  "line_spacing": 1.5,
+  "margins_mm": {"left": 25.4, "right": 20, "top": 20, "bottom": 20},
+  "beng_body_pages_min": 30,
+  "beng_body_pages_max": 40,
+  "beng_figures_max": 20,
+  "meng_words_max": 9000,
+  "meng_figures_max": 30,
+  "recommended_references_min": 20,
+  "required_front_matter": [
+    "Abstract", "Acknowledgements", "Contents", "List of Figures", "List of Tables"
+  ],
+  "page_count_note": "Check both Introduction-to-References and end-of-Contents-to-References; the latter conservatively includes figure/table lists."
+}

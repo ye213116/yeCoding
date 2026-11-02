@@ -1,0 +1,19 @@
+{
+  "checks": {
+    "all_32_unique_runs": true,
+    "all_8_failing_baselines": true,
+    "clean_reference_passed": true,
+    "implementation_hashes_match": true,
+    "all_usage_reconciled": true,
+    "all_per_run_results_match": true,
+    "no_test_outcome_disagreement": true,
+    "no_configured_credential_in_artifacts": true
+  },
+  "plan_errors_with_output_truncation": [
+    "none-value",
+    "escape-decoding",
+    "override-environment"
+  ],
+  "total_model_tokens": 1600430,
+  "total_model_calls": 275
+}

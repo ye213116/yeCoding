@@ -1,0 +1,63 @@
+
+== T6 comparison (budget=4000 tokens, 12 tasks) ==
+| dimension | file | grep | symbol | symbol_no_deps |
+| --- | --- | --- | --- | --- |
+| context_tokens | 3617±877 | 1550±883 | 1243±292 | 926±224 |
+| primary_recall | 100.00%±0.00% | 100.00%±0.00% | 100.00%±0.00% | 100.00%±0.00% |
+| overall_recall | 85.42%±22.51% | 75.42%±23.88% | 88.33%±18.38% | 64.44%±26.75% |
+| file_recall | 79.17%±25.75% | 87.50%±22.61% | 100.00%±0.00% | 91.67%±19.46% |
+| tool_calls | 2.2±0.5 | 6.4±1.3 | 1.0±0.0 | 1.0±0.0 |
+| usefulness | not scored (n=0) | not scored (n=0) | not scored (n=0) | not scored (n=0) |
+| overall_line_coverage | 85.42%±22.51% | 56.46%±27.52% | 56.00%±28.15% | 52.93%±29.82% |
+
+per-task detail:
+  D01 grep   tokens= 1566 primary=100% overall=50% file=100% calls=7 truncated=False usefulness=-
+  D01 file   tokens= 3993 primary=100% overall=100% file=100% calls=2 truncated=True usefulness=-
+  D01 symbol tokens= 1533 primary=100% overall=100% file=100% calls=1 truncated=False usefulness=-
+  D01 symbol_no_deps tokens= 1185 primary=100% overall=50% file=100% calls=1 truncated=False usefulness=-
+  D02 grep   tokens=  974 primary=100% overall=75% file=100% calls=6 truncated=False usefulness=-
+  D02 file   tokens= 3993 primary=100% overall=100% file=100% calls=2 truncated=True usefulness=-
+  D02 symbol tokens= 1385 primary=100% overall=100% file=100% calls=1 truncated=False usefulness=-
+  D02 symbol_no_deps tokens= 1159 primary=100% overall=100% file=100% calls=1 truncated=False usefulness=-
+  D03 grep   tokens= 2932 primary=100% overall=100% file=100% calls=8 truncated=False usefulness=-
+  D03 file   tokens= 3993 primary=100% overall=75% file=50% calls=2 truncated=True usefulness=-
+  D03 symbol tokens= 1370 primary=100% overall=100% file=100% calls=1 truncated=False usefulness=-
+  D03 symbol_no_deps tokens=  769 primary=100% overall=75% file=100% calls=1 truncated=False usefulness=-
+  D04 grep   tokens= 2677 primary=100% overall=100% file=100% calls=8 truncated=False usefulness=-
+  D04 file   tokens= 3993 primary=100% overall=100% file=100% calls=2 truncated=True usefulness=-
+  D04 symbol tokens= 1254 primary=100% overall=100% file=100% calls=1 truncated=False usefulness=-
+  D04 symbol_no_deps tokens=  802 primary=100% overall=33% file=100% calls=1 truncated=False usefulness=-
+  D05 grep   tokens= 1471 primary=100% overall=75% file=100% calls=7 truncated=False usefulness=-
+  D05 file   tokens= 3993 primary=100% overall=25% file=50% calls=2 truncated=True usefulness=-
+  D05 symbol tokens= 1446 primary=100% overall=50% file=100% calls=1 truncated=False usefulness=-
+  D05 symbol_no_deps tokens= 1098 primary=100% overall=50% file=100% calls=1 truncated=False usefulness=-
+  D06 grep   tokens=  402 primary=100% overall=75% file=50% calls=4 truncated=False usefulness=-
+  D06 file   tokens= 1740 primary=100% overall=75% file=50% calls=2 truncated=False usefulness=-
+  D06 symbol tokens= 1542 primary=100% overall=75% file=100% calls=1 truncated=False usefulness=-
+  D06 symbol_no_deps tokens= 1070 primary=100% overall=75% file=100% calls=1 truncated=False usefulness=-
+  D07 grep   tokens=  415 primary=100% overall=75% file=100% calls=4 truncated=False usefulness=-
+  D07 file   tokens= 1740 primary=100% overall=100% file=100% calls=2 truncated=False usefulness=-
+  D07 symbol tokens=  651 primary=100% overall=75% file=100% calls=1 truncated=False usefulness=-
+  D07 symbol_no_deps tokens=  607 primary=100% overall=75% file=100% calls=1 truncated=False usefulness=-
+  D08 grep   tokens= 2023 primary=100% overall=80% file=100% calls=7 truncated=False usefulness=-
+  D08 file   tokens= 3999 primary=100% overall=100% file=100% calls=3 truncated=True usefulness=-
+  D08 symbol tokens= 1365 primary=100% overall=60% file=100% calls=1 truncated=False usefulness=-
+  D08 symbol_no_deps tokens=  656 primary=100% overall=40% file=100% calls=1 truncated=False usefulness=-
+  D09 grep   tokens= 2511 primary=100% overall=100% file=100% calls=7 truncated=False usefulness=-
+  D09 file   tokens= 3989 primary=100% overall=100% file=100% calls=3 truncated=True usefulness=-
+  D09 symbol tokens=  737 primary=100% overall=100% file=100% calls=1 truncated=False usefulness=-
+  D09 symbol_no_deps tokens=  651 primary=100% overall=100% file=100% calls=1 truncated=False usefulness=-
+  D10 grep   tokens= 2001 primary=100% overall=100% file=100% calls=7 truncated=False usefulness=-
+  D10 file   tokens= 3989 primary=100% overall=100% file=100% calls=3 truncated=True usefulness=-
+  D10 symbol tokens= 1124 primary=100% overall=100% file=100% calls=1 truncated=False usefulness=-
+  D10 symbol_no_deps tokens= 1080 primary=100% overall=100% file=100% calls=1 truncated=False usefulness=-
+  D11 grep   tokens=  888 primary=100% overall=25% file=50% calls=6 truncated=False usefulness=-
+  D11 file   tokens= 3993 primary=100% overall=75% file=50% calls=2 truncated=True usefulness=-
+  D11 symbol tokens= 1411 primary=100% overall=100% file=100% calls=1 truncated=False usefulness=-
+  D11 symbol_no_deps tokens= 1172 primary=100% overall=25% file=50% calls=1 truncated=False usefulness=-
+  D12 grep   tokens=  734 primary=100% overall=50% file=50% calls=6 truncated=False usefulness=-
+  D12 file   tokens= 3993 primary=100% overall=75% file=50% calls=2 truncated=True usefulness=-
+  D12 symbol tokens= 1101 primary=100% overall=100% file=100% calls=1 truncated=False usefulness=-
+  D12 symbol_no_deps tokens=  864 primary=100% overall=50% file=50% calls=1 truncated=False usefulness=-
+
+results written to /home/zyh/projects/yeCoding/eval/evidence/visual-refresh-20261026/retrieval-4000.json

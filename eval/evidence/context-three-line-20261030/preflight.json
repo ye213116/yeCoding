@@ -1,0 +1,33 @@
+{
+  "kind": "three-line SWE-bench Lite context experiment",
+  "prepared": false,
+  "baseline_sha": "7a1783bc723d358090a3c9f318d7bf795903138e",
+  "mini_version": "2.4.6",
+  "mini_sha": "a83fcae82d2a08f0ee0c688f9d137b3566c097f8",
+  "dataset": "princeton-nlp/SWE-bench_Lite",
+  "dataset_revision": "6ec7bb89b9342f664a54a6e0a6ea6501d3437cc2",
+  "swebench_version": "4.1.0",
+  "limits": {
+    "seed": 20261030,
+    "calls": 64,
+    "tokens": 120000,
+    "seconds": 900,
+    "output_tokens": 8192,
+    "evidence_tokens": 16000,
+    "temperature": 0,
+    "repeats": 3
+  },
+  "preflight": [
+    {
+      "instance_id": "pylint-dev__astroid-1978",
+      "image_tag": "docker.io/swebench/sweb.eval.x86_64.pylint-dev_1776_astroid-1978:latest",
+      "status": "environment_error",
+      "error": "Command '['docker', 'pull', 'docker.io/swebench/sweb.eval.x86_64.pylint-dev_1776_astroid-1978:latest']' timed out after 1199.9999775830001 seconds"
+    }
+  ],
+  "source_protocol_sha256": "622ff1da269628a9c04f9f1ae4cee3c31c3a44867b6b2c33f122ad0622981862",
+  "development_model_runs": 0,
+  "formal_model_runs": 0,
+  "official_evaluations": 0,
+  "note": "Read-only summary of the failed preparation attempt; no task model request was made. CLI smoke probes are separate."
+}

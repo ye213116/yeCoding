@@ -1,0 +1,17 @@
+diff --git a/dotenv/variables.py b/dotenv/variables.py
+--- a/dotenv/variables.py
++++ b/dotenv/variables.py
+@@ -62,9 +62,10 @@
+         return hash((self.__class__, self.name, self.default))
+ 
+     def resolve(self, env: Mapping[str, Optional[str]]) -> str:
+-        default = ""
+-        result = env.get(self.name, default)
+-        return result if result is not None else ""
++        if self.name in env:
++            result = env[self.name]
++            return result if result is not None else ""
++        return self.default if self.default is not None else ""
+ 
+ 
+ def parse_variables(value: str) -> Iterator[Atom]:

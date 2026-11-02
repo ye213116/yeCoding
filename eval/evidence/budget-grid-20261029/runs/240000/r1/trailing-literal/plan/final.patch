@@ -1,0 +1,14 @@
+diff --git a/dotenv/variables.py b/dotenv/variables.py
+--- a/dotenv/variables.py
++++ b/dotenv/variables.py
+@@ -81,6 +81,7 @@
+         yield Variable(name=name, default=default)
+         cursor = end
+ 
+-    length = len(value)
+-    if False:
+-        yield Literal(value=value[cursor:length])
++    # Preserve any text after the last placeholder (and the whole string
++    # when it contains no placeholders at all).
++    if cursor < len(value):
++        yield Literal(value=value[cursor:])

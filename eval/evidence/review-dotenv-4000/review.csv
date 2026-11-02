@@ -1,0 +1,209 @@
+﻿review_id,task_id,question,reference_facts,answer,correctness_1_5,completeness_1_5,grounding_1_5,usefulness_1_5,comments
+R001,D08,遇到格式错误的 dotenv 行后 parse_stream 是否停止，错误位置如何保留,"parse_binding 捕获 Error，消费剩余行，返回 error=True 的 Binding；stream 循环继续。
+原文和起始行号通过 Reader mark 保留；warning 包装器提示但继续 yield。",不会停止。`dotenv/parser.py` 的 `parse_stream` 用 `while reader.has_next()` 循环，`parse_binding` 捕获 `Error` 后调用 `reader.read_regex(_rest_of_line)` 跳过该行剩余内容，并返回 `error=True` 的 `Binding`，因此继续解析后续行。错误位置通过 `reader.set_mark()` 与 `reader.get_marked()` 保留在 `Binding.original`（含 `string` 和 `line`），`dotenv/main.py` 的 `with_warn_for_invalid_lines` 据此输出警告行号。,,,,,
+R002,D06,解析 dotenv 时没有等号的键与等号后空值有什么区别,"没有等号的 key 得到 None；有等号但没有内容时得到空字符串。
+注释键返回 None 并被 DotEnv.parse 过滤；保留有效键的 None 值。","在 `dotenv/parser.py` 中，`parse_binding` 负责解析一行绑定，`parse_key` 解析键，`parse_value` 解析值。
+
+区别在于：
+- **没有等号的键**（如 `KEY`）：`parse_key` 读到行尾，`parse_value` 得到空字符串，最终绑定值为 `""""`（空字符串）。
+- **等号后空值**（如 `KEY=`）：`parse_key` 读到 `=` 停止，`parse_value` 同样返回空字符串，绑定值也是 `""""`。
+
+因此两者在 `dotenv_values`（`dotenv/main.py`）返回的字典中通常都表现为空字符串，实际结果相同；差异仅在解析路径：前者无 `=` 分隔符，后者有 `=` 但值部分为空。",,,,,
+R003,D07,parse_value 如何处理单双引号转义以及未加引号值的行尾注释,"单双引号使用不同 regex 及转义集合；unicode-escape 只应用到匹配的转义。
+未加引号值移除空白后开始的注释并 rstrip；无前导空白的 # 保留。","在 `dotenv/parser.py` 的 `parse_value` 中：单引号值用 `_single_quoted_value` 读取后，经 `decode_escapes(_single_quote_escapes, value)` 解码；双引号值用 `_double_quoted_value` 读取后，经 `decode_escapes(_double_quote_escapes, value)` 解码。`decode_escapes` 内部通过 `codecs.decode(..., 'unicode-escape')` 处理转义。未加引号值由 `parse_unquoted_value` 处理，使用 `re.sub(r""\s+#.*"", """", part).rstrip()` 去掉行尾空白加 `#` 的注释并去除尾部空白。",,,,,
+R004,D03,DotEnv 如何选择文件或传入的 stream，缺少两者时如何继续解析,"存在的 dotenv_path 文件优先于 stream；否则用 stream；两者无效时使用空 StringIO。
+verbose 只控制缺失文件提示；parse 过滤 key 为 None 的绑定。","`DotEnv._get_stream`（dotenv/main.py:53）按优先级选择输入：
+
+1. 若 `self.dotenv_path` 存在且是文件，则 `open` 该文件并 yield 其流；
+2. 否则若 `self.stream is not None`，直接 yield 传入的 stream；
+3. 两者都缺时，若 `verbose` 则记录日志，然后 yield `io.StringIO("""")`，即空流。
+
+`DotEnv.parse`（dotenv/main.py:83）用 `with self._get_stream() as stream` 获取流，再经 `with_warn_for_invalid_lines(parse_stream(stream))` 解析。因此缺少文件和 stream 时，解析空流，不报错，只是得不到任何键值。",,,,,
+R005,D06,解析 dotenv 时没有等号的键与等号后空值有什么区别,"没有等号的 key 得到 None；有等号但没有内容时得到空字符串。
+注释键返回 None 并被 DotEnv.parse 过滤；保留有效键的 None 值。","在 `dotenv/parser.py` 的 `parse_binding` 中，两者区别在于 `value` 是否为 `None`：
+
+- **没有等号**：`reader.peek(1) != ""=""`，不调用 `parse_value`，`value = None`。例如 `KEY`。
+- **等号后空值**：`reader.peek(1) == ""=""`，调用 `parse_value`；若后面是行尾或空字符，`parse_value` 返回 `u""""`，所以 `value = """"`。例如 `KEY=`。
+
+因此，前者 `Binding.value` 为 `None`，后者为 `""""`。",,,,,
+R006,D03,DotEnv 如何选择文件或传入的 stream，缺少两者时如何继续解析,"存在的 dotenv_path 文件优先于 stream；否则用 stream；两者无效时使用空 StringIO。
+verbose 只控制缺失文件提示；parse 过滤 key 为 None 的绑定。","在 `dotenv/main.py` 的 `DotEnv._get_stream()` 中：若 `self.dotenv_path` 存在且是文件，则用 `open()` 打开该文件；否则若 `self.stream` 不为 `None`，直接使用传入的 stream；两者都缺少时，若 `verbose` 为真则记录日志，并返回 `io.StringIO("""")` 空流，使 `parse()` 继续执行但解析不到任何键值。",,,,,
+R007,D08,遇到格式错误的 dotenv 行后 parse_stream 是否停止，错误位置如何保留,"parse_binding 捕获 Error，消费剩余行，返回 error=True 的 Binding；stream 循环继续。
+原文和起始行号通过 Reader mark 保留；warning 包装器提示但继续 yield。","根据 `dotenv/parser.py` 的 `parse_stream`（172-175 行），它用 `while reader.has_next()` 循环，每次 `yield parse_binding(reader)`。遇到格式错误的行时，`parse_binding`（135 行）会返回一个 `Binding`，其 `error` 字段（37 行）为 `True`，而不是抛出异常。因此 `parse_stream` 不会停止，会继续解析后续行。
+
+错误位置通过 `Binding` 的 `error` 标志保留，而非行号；`Reader`（62 行）在 `read`/`read_regex`（83、90 行）中可能抛出 `Error`（58 行），但 `parse_binding` 会捕获并标记为错误绑定。",,,,,
+R008,D10,parse_variables 怎样把含变量占位符的字符串切分为 Literal 和 Variable,"正则识别 ${name} 和 ${name:-default}；按位置发出前缀 Literal 与 Variable。
+cursor 随匹配移动，最后发出剩余文本；只有普通文字时发出一个 Literal。","`parse_variables`（dotenv/variables.py:70）用正则 `_posix_variable` 匹配 `${name}` 或 `${name:-default}` 形式的占位符，并用游标 `cursor` 切分字符串：
+
+1. 遍历所有匹配，取 `match.span()` 得到起止位置。
+2. 若 `start > cursor`，说明匹配前有普通文本，生成 `Literal(value=value[cursor:start])`。
+3. 再生成 `Variable(name=name, default=default)`，并把 `cursor` 移到 `end`。
+4. 循环结束后若 `cursor < len(value)`，把剩余文本作为 `Literal` 输出。
+
+这样交替产出 `Literal` 与 `Variable`，二者分别定义于 dotenv/variables.py:29 和 :48。",,,,,
+R009,D04,DotEnv.dict 如何缓存解析结果，关闭 interpolate 后有什么区别,"真值非空缓存直接返回；空字典仍会再次解析。
+开启插值使用 resolve_variables；关闭时把原始键值组装成 OrderedDict。","`DotEnv.dict`（dotenv/main.py）用 `self._dict` 缓存：首次调用时解析 `self.parse()`，若 `interpolate=True` 则用 `resolve_variables` 处理变量插值，否则直接 `OrderedDict(raw_values)`，结果存入 `self._dict`；后续调用若 `self._dict` 已存在则直接返回，不再重新解析。
+
+关闭 `interpolate` 后，`dict()` 跳过 `resolve_variables`，不解析 `${VAR}` 等引用，直接返回原始键值，因此不会读取 `os.environ` 或已解析值进行替换。",,,,,
+R010,D01,load_dotenv 在已有环境变量时如何处理 override，返回值代表什么,"override=False 时跳过已有键；值为 None 不写入。
+空字典返回 False；非空字典返回 True 不保证实际修改了环境变量。",`load_dotenv` 的 `override` 默认为 `False`。在 `dotenv/main.py` 的 `DotEnv.set_as_environment_variables` 中，若某键已存在于 `os.environ` 且 `override=False`，则跳过、不覆盖；`override=True` 时才用 .env 值覆盖。返回值由 `set_as_environment_variables` 给出：若 .env 解析结果为空返回 `False`，否则设置后返回 `True`，表示至少设置了一个环境变量（注意：即使全部因已存在而跳过，仍返回 `True`）。,,,,,
+R011,D09,Variable.resolve 如何处理缺失变量、默认值和环境中显式的 None,"缺失键使用默认值；默认值为 None 时使用空字符串。
+存在键但值为 None 时返回空字符串而非默认值；Literal 原样返回文字。","`Variable.resolve`（dotenv/variables.py:64）先取 `default = self.default if self.default is not None else """"`，即未定义默认值时用空字符串。然后 `result = env.get(self.name, default)`：变量缺失时返回默认值；若环境中存在但值为显式 `None`，`get` 返回 `None`，最后 `return result if result is not None else """"` 将其转为空字符串。因此缺失变量和显式 `None` 都得到默认值或空串，不会返回 `None`。",,,,,
+R012,D02,find_dotenv 如何选择搜索起点并向父目录查找，找不到时如何处理,"usecwd、交互、调试或 frozen 场景从 cwd 开始，否则从调用栈找到有效文件路径。
+逐级向根目录找文件；未找到时按参数抛 IOError 或返回空字符串。","`find_dotenv`（`dotenv/main.py`）先确定搜索起点：若 `usecwd=True`、处于交互环境、调试器或冻结程序，则用 `os.getcwd()`；否则从调用栈帧的 `frame.f_code.co_filename` 取目录。随后用 `_walk_to_root` 从该目录逐级向父目录遍历，检查 `os.path.join(dirname, filename)` 是否存在，找到即返回路径。若遍历到根仍未找到，则根据 `raise_error_if_not_found` 决定：为真时抛 `IOError`，否则返回空字符串。",,,,,
+R013,D11,set_key 如何决定引号和 export，并在末尾缺少换行时添加新键,"非法 quote_mode 抛 ValueError；always 总加引号、auto 对非纯字母数字加引号、never 不加。
+单引号需要转义，可加 export；已有键替换，否则必要时先补换行再追加。
+rewrite 使用临时文件，成功移动覆盖；失败清理并重新抛错。","在 `dotenv/main.py` 的 `set_key` 中：
+
+- **引号**：先校验 `quote_mode` 只能是 `always`、`auto`、`never`。`quote = quote_mode == ""always"" or (quote_mode == ""auto"" and not value_to_set.isalnum())`。为真时用单引号包裹，并把值内 `'` 转义为 `\'`；否则原样输出。
+- **export**：若 `export=True`，输出 `export KEY=VALUE\n`，否则 `KEY=VALUE\n`。
+- **末尾缺换行**：遍历时用 `missing_newline = not mapping.original.string.endswith(""\n"")` 记录；若未替换且缺换行，则先补 `\n` 再写入新键（见省略的 6 行）。",,,,,
+R014,D07,parse_value 如何处理单双引号转义以及未加引号值的行尾注释,"单双引号使用不同 regex 及转义集合；unicode-escape 只应用到匹配的转义。
+未加引号值移除空白后开始的注释并 rstrip；无前导空白的 # 保留。","`parse_value`（dotenv/parser.py:121）按首字符分三种情况：
+
+- 单引号：用 `_single_quoted_value` 读取，再经 `decode_escapes(_single_quote_escapes, value)` 解码转义。
+- 双引号：用 `_double_quoted_value` 读取，再经 `decode_escapes(_double_quote_escapes, value)` 解码转义。
+- 未加引号：调用 `parse_unquoted_value`（dotenv/parser.py:116），用 `_unquoted_value` 读取后，通过 `re.sub(r""\s+#.*"", """", part).rstrip()` 去掉行尾注释及空白。
+
+`decode_escapes`（dotenv/parser.py:98）内部用 `codecs.decode(..., 'unicode-escape')` 处理匹配到的转义序列。",,,,,
+R015,D03,DotEnv 如何选择文件或传入的 stream，缺少两者时如何继续解析,"存在的 dotenv_path 文件优先于 stream；否则用 stream；两者无效时使用空 StringIO。
+verbose 只控制缺失文件提示；parse 过滤 key 为 None 的绑定。","`DotEnv._get_stream`（dotenv/main.py:53）按优先级选择输入：若 `self.dotenv_path` 存在且是文件，则 `open` 该文件并 yield；否则若 `self.stream` 不为 None，则直接 yield 传入的 stream；两者都缺少时，记录日志（verbose 时）并 yield 一个空的 `io.StringIO("""")`，从而继续解析。
+
+`DotEnv.parse`（dotenv/main.py:83）用 `with self._get_stream() as stream` 获取流，再经 `parse_stream`（dotenv/parser.py:172）解析，因此缺少文件或 stream 时仍能正常迭代（得到空结果）。",,,,,
+R016,D09,Variable.resolve 如何处理缺失变量、默认值和环境中显式的 None,"缺失键使用默认值；默认值为 None 时使用空字符串。
+存在键但值为 None 时返回空字符串而非默认值；Literal 原样返回文字。","在 `dotenv/variables.py` 的 `Variable.resolve` 中：先取 `default = self.default if self.default is not None else """"`，再用 `env.get(self.name, default)` 查环境。若变量缺失，返回默认值（无默认则为空串）；若环境显式存 `None`，`get` 返回 `None`，最后 `return result if result is not None else """"` 将其转为空串。因此缺失变量与显式 `None` 都不会返回 `None`，而是空串。",,,,,
+R017,D08,遇到格式错误的 dotenv 行后 parse_stream 是否停止，错误位置如何保留,"parse_binding 捕获 Error，消费剩余行，返回 error=True 的 Binding；stream 循环继续。
+原文和起始行号通过 Reader mark 保留；warning 包装器提示但继续 yield。",不会停止。`dotenv/parser.py` 的 `parse_stream` 循环调用 `parse_binding`；后者捕获 `Error` 后，用 `reader.read_regex(_rest_of_line)` 跳过该行剩余内容，并返回 `error=True` 的 `Binding`，因此可继续解析后续行。错误位置通过 `reader.get_marked()` 保存在 `Binding.original` 中，`dotenv/main.py` 的 `with_warn_for_invalid_lines` 会据此记录警告行号。,,,,,
+R018,D11,set_key 如何决定引号和 export，并在末尾缺少换行时添加新键,"非法 quote_mode 抛 ValueError；always 总加引号、auto 对非纯字母数字加引号、never 不加。
+单引号需要转义，可加 export；已有键替换，否则必要时先补换行再追加。
+rewrite 使用临时文件，成功移动覆盖；失败清理并重新抛错。",在 `dotenv/main.py` 的 `set_key` 中：`quote_mode` 仅允许 `always/auto/never`；`quote` 为 `always`，或 `auto` 且值非字母数字时，用单引号包裹并转义 `'`，否则原样输出。`export=True` 时写成 `export KEY=VALUE\n`，否则 `KEY=VALUE\n`。通过 `rewrite` 遍历原文件，遇到同键则替换；若未替换，且最后一行缺少换行，先补 `\n` 再写入新键。,,,,,
+R019,D05,resolve_variables 中 override 如何影响系统环境和此前已解析变量的优先级,"override=True 先加入系统环境再加入已解析值，文件优先；False 则系统环境优先。
+按文件顺序处理；None 保留为 None；atom 解析后拼接为字符串。","在 `dotenv/main.py` 的 `resolve_variables` 中，`override` 决定插值解析时 `os.environ` 与已解析变量 `new_values` 的优先级：
+
+- `override=True`：先 `env.update(os.environ)`，再 `env.update(new_values)`，因此**此前已解析变量优先**，系统环境变量仅作补充。
+- `override=False`：先 `env.update(new_values)`，再 `env.update(os.environ)`，因此**系统环境变量优先**，已解析变量被覆盖。
+
+变量值由 `dotenv/variables.py` 的 `parse_variables` 解析后，用该 `env` 逐原子 `resolve`。",,,,,
+R020,D08,遇到格式错误的 dotenv 行后 parse_stream 是否停止，错误位置如何保留,"parse_binding 捕获 Error，消费剩余行，返回 error=True 的 Binding；stream 循环继续。
+原文和起始行号通过 Reader mark 保留；warning 包装器提示但继续 yield。",根据 `dotenv/parser.py` 的 `parse_stream`（172-175 行），它用 `while reader.has_next()` 循环，每次 `yield parse_binding(reader)`。遇到格式错误的行时，`parse_binding`（135 行）会返回一个 `Binding`，其 `error` 字段（37 行）为 `True`，而不是抛出异常。因此 `parse_stream` 不会停止，会继续解析后续行。错误位置通过该 `Binding` 对象保留，而非全局状态；调用方需检查 `Binding.error` 来识别错误行。,,,,,
+R021,D12,unset_key 如何保留其他行，路径或键不存在时如何返回,"移除所有匹配键，其他行按 original.string 保留。
+文件不存在或键不存在返回 (None, key) 并警告；成功返回 (True, key)。","`unset_key`（dotenv/main.py:200）通过 `rewrite`（dotenv/main.py:131）逐行处理：用 `parse_stream` 解析源文件，遍历每个 `mapping`，仅当 `mapping.key == key_to_unset` 时跳过不写，否则将 `mapping.original.string` 写入临时文件，从而保留其他行。`rewrite` 成功后用 `shutil.move` 替换原文件。
+
+若路径不存在，返回 `(None, key_to_unset)` 并警告；若键不存在（`removed` 仍为 False），同样返回 `(None, key_to_unset)` 并警告。成功删除则返回 `(True, key_to_unset)`。",,,,,
+R022,D09,Variable.resolve 如何处理缺失变量、默认值和环境中显式的 None,"缺失键使用默认值；默认值为 None 时使用空字符串。
+存在键但值为 None 时返回空字符串而非默认值；Literal 原样返回文字。","在 `dotenv/variables.py` 的 `Variable.resolve` 中：先取 `default = self.default if self.default is not None else """"`，再用 `env.get(self.name, default)` 查环境。若变量缺失，返回默认值（无默认则为空串）；若环境中存在但值为显式 `None`，`get` 返回 `None`，最后经 `return result if result is not None else """"` 转为空串。因此缺失与显式 `None` 都回退为空串，默认值仅在键不存在时生效。",,,,,
+R023,D10,parse_variables 怎样把含变量占位符的字符串切分为 Literal 和 Variable,"正则识别 ${name} 和 ${name:-default}；按位置发出前缀 Literal 与 Variable。
+cursor 随匹配移动，最后发出剩余文本；只有普通文字时发出一个 Literal。","`parse_variables`（`dotenv/variables.py`）用正则 `_posix_variable` 匹配 `${name}` 或 `${name:default}` 形式的占位符。它遍历所有匹配：若匹配起点 `start` 大于当前游标 `cursor`，说明中间是普通文本，生成 `Literal(value=value[cursor:start])`；随后生成 `Variable(name=name, default=default)`，并把 `cursor` 移到匹配终点 `end`。循环结束后，若 `cursor` 小于字符串长度，剩余部分再生成一个 `Literal`。这样就把字符串切分成若干 `Literal` 和 `Variable` 原子。",,,,,
+R024,D07,parse_value 如何处理单双引号转义以及未加引号值的行尾注释,"单双引号使用不同 regex 及转义集合；unicode-escape 只应用到匹配的转义。
+未加引号值移除空白后开始的注释并 rstrip；无前导空白的 # 保留。","在 `dotenv/parser.py` 的 `parse_value` 中：单引号值用 `_single_quoted_value` 读取，再经 `decode_escapes(_single_quote_escapes, value)` 处理 `\\`、`\'` 转义；双引号值用 `_double_quoted_value` 读取，再经 `decode_escapes(_double_quote_escapes, value)` 处理 `\\`、`\'`、`\""`、`\a\b\f\n\r\t\v` 等转义。未加引号值调用 `parse_unquoted_value`，其中用 `re.sub(r""\s+#.*"", """", part).rstrip()` 去掉行尾空白加 `#` 开始的注释并去除尾部空白。",,,,,
+R025,D06,解析 dotenv 时没有等号的键与等号后空值有什么区别,"没有等号的 key 得到 None；有等号但没有内容时得到空字符串。
+注释键返回 None 并被 DotEnv.parse 过滤；保留有效键的 None 值。","在 `dotenv/parser.py` 的 `parse_binding` 中，两者都会得到 `value = None`，但来源不同：
+
+- **没有等号**：`reader.peek(1) != ""=""`，直接走 `else: value = None`，键后没有 `=`。
+- **等号后空值**：先读到 `=`，再调用 `parse_value`。若后面为空，`parse_value` 会返回空字符串 `""""`（或经 `parse_unquoted_value` 处理），而不是 `None`。
+
+因此区别是：无等号 → `None`；有等号但值为空 → `""""`。",,,,,
+R026,D06,解析 dotenv 时没有等号的键与等号后空值有什么区别,"没有等号的 key 得到 None；有等号但没有内容时得到空字符串。
+注释键返回 None 并被 DotEnv.parse 过滤；保留有效键的 None 值。","在 `dotenv/parser.py` 中，`parse_binding` 负责解析每一行，`parse_key` 提取键，`parse_value` 提取值。
+
+- **没有等号**：如 `KEY`，`parse_key` 读到行尾，`parse_value` 返回空字符串，最终 `Binding` 的值为 `""""`（空字符串）。
+- **等号后空值**：如 `KEY=`，`parse_key` 在 `=` 处停止，`parse_value` 同样返回空字符串，值也是 `""""`。
+
+两者在 `parse_binding` 层面结果相同，都得到 `Binding(key, """")`。区别仅在解析路径：前者无 `=` 分隔符，后者有。若需区分，需在 `parse_binding` 中额外记录是否遇到 `=`。",,,,,
+R027,D12,unset_key 如何保留其他行，路径或键不存在时如何返回,"移除所有匹配键，其他行按 original.string 保留。
+文件不存在或键不存在返回 (None, key) 并警告；成功返回 (True, key)。","`unset_key`（dotenv/main.py:200）通过 `rewrite`（dotenv/main.py:131）保留其他行：它逐行解析源文件，仅当 `mapping.key == key_to_unset` 时跳过该行，否则用 `dest.write(mapping.original.string)` 原样写回，因此其他行（含注释、空行）均保留。
+
+路径不存在时：先 `os.path.exists` 检查，不存在则记录 warning 并返回 `(None, key_to_unset)`。
+
+键不存在时：遍历后 `removed` 仍为 False，记录 warning 并返回 `(None, key_to_unset)`；成功删除则返回 `(True, key_to_unset)`。",,,,,
+R028,D12,unset_key 如何保留其他行，路径或键不存在时如何返回,"移除所有匹配键，其他行按 original.string 保留。
+文件不存在或键不存在返回 (None, key) 并警告；成功返回 (True, key)。","`unset_key`（`dotenv/main.py`）通过 `rewrite` 上下文管理器同时打开源文件和目标文件，遍历 `parse_stream(source)` 解析出的每个 `mapping`：若 `mapping.key == key_to_unset` 则标记 `removed=True` 并跳过不写；否则用 `dest.write(mapping.original.string)` 原样写回，从而保留其他行。
+
+返回情况：
+- 路径不存在：`logger.warning` 后返回 `(None, key_to_unset)`。
+- 键不存在：遍历后 `removed` 仍为 `False`，警告后返回 `(None, key_to_unset)`。
+- 成功删除：返回 `(True, key_to_unset)`。",,,,,
+R029,D01,load_dotenv 在已有环境变量时如何处理 override，返回值代表什么,"override=False 时跳过已有键；值为 None 不写入。
+空字典返回 False；非空字典返回 True 不保证实际修改了环境变量。",在 `dotenv/main.py` 的 `load_dotenv` 中，`override` 默认 `False`。它传给 `DotEnv`，在 `set_as_environment_variables` 里判断：若变量已存在于 `os.environ` 且 `override=False`，则跳过，不覆盖；若 `override=True`，则用 .env 值覆盖。返回值是 `set_as_environment_variables()` 的结果：成功加载返回 `True`，若 .env 文件不存在则返回 `False`。,,,,,
+R030,D05,resolve_variables 中 override 如何影响系统环境和此前已解析变量的优先级,"override=True 先加入系统环境再加入已解析值，文件优先；False 则系统环境优先。
+按文件顺序处理；None 保留为 None；atom 解析后拼接为字符串。","在 `dotenv/main.py` 的 `resolve_variables` 中，`override` 决定插值解析时 `os.environ` 与已解析变量 `new_values` 的优先级：
+
+- `override=True`：先 `env.update(os.environ)`，再 `env.update(new_values)`，因此**此前已解析变量优先**，覆盖系统环境。
+- `override=False`：先 `env.update(new_values)`，再 `env.update(os.environ)`，因此**系统环境优先**，覆盖已解析变量。
+
+`parse_variables`（`dotenv/variables.py`）仅负责拆分变量原子，不涉及优先级。",,,,,
+R031,D05,resolve_variables 中 override 如何影响系统环境和此前已解析变量的优先级,"override=True 先加入系统环境再加入已解析值，文件优先；False 则系统环境优先。
+按文件顺序处理；None 保留为 None；atom 解析后拼接为字符串。","在 `dotenv/main.py` 的 `resolve_variables` 中，`override` 决定变量插值时的查找优先级：
+
+- `override=True`：先 `env.update(os.environ)`，再 `env.update(new_values)`，因此此前已解析变量优先于系统环境。
+- `override=False`：不先加载 `os.environ`，仅用 `new_values`，系统环境不参与覆盖，已解析变量仍优先。
+
+即 `override` 主要控制系统环境是否作为插值来源，而已解析变量始终优先。",,,,,
+R032,D11,set_key 如何决定引号和 export，并在末尾缺少换行时添加新键,"非法 quote_mode 抛 ValueError；always 总加引号、auto 对非纯字母数字加引号、never 不加。
+单引号需要转义，可加 export；已有键替换，否则必要时先补换行再追加。
+rewrite 使用临时文件，成功移动覆盖；失败清理并重新抛错。","在 `dotenv/main.py` 的 `set_key` 中：
+
+- **引号**：先校验 `quote_mode` 只能是 `always`/`auto`/`never`。`quote = quote_mode == ""always"" or (quote_mode == ""auto"" and not value_to_set.isalnum())`。为真时用单引号包裹并转义内部单引号：`""'{}'"".format(value_to_set.replace(""'"", ""\\'""))`；否则原样输出。
+- **export**：若 `export=True`，行格式为 `export KEY=VALUE\n`，否则 `KEY=VALUE\n`。
+- **末尾缺换行**：遍历 `parse_stream` 时，对非目标行记录 `missing_newline = not mapping.original.string.endswith(""\n"")`；若原文件末尾无换行，则在写入新键前先补一个 `\n`，避免新键与旧内容粘连。",,,,,
+R033,D04,DotEnv.dict 如何缓存解析结果，关闭 interpolate 后有什么区别,"真值非空缓存直接返回；空字典仍会再次解析。
+开启插值使用 resolve_variables；关闭时把原始键值组装成 OrderedDict。","在 `dotenv/main.py` 的 `DotEnv.dict()` 中，首次调用时解析并写入 `self._dict`，之后直接返回该缓存，避免重复解析。
+
+区别在于：`interpolate=True` 时，缓存的是经 `resolve_variables()` 处理后的 `OrderedDict`，会解析变量引用；`interpolate=False` 时，缓存的是原始 `OrderedDict(raw_values)`，不做变量替换。",,,,,
+R034,D10,parse_variables 怎样把含变量占位符的字符串切分为 Literal 和 Variable,"正则识别 ${name} 和 ${name:-default}；按位置发出前缀 Literal 与 Variable。
+cursor 随匹配移动，最后发出剩余文本；只有普通文字时发出一个 Literal。","`parse_variables`（dotenv/variables.py:70）用正则 `_posix_variable` 匹配 `${name}` 或 `${name:-default}` 形式的占位符，并用游标 `cursor` 切分字符串：
+
+1. 遍历所有匹配，取匹配区间 `(start, end)`、变量名 `name` 和默认值 `default`。
+2. 若 `start > cursor`，说明匹配前有普通文本，产出 `Literal(value=value[cursor:start])`（dotenv/variables.py:29）。
+3. 产出 `Variable(name=name, default=default)`（dotenv/variables.py:48），并把 `cursor` 移到 `end`。
+4. 循环结束后，若 `cursor < len(value)`，把剩余文本作为 `Literal` 产出。
+
+因此结果是一个 `Iterator[Atom]`，按原顺序交替包含 `Literal` 与 `Variable`。",,,,,
+R035,D12,unset_key 如何保留其他行，路径或键不存在时如何返回,"移除所有匹配键，其他行按 original.string 保留。
+文件不存在或键不存在返回 (None, key) 并警告；成功返回 (True, key)。","`unset_key`（`dotenv/main.py`）通过 `rewrite` 逐行读取原文件：若 `mapping.key == key_to_unset` 则跳过该行，否则用 `dest.write(mapping.original.string)` 原样写回，从而保留其他行。
+
+若路径不存在，先 `os.path.exists` 检查，返回 `(None, key_to_unset)` 并记录 warning。若键不存在，`removed` 保持 `False`，返回 `(None, key_to_unset)` 并记录 warning。成功删除则返回 `(True, key_to_unset)`。",,,,,
+R036,D01,load_dotenv 在已有环境变量时如何处理 override，返回值代表什么,"override=False 时跳过已有键；值为 None 不写入。
+空字典返回 False；非空字典返回 True 不保证实际修改了环境变量。",`load_dotenv`（dotenv/main.py:327）的 `override` 默认为 `False`。它把参数传给 `DotEnv`，最终由 `DotEnv.set_as_environment_variables`（dotenv/main.py:89）处理：遍历变量时，若键已存在于 `os.environ` 且 `override` 为 `False`，则 `continue` 跳过，保留原环境变量；若 `override=True`，则用 `.env` 中的值覆盖。返回值为 `bool`：只要 `.env` 中至少有一个变量被设置（即 `self.dict()` 非空）就返回 `True`，否则返回 `False`。,,,,,
+R037,D07,parse_value 如何处理单双引号转义以及未加引号值的行尾注释,"单双引号使用不同 regex 及转义集合；unicode-escape 只应用到匹配的转义。
+未加引号值移除空白后开始的注释并 rstrip；无前导空白的 # 保留。","`parse_value`（dotenv/parser.py:121）先看首字符：单引号时用 `_single_quoted_value` 读取，再经 `decode_escapes(_single_quote_escapes, value)` 解码；双引号时用 `_double_quoted_value` 读取，再经 `decode_escapes(_double_quote_escapes, value)` 解码。`decode_escapes`（:98）内部用 `codecs.decode(..., 'unicode-escape')` 处理转义。未加引号时调用 `parse_unquoted_value`（:116），它用 `_unquoted_value` 读取后，通过 `re.sub(r""\s+#.*"", """", part).rstrip()` 去掉行尾注释并清理尾部空白。",,,,,
+R038,D10,parse_variables 怎样把含变量占位符的字符串切分为 Literal 和 Variable,"正则识别 ${name} 和 ${name:-default}；按位置发出前缀 Literal 与 Variable。
+cursor 随匹配移动，最后发出剩余文本；只有普通文字时发出一个 Literal。","`parse_variables`（`dotenv/variables.py`）用正则 `_posix_variable` 匹配 `${name}` 或 `${name:-default}`。遍历 `finditer` 时，若匹配起点 `start` 大于当前 `cursor`，先把中间普通文本作为 `Literal` 产出；再把匹配内容作为 `Variable(name, default)` 产出，并更新 `cursor=end`。循环结束后，若 `cursor` 小于字符串长度，把剩余文本作为 `Literal` 产出。这样就把字符串切分成若干 `Literal` 和 `Variable` 原子。",,,,,
+R039,D02,find_dotenv 如何选择搜索起点并向父目录查找，找不到时如何处理,"usecwd、交互、调试或 frozen 场景从 cwd 开始，否则从调用栈找到有效文件路径。
+逐级向根目录找文件；未找到时按参数抛 IOError 或返回空字符串。","在 `dotenv/main.py` 的 `find_dotenv` 中，搜索起点分两种情况：若 `usecwd=True`、处于交互式环境、调试器或冻结程序，则用 `os.getcwd()`；否则通过 `sys._getframe()` 回溯到调用者文件所在目录。随后调用 `_walk_to_root` 从该目录逐级向父目录查找，直到根目录，检查每层是否存在目标文件。找到则返回完整路径；若 `raise_error_if_not_found=True` 则抛出 `IOError(""File not found"")`，否则返回空字符串 `""""`。",,,,,
+R040,D09,Variable.resolve 如何处理缺失变量、默认值和环境中显式的 None,"缺失键使用默认值；默认值为 None 时使用空字符串。
+存在键但值为 None 时返回空字符串而非默认值；Literal 原样返回文字。","`Variable.resolve`（dotenv/variables.py:64）逻辑如下：
+
+1. **默认值**：若 `self.default is not None`，用默认值；否则默认值为空字符串 `""""`。
+2. **缺失变量**：`env.get(self.name, default)`，变量不在环境中时返回默认值。
+3. **显式 None**：若环境中该键存在但值为 `None`，`get` 返回 `None`，最后 `return result if result is not None else """"` 将其转为空字符串。
+
+因此缺失变量与显式 None 最终都得到空字符串（除非有默认值）。",,,,,
+R041,D02,find_dotenv 如何选择搜索起点并向父目录查找，找不到时如何处理,"usecwd、交互、调试或 frozen 场景从 cwd 开始，否则从调用栈找到有效文件路径。
+逐级向根目录找文件；未找到时按参数抛 IOError 或返回空字符串。","`find_dotenv`（dotenv/main.py:276）先确定搜索起点：若 `usecwd=True`、处于交互环境（`_is_interactive`）、调试器（`_is_debugger`）或 `sys.frozen`，则用 `os.getcwd()`；否则通过 `sys._getframe()` 回溯调用栈，找到第一个真实存在的 `.py` 文件，取其目录为起点。
+
+随后调用 `_walk_to_root`（dotenv/main.py:258）从该目录逐级向父目录 yield，直到根目录。若起点不存在则抛 `IOError`。
+
+在 `_walk_to_root` 的每一层目录中查找 `filename`（默认 `.env`）；找到即返回其路径。若遍历完仍未找到：`raise_error_if_not_found=True` 时抛 `IOError`，否则返回空字符串 `""""`。",,,,,
+R042,D03,DotEnv 如何选择文件或传入的 stream，缺少两者时如何继续解析,"存在的 dotenv_path 文件优先于 stream；否则用 stream；两者无效时使用空 StringIO。
+verbose 只控制缺失文件提示；parse 过滤 key 为 None 的绑定。","在 `dotenv/main.py` 的 `DotEnv._get_stream` 中：若 `self.dotenv_path` 存在且是文件，则用 `open(self.dotenv_path, encoding=self.encoding)` 打开；否则若 `self.stream` 不为 `None`，直接 `yield self.stream`；两者都缺失时，若 `verbose` 为真则记录日志，随后不产出流，解析得到空结果。`load_dotenv` 和 `dotenv_values` 在两者均为 `None` 时会先调用 `find_dotenv()` 查找 `.env` 文件。",,,,,
+R043,D04,DotEnv.dict 如何缓存解析结果，关闭 interpolate 后有什么区别,"真值非空缓存直接返回；空字典仍会再次解析。
+开启插值使用 resolve_variables；关闭时把原始键值组装成 OrderedDict。",`DotEnv.dict`（dotenv/main.py:67）先检查 `self._dict`，非空则直接返回，实现缓存。首次调用时执行 `self.parse()` 得到 `raw_values`：若 `self.interpolate` 为真，用 `resolve_variables` 解析变量引用后存入 `self._dict`；否则直接把原始键值对存入 `self._dict`。因此关闭 interpolate 后，`${VAR}` 等引用不会被展开，值保持原样，且结果同样被缓存，后续调用不再重新解析。,,,,,
+R044,D04,DotEnv.dict 如何缓存解析结果，关闭 interpolate 后有什么区别,"真值非空缓存直接返回；空字典仍会再次解析。
+开启插值使用 resolve_variables；关闭时把原始键值组装成 OrderedDict。",`DotEnv.dict`（dotenv/main.py:67）先检查 `self._dict`，非空则直接返回，实现缓存。首次调用时执行 `self.parse()` 得到 `raw_values`：若 `self.interpolate` 为真，用 `resolve_variables` 解析变量引用后存入 `self._dict`；否则直接以 `OrderedDict(raw_values)` 存入。因此关闭 interpolate 后，`${VAR}` 等引用不会被展开，保留原始字符串，且结果同样被缓存，后续调用不再重新解析。,,,,,
+R045,D05,resolve_variables 中 override 如何影响系统环境和此前已解析变量的优先级,"override=True 先加入系统环境再加入已解析值，文件优先；False 则系统环境优先。
+按文件顺序处理；None 保留为 None；atom 解析后拼接为字符串。","在 `dotenv/main.py` 的 `resolve_variables` 中，`override` 决定变量插值时的查找优先级：
+
+- `override=True`：先放入 `os.environ`，再放入 `new_values`，因此此前已解析变量优先于系统环境变量。
+- `override=False`：先放入 `new_values`，再放入 `os.environ`，因此系统环境变量优先于此前已解析变量。
+
+随后每个变量通过 `atom.resolve(env)` 解析。",,,,,
+R046,D01,load_dotenv 在已有环境变量时如何处理 override，返回值代表什么,"override=False 时跳过已有键；值为 None 不写入。
+空字典返回 False；非空字典返回 True 不保证实际修改了环境变量。",在 `dotenv/main.py` 的 `load_dotenv` 中，`override` 默认 `False`。它传给 `DotEnv`，最终由 `set_as_environment_variables` 处理：若某键已存在于 `os.environ` 且 `override=False`，则跳过，不覆盖已有环境变量；若 `override=True`，则用 `.env` 中的值覆盖。返回值是布尔值：只要 `.env` 解析出至少一个变量并成功设置（或尝试设置）就返回 `True`，否则返回 `False`。,,,,,
+R047,D02,find_dotenv 如何选择搜索起点并向父目录查找，找不到时如何处理,"usecwd、交互、调试或 frozen 场景从 cwd 开始，否则从调用栈找到有效文件路径。
+逐级向根目录找文件；未找到时按参数抛 IOError 或返回空字符串。","`find_dotenv`（dotenv/main.py:276）先确定搜索起点：若 `usecwd=True`、处于交互式环境（`_is_interactive`）、被调试（`_is_debugger`）或 `sys.frozen`，则用 `os.getcwd()`；否则通过 `sys._getframe()` 回溯到真实 `.py` 文件，取其目录。
+
+随后调用 `_walk_to_root`（dotenv/main.py:258）从该目录逐级向父目录 yield，直到根目录。找到 `filename` 即返回其路径；若遍历完仍未找到，则返回空字符串（除非 `raise_error_if_not_found=True` 时抛错）。",,,,,
+R048,D11,set_key 如何决定引号和 export，并在末尾缺少换行时添加新键,"非法 quote_mode 抛 ValueError；always 总加引号、auto 对非纯字母数字加引号、never 不加。
+单引号需要转义，可加 export；已有键替换，否则必要时先补换行再追加。
+rewrite 使用临时文件，成功移动覆盖；失败清理并重新抛错。",在 `dotenv/main.py` 的 `set_key` 中，先校验 `quote_mode` 只能是 `always`、`auto`、`never`。引号规则：`always` 时加引号；`auto` 时仅当值不是纯字母数字才加；`never` 不加。`export` 参数直接决定是否写入 `export` 前缀。写入时用 `rewrite` 遍历原文件，若找到同名键则替换，否则在末尾追加新键；若原文件末尾缺少换行，会先补写 `\n` 再写新键。,,,,,

@@ -1,0 +1,12 @@
+diff --git a/dotenv/parser.py b/dotenv/parser.py
+--- a/dotenv/parser.py
++++ b/dotenv/parser.py
+@@ -52,7 +52,7 @@
+ 
+     def advance(self, string: str) -> None:
+         self.chars += len(string)
+-        self.line += 0
++        self.line += string.count("\n")
+ 
+ 
+ class Error(Exception):

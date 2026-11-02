@@ -1,0 +1,54 @@
+{
+  "partial": true,
+  "valid_runs": 73,
+  "repair_role_tokens": {
+    "coordinator": {
+      "runs": 20,
+      "mean": 12348.1
+    },
+    "worker": {
+      "runs": 20,
+      "mean": 36275.3
+    },
+    "verifier": {
+      "runs": 18,
+      "mean": 18387.333333333332
+    }
+  },
+  "repair_empty_role_summaries": {
+    "verifier": 9,
+    "coordinator": 10
+  },
+  "team_protocol_failures": [
+    {
+      "id": "240000/r3/line-tracking/team",
+      "error": "planner output could not be parsed:\n\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"tools.ListDir\">\n<｜｜DSML｜｜ parameter name=\"path\" string=\"true\">.</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>",
+      "total_tokens": 630
+    },
+    {
+      "id": "240000/r2/variable-cursor/team",
+      "error": "planner output could not be parsed:\n\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"bash\">\n<｜｜DSML｜｜ parameter name=\"command\" string=\"true\">find /workspace -maxdepth 2 -type f | head -50 && echo \"---\" && ls /workspace</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>",
+      "total_tokens": 772
+    },
+    {
+      "id": "240000/r1/override-environment/team",
+      "error": "planner output could not be parsed:\n\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"terminal\">\n<｜｜DSML｜｜ parameter name=\"command\" string=\"true\">pwd && ls</｜｜DSML｜｜ parameter>\n<｜｜DSML｜｜ parameter name=\"workdir\" string=\"true\">/workspace</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>",
+      "total_tokens": 629
+    },
+    {
+      "id": "120000/r1/variable-cursor/team",
+      "error": "planner output could not be parsed:\n\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"shell\">\n<｜｜DSML｜｜ parameter name=\"command\" string=\"true\">pwd && find . -maxdepth 3 -type f | sed 's#^./##' | sort | head -200</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>",
+      "total_tokens": 636
+    },
+    {
+      "id": "60000/r2/override-environment/team",
+      "error": "planner output could not be parsed:\n\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"exec\">\n<｜｜DSML｜｜ parameter name=\"command\" string=\"true\">pwd && ls -la && find . -maxdepth 2 -type f | sed 's#^./##' | sort | head -200</｜｜DSML｜｜ parameter>\n<｜｜DSML｜｜ parameter name=\"workdir\" string=\"true\">/workspace</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>",
+      "total_tokens": 608
+    },
+    {
+      "id": "120000/r3/trailing-literal/team",
+      "error": "planner output could not be parsed:\n\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"exec_command\">\n<｜｜DSML｜｜ parameter name=\"cmd\" string=\"true\">pwd && ls -la && find . -maxdepth 3 -type f | sort | sed 's#^./##' | head -200</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>",
+      "total_tokens": 573
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+diff --git a/dotenv/main.py b/dotenv/main.py
+--- a/dotenv/main.py
++++ b/dotenv/main.py
+@@ -46,7 +46,7 @@
+         self._dict: Optional[Dict[str, Optional[str]]] = None
+         self.verbose: bool = verbose
+         self.encoding: Optional[str] = encoding
+-        self.interpolate: bool = True
++        self.interpolate: bool = interpolate
+         self.override: bool = override
+ 
+     @contextmanager

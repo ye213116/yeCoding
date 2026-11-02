@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-20",
+  "head": "b90335dbe1e739b2092c846aec59983bfa15ce04",
+  "branch": "main",
+  "working_tree": "uncommitted; pre-existing user changes retained",
+  "checks": [
+    {
+      "command": "YECODING_TEST_DOCKER=1 uv run --extra dev python -m pytest",
+      "result": "160 passed in 28.38s"
+    },
+    {
+      "command": "uv run --extra dev ruff check .",
+      "result": "All checks passed"
+    },
+    {
+      "command": "uv run --extra dev ruff format --check .",
+      "result": "101 files already formatted"
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    },
+    {
+      "command": "uv build",
+      "result": "sdist and wheel built"
+    },
+    {
+      "command": "uv run yecoding repair --help",
+      "result": "passed"
+    },
+    {
+      "command": "uv run yecoding --version",
+      "result": "yecoding 0.1.0"
+    },
+    {
+      "command": "uv run yecoding doctor --cwd .",
+      "result": "passed; Docker and configured model detected"
+    }
+  ],
+  "baseline": "134 tests passed before implementation",
+  "snapshot_regression": "initial reproduction failed in 0.05s; corrected snapshot/plan/team tests 12 passed in 0.19s; final full regression passed",
+  "live_evaluation": "8 held-out mutation tasks x 3 strategies; all records persisted",
+  "cli_demo": 0
+}

@@ -1,0 +1,267 @@
+{
+  "date": "2026-10-30",
+  "kind": "Historical ReAct trajectory audit; no new model execution",
+  "source": "eval/evidence/mode-comparison-20261029/heldout.json",
+  "source_metadata_sha256": "be0d96e58de1d75387dd4828287faf16d7e76bcd87eedf01f1ffc10dfe162292",
+  "git_head": "7a1783bc723d358090a3c9f318d7bf795903138e",
+  "model": "deepseek-v4-flash",
+  "provider": "deepseek",
+  "budgets": {
+    "tokens": 60000,
+    "calls": 18,
+    "seconds": 300
+  },
+  "max_output_tokens": 2048,
+  "skill": true,
+  "memory": false,
+  "context_core_verification": {
+    "src/yecoding/agent/agent.py": {
+      "recorded_sha256": "1e75a6e70c3d00d86ce4f5f80c0d12054adac6b0ae876e2ad02ef67d24679459",
+      "committed_sha256": "1e75a6e70c3d00d86ce4f5f80c0d12054adac6b0ae876e2ad02ef67d24679459",
+      "matches": true
+    },
+    "src/yecoding/context/manager.py": {
+      "recorded_sha256": "8567e642a47a8c639a1d9249c620fe6dd8b993675839e4043645f095a1434a23",
+      "committed_sha256": "8567e642a47a8c639a1d9249c620fe6dd8b993675839e4043645f095a1434a23",
+      "matches": true
+    },
+    "src/yecoding/rag/context_builder.py": {
+      "recorded_sha256": "1823f96fece7d55b129b4c9b70afa6454e79a8645bb1082fa86a34d418d90c42",
+      "committed_sha256": "1823f96fece7d55b129b4c9b70afa6454e79a8645bb1082fa86a34d418d90c42",
+      "matches": true
+    },
+    "src/yecoding/agent/query.py": {
+      "recorded_sha256": "35071af203199d3d9882161cf57409286344e3ccdf5c78d6ed2532303f77967e",
+      "committed_sha256": "35071af203199d3d9882161cf57409286344e3ccdf5c78d6ed2532303f77967e",
+      "matches": true
+    }
+  },
+  "records": [
+    {
+      "task": "none-value",
+      "status": "completed",
+      "independent_passed": true,
+      "usage": {
+        "input_tokens": 21789,
+        "output_tokens": 564,
+        "cache_hit_tokens": 16384,
+        "cache_miss_tokens": 5405,
+        "reasoning_tokens": 133,
+        "total_tokens": 22353
+      },
+      "llm_calls": 5,
+      "tool_calls": {
+        "bash": 4,
+        "edit_file": 1
+      },
+      "tool_result_chars": 10506,
+      "tool_results_over_4000_chars": 1,
+      "compression_events": 0,
+      "artifacts_sha256": {
+        "heldout-runs/none-value/react/events.jsonl": "8daf9734b6e2a9b6244acdc0a5337e5081a0bf81a9057006790a3ced7932ed35",
+        "heldout-runs/none-value/react/result.json": "58fc0655f3ddd04e1c161bf4ac6a77ffbc8cf61b24bc329373efc2a4454a281c",
+        "heldout-runs/none-value/react/final.patch": "33434301ddeff861dd83d046e3280d6cfec7b8aa9b374f2e5784bb0b256ee6c4"
+      }
+    },
+    {
+      "task": "trailing-literal",
+      "status": "completed",
+      "independent_passed": true,
+      "usage": {
+        "input_tokens": 46298,
+        "output_tokens": 784,
+        "cache_hit_tokens": 35968,
+        "cache_miss_tokens": 10330,
+        "reasoning_tokens": 185,
+        "total_tokens": 47082
+      },
+      "llm_calls": 7,
+      "tool_calls": {
+        "bash": 5,
+        "edit_file": 1
+      },
+      "tool_result_chars": 28227,
+      "tool_results_over_4000_chars": 2,
+      "compression_events": 0,
+      "artifacts_sha256": {
+        "heldout-runs/trailing-literal/react/events.jsonl": "2048c47042f3c064653d80f70889fc667205e3d566c295f7b781622ba8f251be",
+        "heldout-runs/trailing-literal/react/result.json": "389bdd1d6b3e75cd32c3664be58df74094444374bc8a6a06b69b75e27f9fad42",
+        "heldout-runs/trailing-literal/react/final.patch": "ea333cbf82dd38bc3eed9d2092a2d277a6a209bed136cce3af674eafb4785cae"
+      }
+    },
+    {
+      "task": "variable-cursor",
+      "status": "completed",
+      "independent_passed": true,
+      "usage": {
+        "input_tokens": 37867,
+        "output_tokens": 1300,
+        "cache_hit_tokens": 28544,
+        "cache_miss_tokens": 9323,
+        "reasoning_tokens": 464,
+        "total_tokens": 39167
+      },
+      "llm_calls": 6,
+      "tool_calls": {
+        "bash": 7,
+        "edit_file": 1
+      },
+      "tool_result_chars": 21748,
+      "tool_results_over_4000_chars": 1,
+      "compression_events": 0,
+      "artifacts_sha256": {
+        "heldout-runs/variable-cursor/react/events.jsonl": "adf90ff1a7c8bf3b383be6d8efb5822885e5ddbff9bb0c5052afa4244653da1c",
+        "heldout-runs/variable-cursor/react/result.json": "91412dc306a9ce45866a2ac4e8543e273ca6f7f7bd5c04dc8e93bd025bb084d0",
+        "heldout-runs/variable-cursor/react/final.patch": "97065c82bc620aa2abfa419d82bb8d0a6eaec2d1570e7497965d4eb5819956b6"
+      }
+    },
+    {
+      "task": "unquoted-whitespace",
+      "status": "completed",
+      "independent_passed": true,
+      "usage": {
+        "input_tokens": 45961,
+        "output_tokens": 1539,
+        "cache_hit_tokens": 37632,
+        "cache_miss_tokens": 8329,
+        "reasoning_tokens": 636,
+        "total_tokens": 47500
+      },
+      "llm_calls": 8,
+      "tool_calls": {
+        "bash": 6,
+        "get_context": 1,
+        "edit_file": 1
+      },
+      "tool_result_chars": 18456,
+      "tool_results_over_4000_chars": 2,
+      "compression_events": 0,
+      "artifacts_sha256": {
+        "heldout-runs/unquoted-whitespace/react/events.jsonl": "0701c57501636cd4f279de239016341aabd24479aaff29f482e6590bda82ce1e",
+        "heldout-runs/unquoted-whitespace/react/result.json": "d39d84d3a36555884c8cf1027a78656ff0382e1b019c1bade68ac872540e5958",
+        "heldout-runs/unquoted-whitespace/react/final.patch": "89cd2586005b6227f30ffd8d04fa594fe8184f6a2f2013575744a872dc3e253a"
+      }
+    },
+    {
+      "task": "escape-decoding",
+      "status": "completed",
+      "independent_passed": true,
+      "usage": {
+        "input_tokens": 25868,
+        "output_tokens": 845,
+        "cache_hit_tokens": 20352,
+        "cache_miss_tokens": 5516,
+        "reasoning_tokens": 263,
+        "total_tokens": 26713
+      },
+      "llm_calls": 6,
+      "tool_calls": {
+        "bash": 4,
+        "edit_file": 1
+      },
+      "tool_result_chars": 10471,
+      "tool_results_over_4000_chars": 1,
+      "compression_events": 0,
+      "artifacts_sha256": {
+        "heldout-runs/escape-decoding/react/events.jsonl": "e5cf5a168dffc2f1c2361458d63bbdfeb8ff454e86fdc6dd6a34e0d98d501358",
+        "heldout-runs/escape-decoding/react/result.json": "b963f4a7afa434453c6621e74667ed39d8af633c452290b0f1e6181d4ef0e96c",
+        "heldout-runs/escape-decoding/react/final.patch": "0232ce45a0fa2f46c19b0ad8fa301be11b3eee989ac2907e596259b3c3f5cbba"
+      }
+    },
+    {
+      "task": "line-tracking",
+      "status": "completed",
+      "independent_passed": true,
+      "usage": {
+        "input_tokens": 27462,
+        "output_tokens": 1259,
+        "cache_hit_tokens": 21760,
+        "cache_miss_tokens": 5702,
+        "reasoning_tokens": 491,
+        "total_tokens": 28721
+      },
+      "llm_calls": 6,
+      "tool_calls": {
+        "bash": 4,
+        "read_file": 2,
+        "edit_file": 1
+      },
+      "tool_result_chars": 11023,
+      "tool_results_over_4000_chars": 1,
+      "compression_events": 0,
+      "artifacts_sha256": {
+        "heldout-runs/line-tracking/react/events.jsonl": "39e6c0b2a97be9463246e1c31e47d2c242020dbfccfc46ce6f0cd35afcf61ab8",
+        "heldout-runs/line-tracking/react/result.json": "32ae5c8952d404bf486e1c8d068525d41648b6670bae3925ea71a6e51130161f",
+        "heldout-runs/line-tracking/react/final.patch": "b95ddde67dea2e4cb3b8fb5f71c9dbeaa82988c74f4f23e30737bfcb959f79dc"
+      }
+    },
+    {
+      "task": "override-environment",
+      "status": "completed",
+      "independent_passed": true,
+      "usage": {
+        "input_tokens": 35214,
+        "output_tokens": 1211,
+        "cache_hit_tokens": 27392,
+        "cache_miss_tokens": 7822,
+        "reasoning_tokens": 252,
+        "total_tokens": 36425
+      },
+      "llm_calls": 6,
+      "tool_calls": {
+        "bash": 7,
+        "edit_file": 1
+      },
+      "tool_result_chars": 19203,
+      "tool_results_over_4000_chars": 1,
+      "compression_events": 0,
+      "artifacts_sha256": {
+        "heldout-runs/override-environment/react/events.jsonl": "2fa4fe42b41fbc5298398377e4db0a87c1d84f801025d3de45121a923d7df8cd",
+        "heldout-runs/override-environment/react/result.json": "016c843b8a744b5bbc20c7fb82f5c623321feb1fe25b96d44d1b30e693f14b97",
+        "heldout-runs/override-environment/react/final.patch": "5038d01003f090b61a38b2c5b428f627ac398ed0e6c1c538be5693a90a6e4110"
+      }
+    },
+    {
+      "task": "disable-interpolation",
+      "status": "completed",
+      "independent_passed": true,
+      "usage": {
+        "input_tokens": 50181,
+        "output_tokens": 852,
+        "cache_hit_tokens": 42752,
+        "cache_miss_tokens": 7429,
+        "reasoning_tokens": 171,
+        "total_tokens": 51033
+      },
+      "llm_calls": 9,
+      "tool_calls": {
+        "bash": 7,
+        "edit_file": 1
+      },
+      "tool_result_chars": 17303,
+      "tool_results_over_4000_chars": 2,
+      "compression_events": 0,
+      "artifacts_sha256": {
+        "heldout-runs/disable-interpolation/react/events.jsonl": "a6f9f25051b8ef8e71fde6467223e905e83b443ce7e3d2cb0a6dcfa84afd0d70",
+        "heldout-runs/disable-interpolation/react/result.json": "786b716db70a2c7e655ba0d97a7a3f03ec513e605663c594bd74182936940c5e",
+        "heldout-runs/disable-interpolation/react/final.patch": "d638f712a91fbfe06a0bd8515518e0176967eae3289364dc87570ee8502297e6"
+      }
+    }
+  ],
+  "summary": {
+    "runs": 8,
+    "independent_passed": 8,
+    "input_tokens": 290640,
+    "total_tokens": 298994,
+    "llm_calls": 53,
+    "compression_events": 0,
+    "get_context_calls": 1
+  },
+  "limitations": [
+    "Historical public SDK ReAct runs used the repair Docker tool envelope, not the default CLI host tools.",
+    "Model inputs and system prompts were not saved as structured per-request snapshots.",
+    "Final messages were serialized as strings, not round-trippable Message objects.",
+    "These inspected tasks are exploratory historical evidence, not untouched held-out data for future method selection.",
+    "Hashes verify the listed context components, not equivalence of the complete historical harness with frozen HEAD."
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "started_at_utc": "2026-10-26T14:36:46.270610+00:00",
+  "completed_at_utc": "2026-10-26T14:36:56.436915+00:00",
+  "scope": "Fresh deterministic retrieval and real Docker checks; no new model calls.",
+  "retrieval_tasks": 12,
+  "budgets": [
+    500,
+    1000,
+    2000,
+    4000,
+    8000
+  ],
+  "strategies": [
+    "grep",
+    "file",
+    "symbol",
+    "symbol_no_deps"
+  ],
+  "retrieval_rows": 240,
+  "docker_validation_commands": 12,
+  "docker_image_id": "sha256:e88e9763f943ec1834f992a4b51e0f24500486803e8bc534e5767af9ea65f6ce",
+  "commands": [
+    {
+      "command": [
+        "/home/zyh/projects/yeCoding/.venv/bin/python",
+        "/home/zyh/projects/yeCoding/eval/run_eval.py",
+        "--repo",
+        "/tmp/yecoding-visual-evidence-u0hihvb2/upstream/src",
+        "--tasks",
+        "/home/zyh/projects/yeCoding/eval/tasks-python-dotenv.json",
+        "--budget",
+        "500",
+        "--skip-llm",
+        "--ablation",
+        "--out",
+        "/home/zyh/projects/yeCoding/eval/evidence/visual-refresh-20261026/retrieval-500.json"
+      ],
+      "returncode": 0,
+      "log": "retrieval-500"
+    },
+    {
+      "command": [
+        "/home/zyh/projects/yeCoding/.venv/bin/python",
+        "/home/zyh/projects/yeCoding/eval/run_eval.py",
+        "--repo",
+        "/tmp/yecoding-visual-evidence-u0hihvb2/upstream/src",
+        "--tasks",
+        "/home/zyh/projects/yeCoding/eval/tasks-python-dotenv.json",
+        "--budget",
+        "1000",
+        "--skip-llm",
+        "--ablation",
+        "--out",
+        "/home/zyh/projects/yeCoding/eval/evidence/visual-refresh-20261026/retrieval-1000.json"
+      ],
+      "returncode": 0,
+      "log": "retrieval-1000"
+    },
+    {
+      "command": [
+        "/home/zyh/projects/yeCoding/.venv/bin/python",
+        "/home/zyh/projects/yeCoding/eval/run_eval.py",
+        "--repo",
+        "/tmp/yecoding-visual-evidence-u0hihvb2/upstream/src",
+        "--tasks",
+        "/home/zyh/projects/yeCoding/eval/tasks-python-dotenv.json",
+        "--budget",
+        "2000",
+        "--skip-llm",
+        "--ablation",
+        "--out",
+        "/home/zyh/projects/yeCoding/eval/evidence/visual-refresh-20261026/retrieval-2000.json"
+      ],
+      "returncode": 0,
+      "log": "retrieval-2000"
+    },
+    {
+      "command": [
+        "/home/zyh/projects/yeCoding/.venv/bin/python",
+        "/home/zyh/projects/yeCoding/eval/run_eval.py",
+        "--repo",
+        "/tmp/yecoding-visual-evidence-u0hihvb2/upstream/src",
+        "--tasks",
+        "/home/zyh/projects/yeCoding/eval/tasks-python-dotenv.json",
+        "--budget",
+        "4000",
+        "--skip-llm",
+        "--ablation",
+        "--out",
+        "/home/zyh/projects/yeCoding/eval/evidence/visual-refresh-20261026/retrieval-4000.json"
+      ],
+      "returncode": 0,
+      "log": "retrieval-4000"
+    },
+    {
+      "command": [
+        "/home/zyh/projects/yeCoding/.venv/bin/python",
+        "/home/zyh/projects/yeCoding/eval/run_eval.py",
+        "--repo",
+        "/tmp/yecoding-visual-evidence-u0hihvb2/upstream/src",
+        "--tasks",
+        "/home/zyh/projects/yeCoding/eval/tasks-python-dotenv.json",
+        "--budget",
+        "8000",
+        "--skip-llm",
+        "--ablation",
+        "--out",
+        "/home/zyh/projects/yeCoding/eval/evidence/visual-refresh-20261026/retrieval-8000.json"
+      ],
+      "returncode": 0,
+      "log": "retrieval-8000"
+    },
+    {
+      "command": [
+        "/home/zyh/projects/yeCoding/.venv/bin/python",
+        "/home/zyh/projects/yeCoding/eval/run_repair_eval.py",
+        "--split",
+        "all",
+        "--out",
+        "/home/zyh/projects/yeCoding/eval/evidence/visual-refresh-20261026/fixture-validation.json"
+      ],
+      "returncode": 0,
+      "log": "fixture-validation"
+    }
+  ],
+  "implementation_sha256": {
+    "eval/run_visual_evidence.py": "912eaa0d1018d1932de6feeb014e36f538fcb53a1cd84eaa5dcdc17802335373",
+    "eval/run_eval.py": "e08af5464108a42406a3b2554e84c06ba8592553e4b4099d89ccbe61bb5bb731",
+    "eval/run_repair_eval.py": "6d5254d47aa159b71066758434afaeb926745cf2f2b8e9e146884fffad304cd5",
+    "src/yecoding/rag/context_builder.py": "1823f96fece7d55b129b4c9b70afa6454e79a8645bb1082fa86a34d418d90c42",
+    "src/yecoding/rag/evaluation.py": "936ffa491fb179b302acca63edaa16cf9976bf40338135fa6c44a4c284f7fc43"
+  },
+  "outputs_sha256": {
+    "fixture-validation.json": "cc5cd9b38fab0d81eda210509a75a468641c884eab2ff8f44f36fdfaa1685f14",
+    "retrieval-1000.json": "aa913761aeb66e9a0acc8bc95fffb234d2e3c00a0daf73311dfb151513b7883b",
+    "retrieval-2000.json": "8afa1b6f08905dae9b1982bf7d72b040735324d1ea710bb3f847aa636bb5390d",
+    "retrieval-4000.json": "d4397193e2a115b217e7725d05a86c3a73d79398d4f513b53dc02811fef4874f",
+    "retrieval-500.json": "c5eaa5b3df6f6a281030c50977dfa8a8832b9e3b67cebc575868691bec1f4bc4",
+    "retrieval-8000.json": "60447e6749370d989e4d58c1e3a106dbf341b735e8d4ca3888b21f7414cf2e44"
+  }
+}

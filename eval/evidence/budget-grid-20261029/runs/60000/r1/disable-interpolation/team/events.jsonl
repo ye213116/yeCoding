@@ -1,0 +1,170 @@
+{"type": "engine.event", "event": {"type": "text_delta", "text": "Phase 1: planner\n\n"}}
+{"type": "model.started", "call": 1}
+{"type": "model.event", "call": 1, "event": {"type": "message_start", "model": "deepseek-v4-flash"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "We"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " need"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " respond"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " only"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " JSON"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " with"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " steps"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " array"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " Need"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " create"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " execution"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " plan"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " for"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " fixing"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " repo"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " Need"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " inspect"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "?"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " User"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " says"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " create"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " execution"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " plan"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " We"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " are"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " Planner"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " We"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " should"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " provide"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " plan"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " JSON"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " But"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " perhaps"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " need"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " understand"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " repo"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "?"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " We"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " can"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " use"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " tools"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "?"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " Since"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " only"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " JSON"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " The"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " instruction"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " says"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " Return"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " only"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " JSON"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " We"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " should"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " maybe"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " inspect"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " repo"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " to"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " plan"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " accurately"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "?"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " We"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " have"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " tools"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " available"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " But"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " final"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " must"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " only"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " JSON"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " We"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " can"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " inspect"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " files"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " to"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " identify"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " issue"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " Let"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "'s"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " do"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " that"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " Need"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " not"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " expose"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " Let"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "'s"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": " list"}}
+{"type": "model.event", "call": 1, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "\n\n"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "<"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "｜｜DSML｜｜"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " calls"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": ">\n"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "<"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "｜｜DSML｜｜"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " invoke"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " name"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "=\""}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "shell"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "\">\n"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "<"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "｜｜DSML｜｜"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " parameter"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " name"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "=\""}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "command"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "\""}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " string"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "=\""}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "true"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "\">"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "ls"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " -"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "la"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " &&"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " find"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " ."}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " -"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "max"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "depth"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " "}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "2"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " -"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "type"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " f"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " |"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " sed"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " '"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "s"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "#"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "^"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "./"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "##"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "'"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " |"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " sort"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " |"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " head"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " -"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "200"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "</"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "｜｜DSML｜｜"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " parameter"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": ">\n"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "</"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "｜｜DSML｜｜"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " invoke"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": ">\n"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "</"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "｜｜DSML｜｜"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " calls"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": ">"}}
+{"type": "model.event", "call": 1, "event": {"type": "message_end", "stop_reason": "end_turn"}}
+{"type": "model.event", "call": 1, "event": {"type": "usage", "usage": {"input_tokens": 418, "output_tokens": 164, "cache_hit_tokens": 256, "cache_miss_tokens": 162, "reasoning_tokens": 99, "total_tokens": 582}}}
+{"type": "model.ended", "call": 1}
+{"type": "engine.event", "event": {"type": "error", "error": "planner output could not be parsed:\n\n\n<｜｜DSML｜｜ calls>\n<｜｜DSML｜｜ invoke name=\"shell\">\n<｜｜DSML｜｜ parameter name=\"command\" string=\"true\">ls -la && find . -maxdepth 2 -type f | sed 's#^./##' | sort | head -200</｜｜DSML｜｜ parameter>\n</｜｜DSML｜｜ invoke>\n</｜｜DSML｜｜ calls>"}}

@@ -1,0 +1,3 @@
+# Isolated evaluation environment; product installation remains unchanged.
+mini-swe-agent==2.4.6
+swebench==4.1.0

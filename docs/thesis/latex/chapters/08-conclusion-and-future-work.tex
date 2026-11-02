@@ -1,0 +1,48 @@
+% Generated from en/08-conclusion-and-future-work.md; edit Markdown, then rebuild.
+\chapter{Conclusions and Further Work}\label{chap:8}
+
+\section{Achievements}\label{sec:8.1}
+
+This dissertation designed and implemented a dedicated collaboration and verification workflow on an existing Python terminal coding agent. It reused the model protocol, tool loop, repository retrieval and knowledge facilities, while adding role-specific execution boundaries, disposable copies, candidate validation, fixed acceptance and evidence delivery.
+
+Coordinator, worker and verifier contexts interact sequentially, with a single writer. Host file checks, source snapshots and restricted Docker commands protect the supported task boundary. Patches are exported rather than applied automatically. Tests, reviews, usage and termination causes are associated with actual candidates. Shared attempts, calls, token thresholds and time limits control retries and unsuccessful execution.
+
+Procedural skills guide reproduction, minimal changes and verification. Project memory stores attributable experience with source fingerprints and expiry. These inputs cannot override current acceptance. CLI, REPL, SDK and Runtime adapters expose the same core while retaining their different result and cancellation contracts.
+
+Archived verification reports 160 passing automated tests, including existing regressions. The controlled experiment used ten injected defects in pinned python-dotenv source, with two development and eight held-out tasks and 24 real-model runs. Post-run checks inspected available patches without feeding their results back to the agents.
+
+\section{Conclusions against the research questions}\label{sec:8.2}
+
+For RQ1, restricted role registries, disposable copies and containers demonstrate a practical way to retain coding capabilities while bounding supported repair changes. The original source is not automatically modified, and functional checks cover cleanup and access constraints. This conclusion concerns the implemented mechanisms, not universal security.
+
+For RQ2, fixed executor results provide acceptance independently of model claims. Candidate patches, reviews and termination records make incomplete outcomes inspectable. The observed passing candidate in a budget-failed workflow confirms that candidate behaviour and process completion must be reported separately. Bounded retry is functionally implemented, but a real-model multi-round improvement remains untested.
+
+For RQ3, single-role, review-feedback multi-role and verification-feedback multi-role strategies completed eight, five and four tasks respectively. Additional checks passed for eight, five and five runs; all seven failures exhausted token budgets. The current experiment does not show a multi-role success-rate advantage. It instead records the coordination cost of the implemented strategies on small local defects.
+
+The work therefore establishes a functioning and inspectable repair workflow and a bounded empirical assessment of its trade-offs. Engineering completeness does not imply superior repair quality, and the limited negative result does not establish that multiple agents are universally ineffective.
+
+\section{Further work}\label{sec:8.3}
+
+\subsection{Independent tasks and repeated evaluation}\label{sec:8.3.1}
+
+A subsequent dataset should include more repositories, cross-file dependencies and real historical defects, with independently reviewed tasks and acceptance conditions. Budgets and success definitions should be frozen before repeated runs, with randomised condition order and consistent all-run denominators.
+
+Tasks in which a plausible first candidate genuinely fails would test whether subsequent evidence improves repair. Scripted functional tests should continue to cover branches reliably, while real-model experiments separately assess actual outcomes.
+
+\subsection{Role selection and budget allocation}\label{sec:8.3.2}
+
+Risk-based role selection, reserved stage budgets, compact handoffs and on-demand retrieval could reduce repeated input or avoid exhausting resources before final inspection. These are hypotheses requiring new controlled comparisons of completion, false acceptance and consumption.
+
+Changing whether review remains mandatory after passing tests also changes completion policy and must be reported as a separate condition. Parallel candidate generation would require independent copies, candidate ownership and conflict handling, rather than multiple writers in a shared directory.
+
+\subsection{Skills and memory}\label{sec:8.3.3}
+
+Separate skills-on/off and memory-on/off comparisons are needed to assess quality and cost. Project/time splits should prevent previous answers leaking into evaluation. Irrelevant retrieval, incorrect experience and stale-entry filtering should be measured alongside successful reuse. Environment and dependency fingerprints could extend applicability checks, but current integration does not guarantee a benefit.
+
+\subsection{Delivery and inspection}\label{sec:8.3.4}
+
+Additional environment metadata, request summaries and per-stage usage could improve diagnosis under explicit retention and credential-handling rules. Interrupted report writes, patch replay and source checks before manual application also merit stronger delivery protocols. The objective is sufficient evidence for inspection rather than unlimited retention of source and private data.
+
+\section{Closing conclusion}\label{sec:8.4}
+
+Reliable assessment requires a clear relationship between source changes, executable evidence, resource expenditure and termination. The implemented workflow provides that relationship within its supported scope. Further improvements should be judged by measurable task outcomes rather than role count alone.

@@ -1,0 +1,7 @@
+flowchart TB
+    A["Task and context"] --> B["Model selects action"]
+    B --> C{"Tool requested?"}
+    C -->|Yes| D["Validate and execute"]
+    D --> E["Result or error"]
+    E --> B
+    C -->|No| F["Return response"]

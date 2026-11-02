@@ -1,0 +1,7 @@
+flowchart TB
+    A["Prepare model and test environment"] --> B["Submit task, source and constraints"]
+    B --> C["Observe progress"]
+    C --> D["Inspect status and test report"]
+    D --> E{"Candidate delivered?"}
+    E -->|Yes| F["Review and decide whether to apply"]
+    E -->|No| G["Adjust task or environment"]

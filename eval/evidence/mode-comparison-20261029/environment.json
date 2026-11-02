@@ -1,0 +1,29 @@
+{
+  "features_loaded": {
+    "mcp": true,
+    "skill": true,
+    "memory": true,
+    "audit_log": true,
+    "context_compression": true,
+    "code_index": true
+  },
+  "personality": "default",
+  "context_window": null,
+  "provider_max_context": "resolved by model client",
+  "builtin_prompt_and_skill_sha256": {
+    "src/yecoding/builtin_skills/repair-minimal/SKILL.md": "050e49da7411a009dbc91264f2227fb2bb218b6df8a37f742f297dd3c4b80b3d",
+    "src/yecoding/builtin_skills/repair-reproduce/SKILL.md": "bc50578f0ad21aa0e4c288f2819a6ee169f454839f82af14b292ad430c2555ed",
+    "src/yecoding/builtin_skills/repair-verify/SKILL.md": "9e07803223513116cfb874aec19b42042f1610ec732a5b2c5bdc443631ddf6f6",
+    "src/yecoding/builtin_skills/web-access/SKILL.md": "16a3ce5bb2f571d7b32124f6fc5e01c035cd8a754f62ed105c70225d63043e44"
+  },
+  "overrides": {
+    "features.memory": false,
+    "features.mcp": false,
+    "policy.hitl_mode": "never",
+    "policy.path_guard_enabled": true,
+    "prompt.custom_prompt_paths": [],
+    "llm.temperature": 0,
+    "llm.max_tokens": 2048
+  },
+  "timing_note": "Non-exclusive host. The 17.14-second Docker regression overlapped the start of the first heldout task; latency is descriptive, not a dedicated benchmark."
+}

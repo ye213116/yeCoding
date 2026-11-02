@@ -1,0 +1,292 @@
+"""Run real container acceptance checks and optional model repair on pinned mutation tasks."""
+
+from __future__ import annotations
+
+import argparse
+import asyncio
+import hashlib
+import json
+import statistics
+import subprocess
+import tempfile
+from copy import deepcopy
+from pathlib import Path
+
+if __package__:
+    from .prepare_external import prepare
+else:
+    from prepare_external import prepare
+
+from yecoding.agent import QueryEngine
+from yecoding.config import load_config
+from yecoding.llm import create_llm_client
+from yecoding.sandbox.docker import DockerSandbox
+from yecoding.sandbox.workspace import RepairWorkspace, inventory
+from yecoding.tools import ToolRegistry
+
+HERE = Path(__file__).resolve().parent
+ACCEPTANCE = """import io
+import os
+import unittest
+from unittest.mock import patch
+from dotenv.main import DotEnv, dotenv_values
+from dotenv.parser import parse_stream
+from dotenv.variables import Literal, Variable, parse_variables
+
+
+class Acceptance(unittest.TestCase):
+    def test_default(self):
+        self.assertEqual(Variable("MISSING", "fallback").resolve({}), "fallback")
+        self.assertEqual(Variable("X", "fallback").resolve({"X": "present"}), "present")
+
+    def test_literal(self):
+        self.assertEqual(Literal("hello").resolve({}), "hello")
+
+    def test_none(self):
+        self.assertEqual(Variable("X", "fallback").resolve({"X": None}), "")
+
+    def test_trailing(self):
+        def resolve(text):
+            env = {"X": "value", "Y": "second"}
+            return "".join(atom.resolve(env) for atom in parse_variables(text))
+        self.assertEqual(resolve("literal"), "literal")
+        self.assertEqual(resolve("pre-${X}-post"), "pre-value-post")
+        self.assertEqual(resolve("${X}${Y}"), "valuesecond")
+
+    def test_unquoted(self):
+        rows = list(parse_stream(io.StringIO("X=value   \\nY=word # comment\\n")))
+        self.assertEqual([row.value for row in rows], ["value", "word"])
+
+    def test_escape(self):
+        rows = list(parse_stream(io.StringIO('X="line\\\\nnext"\\n')))
+        self.assertEqual(rows[0].value, "line\\nnext")
+
+    def test_lines(self):
+        rows = list(parse_stream(io.StringIO("X=1\\r\\nY=2\\nZ=3\\n")))
+        self.assertEqual([row.original.line for row in rows], [1, 2, 3])
+
+    def test_override(self):
+        for override, expected in [(True, "new"), (False, "old")]:
+            with patch.dict(os.environ, {"YECODING_SAMPLE": "old"}, clear=True):
+                stream = io.StringIO("YECODING_SAMPLE=new")
+                instance = DotEnv(None, stream=stream, override=override)
+                self.assertTrue(instance.set_as_environment_variables())
+                self.assertEqual(os.environ["YECODING_SAMPLE"], expected)
+
+    def test_interpolation(self):
+        for enabled, expected in [(True, "one"), (False, "${A}")]:
+            with patch.dict(os.environ, {}, clear=True):
+                values = dotenv_values(stream=io.StringIO("A=one\\nB=${A}\\n"), interpolate=enabled)
+                self.assertEqual(values["B"], expected)
+"""
+COMMAND = "python -m unittest discover -s tests -v"
+INDEPENDENT = """import io
+import os
+import unittest
+from unittest.mock import patch
+from dotenv.main import DotEnv, dotenv_values
+from dotenv.parser import parse_stream
+from dotenv.variables import Literal, Variable, parse_variables
+
+
+class Independent(unittest.TestCase):
+    def test_atom_edges(self):
+        for text in ["", "hello world", "中文", "${literal}"]:
+            self.assertEqual(Literal(text).resolve({}), text)
+        for default in [None, "", "fallback", "中文"]:
+            variable = Variable("X", default)
+            self.assertEqual(variable.resolve({}), default or "")
+            self.assertEqual(variable.resolve({"X": None}), "")
+            self.assertEqual(variable.resolve({"X": ""}), "")
+            self.assertEqual(variable.resolve({"X": "present"}), "present")
+
+    def test_parser_edges(self):
+        def resolve(text):
+            return "".join(atom.resolve({"X": "x", "Y": "y"}) for atom in parse_variables(text))
+        for text, expected in [
+            ("", ""), ("${X}${Y}!", "xy!"), ("a${X}b${Y}c", "axbyc"),
+            ("${Z:-fallback}", "fallback"), ("${Z}", ""), ("unfinished ${X", "unfinished ${X"),
+        ]:
+            self.assertEqual(resolve(text), expected)
+        rows = list(parse_stream(io.StringIO("X=a#b   \\nY=word  # comment\\n")))
+        self.assertEqual([row.value for row in rows], ["a#b", "word"])
+
+    def test_line_and_escape_edges(self):
+        rows = list(parse_stream(io.StringIO('X="a\\\\tb"\\r\\nY=2\\rZ=3\\n')))
+        self.assertEqual(rows[0].value, "a\\tb")
+        self.assertEqual([row.original.line for row in rows], [1, 2, 3])
+
+    def test_environment_edges(self):
+        for override in [True, False]:
+            with patch.dict(os.environ, {"A": "old"}, clear=True):
+                instance = DotEnv(None, stream=io.StringIO("A=new\\nB=\\nC"), override=override)
+                self.assertTrue(instance.set_as_environment_variables())
+                self.assertEqual(os.environ["A"], "new" if override else "old")
+                self.assertEqual(os.environ["B"], "")
+                self.assertNotIn("C", os.environ)
+        with patch.dict(os.environ, {}, clear=True):
+            values = dotenv_values(stream=io.StringIO("A=one\\nB=pre-${A}-post"))
+            self.assertEqual(values["B"], "pre-one-post")
+            values = dotenv_values(stream=io.StringIO("A=one\\nB=${A}"), interpolate=False)
+            self.assertEqual(values["B"], "${A}")
+"""
+
+
+def tasks():
+    return json.loads((HERE / "repair_tasks.json").read_text())["tasks"]
+
+
+def prepare_task(destination: Path, task: dict, *, mutate=True) -> Path:
+    root = prepare(destination)
+    if mutate:
+        path = root / task["file"]
+        body = path.read_text()
+        if body.count(task["old"]) != 1:
+            raise ValueError(f"mutation must match exactly once: {task['id']}")
+        path.write_text(body.replace(task["old"], task["new"]))
+    (root / "tests").mkdir()
+    (root / "tests/test_acceptance.py").write_text(ACCEPTANCE)
+    return root
+
+
+async def run(args) -> dict:
+    selected = [task for task in tasks() if args.split == "all" or task["split"] == args.split]
+    if args.limit:
+        selected = selected[: args.limit]
+    config = load_config(args.config_root)
+    if args.live and not config.llm.api_key:
+        raise ValueError("live repair evaluation requires a configured LLM API key")
+    config.features.memory = False  # every independent run starts without task-derived memory
+    config.features.skill = not args.no_skill
+    config.llm.temperature = 0
+    config.llm.max_tokens = min(config.llm.max_tokens, 2048)
+    strategies = args.strategies.split(",")
+    if any(strategy not in {"single", "team", "verified"} for strategy in strategies):
+        raise ValueError("unknown strategy")
+    output = args.out.resolve()
+    output.parent.mkdir(parents=True, exist_ok=True)
+    records = []
+    metadata = json.loads((HERE / "fixtures/python-dotenv-v1.1.1.json").read_text())
+    evidence = {
+        "kind": "external-source artificial mutation repair tasks",
+        "upstream": metadata,
+        "split": args.split,
+        "live": args.live,
+        "model": config.llm.model if args.live else None,
+        "task_manifest_sha256": hashlib.sha256(
+            (HERE / "repair_tasks.json").read_bytes()
+        ).hexdigest(),
+        "acceptance_sha256": hashlib.sha256(ACCEPTANCE.encode()).hexdigest(),
+        "independent_sha256": hashlib.sha256(INDEPENDENT.encode()).hexdigest(),
+        "memory": False,
+        "skill": config.features.skill,
+        "records": records,
+    }
+    with tempfile.TemporaryDirectory(prefix="yecoding-repair-eval-") as temporary:
+        directory = Path(temporary)
+        clean = prepare_task(directory / "clean", selected[0], mutate=False)
+        sandbox = DockerSandbox(args.image)
+        reference = await sandbox.execute(clean, COMMAND, readonly=True)
+        evidence["reference"] = reference.to_dict()
+        if not reference.passed:
+            raise RuntimeError(f"unmodified upstream failed acceptance: {reference.to_dict()}")
+        (clean / "tests/test_independent.py").write_text(INDEPENDENT)
+        independent_reference = await sandbox.execute(clean, COMMAND, readonly=True)
+        evidence["independent_reference"] = independent_reference.to_dict()
+        if not independent_reference.passed:
+            raise RuntimeError("unmodified upstream failed independent checks")
+        for task in selected:
+            root = prepare_task(directory / task["id"], task)
+            baseline = await sandbox.execute(root, COMMAND, readonly=True)
+            row = {
+                "id": task["id"],
+                "split": task["split"],
+                "baseline": baseline.to_dict(),
+                "runs": [],
+            }
+            records.append(row)
+            if baseline.passed or baseline.category != "test_failure":
+                raise RuntimeError(f"mutation must produce a real test failure: {task['id']}")
+            if args.live:
+                for strategy in strategies:
+                    options = deepcopy(config.repair)
+                    options.image, options.test_commands = args.image, [COMMAND]
+                    options.strategy = strategy
+                    options.max_attempts, options.max_llm_calls = args.attempts, args.calls
+                    options.timeout = args.timeout
+                    options.artifacts_dir = str(output.parent / "repair-runs")
+                    engine = QueryEngine(
+                        llm_client=create_llm_client(config.llm),
+                        config=config,
+                        tool_registry=ToolRegistry(),
+                        cwd=str(root),
+                    )
+                    report = await engine.repair_complete_async(task["prompt"], options=options)
+                    # Additional checks are installed only after model execution. The model
+                    # never sees this test file or its results during the repair loop.
+                    oracle = directory / f"oracle-{task['id']}-{strategy}"
+                    RepairWorkspace.materialize(oracle, inventory(root))
+                    artifact = Path(report["artifacts"])
+                    patch_file = artifact / "candidate.patch"
+                    if not patch_file.exists() and report["attempts"]:
+                        patch_file = artifact / f"attempt-{len(report['attempts'])}.patch"
+                    report["independent"] = None
+                    if patch_file.exists() and patch_file.stat().st_size:
+                        applied = subprocess.run(
+                            ["git", "apply", "-"],
+                            input=patch_file.read_text(),
+                            text=True,
+                            capture_output=True,
+                            cwd=oracle,
+                            check=False,
+                        )
+                        if applied.returncode == 0:
+                            (oracle / "tests/test_independent.py").write_text(INDEPENDENT)
+                            result = await sandbox.execute(oracle, COMMAND, readonly=True)
+                            report["independent"] = result.to_dict()
+                    report["false_acceptance"] = report["status"] == "verified" and not (
+                        report["independent"] and report["independent"]["passed"]
+                    )
+                    row["runs"].append(report)
+                    print(f"{task['id']} / {strategy}: {report['status']}", flush=True)
+                    output.write_text(json.dumps(evidence, ensure_ascii=False, indent=2))
+            else:
+                print(f"{task['id']}: upstream passed, injected defect reproduced", flush=True)
+            output.write_text(json.dumps(evidence, ensure_ascii=False, indent=2))
+    evidence["summary"] = {}
+    for strategy in strategies:
+        runs = [r for row in records for r in row["runs"] if r["strategy"] == strategy]
+        if runs:
+            evidence["summary"][strategy] = {
+                "tasks": len(runs),
+                "verified": sum(r["status"] == "verified" for r in runs),
+                "independently_passed": sum(
+                    bool(r["independent"] and r["independent"]["passed"]) for r in runs
+                ),
+                "false_acceptances": sum(r["false_acceptance"] for r in runs),
+                "mean_tokens": statistics.mean(r["usage"]["total_tokens"] for r in runs),
+                "mean_seconds": statistics.mean(r["duration"] for r in runs),
+            }
+    output.write_text(json.dumps(evidence, ensure_ascii=False, indent=2))
+    return evidence
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--live", action="store_true", help="Actually call the configured model")
+    parser.add_argument("--split", choices=["dev", "heldout", "all"], default="heldout")
+    parser.add_argument("--limit", type=int, default=0)
+    parser.add_argument("--strategies", default="single,team,verified")
+    parser.add_argument("--no-skill", action="store_true")
+    parser.add_argument("--image", default="python:3.11-slim")
+    parser.add_argument("--attempts", type=int, default=3)
+    parser.add_argument("--calls", type=int, default=18)
+    parser.add_argument("--timeout", type=float, default=300)
+    parser.add_argument("--config-root", type=Path, default=HERE.parent)
+    parser.add_argument("--out", type=Path, default=HERE / "results/repair-eval.json")
+    args = parser.parse_args()
+    asyncio.run(run(args))
+
+
+if __name__ == "__main__":
+    main()

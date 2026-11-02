@@ -1,0 +1,154 @@
+% Generated from en/04-system-design.md; edit Markdown, then rebuild.
+\chapter{System Design}\label{chap:4}
+
+\section{Architecture and design choices}\label{sec:4.1}
+
+Figure~\ref{fig:4-1} separates interfaces, orchestration, reusable capabilities and execution/storage. These are logical responsibilities in one application, not separate services. Interfaces collect options and display events; the orchestrator determines completion; the existing agent supplies model/tool interaction, context and knowledge.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth,height=0.85\textheight,keepaspectratio]{figures/fig-4-1.pdf}
+\caption[System architecture and shared capabilities]{System architecture: general agent modes and dedicated repair share capabilities, while repair owns copies, command constraints and delivery.}\label{fig:4-1}
+\end{figure}
+
+General modes retain their original completion rules. A dedicated repair path was chosen to reuse the query loop without treating ordinary model completion as fixed acceptance. Configuration is copied before adjusting tools, paths or policies, leaving the original session unchanged.
+
+Sequential handoffs provide clear candidate ownership through one writer. Concurrent candidates would require independent copies and merge/conflict policies, which were not implemented. CLI constructs \code|VerifiedRepair| directly; the read-evaluate-print loop (REPL), SDK and Runtime use \code|QueryEngine.repair|. These adapters share the repair core without identical invocation paths.
+
+\section{Roles and candidate handoffs}\label{sec:4.2}
+
+Roles are contexts, not necessarily separate models or processes. Table~\ref{tab:4-2} defines their capabilities. Only the worker writes business code; internal read-only indexing may still create technical caches. Arbitrary Model Context Protocol (MCP), web and memory-writing tools are not exposed.
+
+\needspace{14\baselineskip}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1400}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3300}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2300}}@{}}
+\caption[Role contracts]{Role capabilities, inputs and handoff artefacts.}\label{tab:4-2}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Role
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Tools/workspace
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Input
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Handoff
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Role
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Tools/workspace
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Input
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Handoff
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Coordinator & Read/search in work & Task, rules, experience & Concise plan \\
+Worker & Read/edit/commands in work & Task, plan, feedback & Actual edits and summary \\
+Verifier & Read/search in verify & Task, patch, permitted evidence & Review and suggestions \\
+\end{longtable}
+
+Each role receives a fresh history and skill buffer. Retries preserve work files while supplying the latest feedback to a new worker context. Within an attempt, worker completion precedes candidate validation and fixed tests; only then does the verifier receive the reconstructed candidate. Retries repeat the worker-to-verifier stages while budget remains. Actual timestamped instances of these handoffs are examined in Figure~\ref{fig:6-4}, rather than assuming that a design sequence demonstrates executed behaviour.
+
+The verifier interprets evidence but does not supply a machine-authoritative approval. Failing tests cannot be overridden by review. Conversely, passing tests followed by verifier budget exhaustion remain an unsuccessful workflow. Three strategies vary roles and feedback while retaining fixed acceptance; their exact comparison appears in Table~\ref{tab:6-5}.
+
+\section{Files and execution}\label{sec:4.3}
+
+An in-memory initial snapshot records supported paths, bytes and hashes. The worker edits \texttt{work}; each legal candidate reconstructs \texttt{verify}. The source repository is read to establish the baseline, work is the only editable business-code copy, and fixed acceptance receives a read-only verification mount. Reports and patches are exported to a separate delivery directory, not applied automatically to original source. These are distinct ownership boundaries even though all copies originate from the same bytes.
+
+Candidates identify additions, modifications and deletions and reject protected or unsupported content. Verification uses reconstructed bytes, not worker descriptions. Snapshot exclusions and limits protect the supported boundary, not a full operating-system image or universal secret detection.
+
+Each command creates a prepared-image container. Worker commands mount work writable; acceptance mounts verify read-only. Network, capabilities and resources are restricted. Containers do not preserve process state between commands. The host still performs bounded file operations, model communication, indexing and reporting. Unavailable images never trigger host-shell fallback.
+
+\section{States and evidence}\label{sec:4.4}
+
+Reports use JavaScript Object Notation (JSON). They associate source/model/options, baseline, attempts, patches, tests, reviews, skills, memory identifiers and usage. Table~\ref{tab:4-4} lists run states; invalid candidates use attempt-level \code|invalid_patch|.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.3200}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.6800}}@{}}
+\caption[Run states]{Run states and their meanings.}\label{tab:4-4}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+State
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Meaning
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+State
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Meaning
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{running} & Processing started \\
+\code|baseline_passed| & No failing baseline established \\
+\texttt{verified} & Acceptance and required handoffs finished \\
+\code|environment_error| & Environment failure or command timeout \\
+\texttt{no\_progress} & Empty or consecutive repeated candidate \\
+\code|attempts_exhausted| & Candidate allowance consumed \\
+\code|budget_exhausted| & Model-call or token threshold reached \\
+\texttt{timeout} & Overall deadline reached \\
+\texttt{canceled} & Repair coroutine cancelled \\
+\texttt{error} & Other exception \\
+\end{longtable}
+
+\code|report.json| summarises a run, \code|events.jsonl| records ordered activity and \code|attempt-N.patch| preserves legal attempts. Only success exports \code|candidate.patch|. Interrupted attempts may lack later fields. Records support inspection, not full raw-message replay or transactional crash recovery.
+
+\section{Knowledge and interfaces}\label{sec:4.5}
+
+Role-selected reproduction, minimal-change and verification skills are fingerprinted. Memory is recalled once using the original project scope; repair-kind entries must match source. Selected experience is untrusted data, while automatic recall inside temporary copies is disabled. Only successful enabled runs save experience. Warnings do not overwrite test outcomes.
+
+Table~\ref{tab:4-5} summarises interface contracts. Explicit options override configuration; omitted CLI values do not overwrite configured budgets.
+
+\needspace{14\baselineskip}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.1500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4300}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.4200}}@{}}
+\caption[Public entry points]{Entry points and result handling.}\label{tab:4-5}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Interface
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Invocation
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Result
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Interface
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Invocation
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Result
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+CLI & \code|yecoding repair|, repeatable \code|--test| & Progress/JSON; success exit only if verified \\
+REPL & \code|/repair <task>| & Configured tests; separate history \\
+SDK & \code|QueryEngine.repair| & Events/report; caller inspects status \\
+Runtime & Turn/Task with \code|mode=repair| & Configured tests; unsuccessful report becomes error \\
+\end{longtable}
+
+Runtime does not expose every SDK option as a Hypertext Transfer Protocol (HTTP) request field. Queue IDs manage claims, leases and cancellation; repair IDs locate evidence. Cancellation may not immediately interrupt a model request, but late completion cannot overwrite cancelled task state.

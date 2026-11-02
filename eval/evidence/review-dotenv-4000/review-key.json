@@ -1,0 +1,198 @@
+{
+  "report_sha256": "85d9b98c47fb2019c0a5b9033e3b4f7c8c67544defd079a00c3960393458054d",
+  "seed": 42,
+  "rows": {
+    "R001": {
+      "task_id": "D08",
+      "strategy": "file"
+    },
+    "R002": {
+      "task_id": "D06",
+      "strategy": "symbol_no_deps"
+    },
+    "R003": {
+      "task_id": "D07",
+      "strategy": "grep"
+    },
+    "R004": {
+      "task_id": "D03",
+      "strategy": "symbol"
+    },
+    "R005": {
+      "task_id": "D06",
+      "strategy": "file"
+    },
+    "R006": {
+      "task_id": "D03",
+      "strategy": "file"
+    },
+    "R007": {
+      "task_id": "D08",
+      "strategy": "symbol"
+    },
+    "R008": {
+      "task_id": "D10",
+      "strategy": "symbol_no_deps"
+    },
+    "R009": {
+      "task_id": "D04",
+      "strategy": "grep"
+    },
+    "R010": {
+      "task_id": "D01",
+      "strategy": "symbol_no_deps"
+    },
+    "R011": {
+      "task_id": "D09",
+      "strategy": "symbol_no_deps"
+    },
+    "R012": {
+      "task_id": "D02",
+      "strategy": "grep"
+    },
+    "R013": {
+      "task_id": "D11",
+      "strategy": "symbol_no_deps"
+    },
+    "R014": {
+      "task_id": "D07",
+      "strategy": "symbol"
+    },
+    "R015": {
+      "task_id": "D03",
+      "strategy": "symbol_no_deps"
+    },
+    "R016": {
+      "task_id": "D09",
+      "strategy": "file"
+    },
+    "R017": {
+      "task_id": "D08",
+      "strategy": "grep"
+    },
+    "R018": {
+      "task_id": "D11",
+      "strategy": "file"
+    },
+    "R019": {
+      "task_id": "D05",
+      "strategy": "symbol"
+    },
+    "R020": {
+      "task_id": "D08",
+      "strategy": "symbol_no_deps"
+    },
+    "R021": {
+      "task_id": "D12",
+      "strategy": "symbol"
+    },
+    "R022": {
+      "task_id": "D09",
+      "strategy": "grep"
+    },
+    "R023": {
+      "task_id": "D10",
+      "strategy": "grep"
+    },
+    "R024": {
+      "task_id": "D07",
+      "strategy": "file"
+    },
+    "R025": {
+      "task_id": "D06",
+      "strategy": "grep"
+    },
+    "R026": {
+      "task_id": "D06",
+      "strategy": "symbol"
+    },
+    "R027": {
+      "task_id": "D12",
+      "strategy": "symbol_no_deps"
+    },
+    "R028": {
+      "task_id": "D12",
+      "strategy": "grep"
+    },
+    "R029": {
+      "task_id": "D01",
+      "strategy": "grep"
+    },
+    "R030": {
+      "task_id": "D05",
+      "strategy": "symbol_no_deps"
+    },
+    "R031": {
+      "task_id": "D05",
+      "strategy": "grep"
+    },
+    "R032": {
+      "task_id": "D11",
+      "strategy": "symbol"
+    },
+    "R033": {
+      "task_id": "D04",
+      "strategy": "file"
+    },
+    "R034": {
+      "task_id": "D10",
+      "strategy": "symbol"
+    },
+    "R035": {
+      "task_id": "D12",
+      "strategy": "file"
+    },
+    "R036": {
+      "task_id": "D01",
+      "strategy": "symbol"
+    },
+    "R037": {
+      "task_id": "D07",
+      "strategy": "symbol_no_deps"
+    },
+    "R038": {
+      "task_id": "D10",
+      "strategy": "file"
+    },
+    "R039": {
+      "task_id": "D02",
+      "strategy": "file"
+    },
+    "R040": {
+      "task_id": "D09",
+      "strategy": "symbol"
+    },
+    "R041": {
+      "task_id": "D02",
+      "strategy": "symbol"
+    },
+    "R042": {
+      "task_id": "D03",
+      "strategy": "grep"
+    },
+    "R043": {
+      "task_id": "D04",
+      "strategy": "symbol"
+    },
+    "R044": {
+      "task_id": "D04",
+      "strategy": "symbol_no_deps"
+    },
+    "R045": {
+      "task_id": "D05",
+      "strategy": "file"
+    },
+    "R046": {
+      "task_id": "D01",
+      "strategy": "file"
+    },
+    "R047": {
+      "task_id": "D02",
+      "strategy": "symbol_no_deps"
+    },
+    "R048": {
+      "task_id": "D11",
+      "strategy": "grep"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+id,tokens,repeat,task,mode,status,completed,candidate_available,acceptance_passed,independent_passed,completed_and_passed,total_tokens,llm_calls,duration,truncated_requests,model_errors,result_file
+240000/r1/override-environment/repair,240000,1,override-environment,repair,verified,True,True,True,True,True,36525,6,13.965539469998475,0,0,runs/240000/r1/override-environment/repair/result.json
+240000/r1/escape-decoding/react,240000,1,escape-decoding,react,completed,True,True,True,True,True,69092,9,20.27013995299967,0,0,runs/240000/r1/escape-decoding/react/result.json
+240000/r1/disable-interpolation/repair,240000,1,disable-interpolation,repair,verified,True,True,True,True,True,25426,5,13.203255201999127,0,0,runs/240000/r1/disable-interpolation/repair/result.json
+240000/r1/none-value/repair,240000,1,none-value,repair,verified,True,True,True,True,True,21678,5,11.026698924999437,0,0,runs/240000/r1/none-value/repair/result.json
+240000/r1/override-environment/react,240000,1,override-environment,react,completed,True,True,True,True,True,36154,6,12.907926994999798,0,0,runs/240000/r1/override-environment/react/result.json
+240000/r1/escape-decoding/repair,240000,1,escape-decoding,repair,verified,True,True,True,True,True,25129,5,12.853133030999743,0,0,runs/240000/r1/escape-decoding/repair/result.json
+240000/r1/none-value/react,240000,1,none-value,react,completed,True,True,True,True,True,48995,7,12.96412883099947,0,0,runs/240000/r1/none-value/react/result.json
+240000/r1/unquoted-whitespace/react,240000,1,unquoted-whitespace,react,completed,True,True,True,True,True,170442,8,19.65706894899995,0,0,runs/240000/r1/unquoted-whitespace/react/result.json
+240000/r1/line-tracking/repair,240000,1,line-tracking,repair,verified,True,True,True,True,True,34774,6,20.24981072099945,0,0,runs/240000/r1/line-tracking/repair/result.json
+240000/r1/trailing-literal/react,240000,1,trailing-literal,react,completed,True,True,True,True,True,59996,7,15.826476793999973,0,0,runs/240000/r1/trailing-literal/react/result.json
+240000/r1/variable-cursor/react,240000,1,variable-cursor,react,completed,True,True,True,True,True,80527,10,23.64483200900031,0,0,runs/240000/r1/variable-cursor/react/result.json
+240000/r1/unquoted-whitespace/repair,240000,1,unquoted-whitespace,repair,verified,True,True,True,True,True,18932,4,13.175577648000399,0,0,runs/240000/r1/unquoted-whitespace/repair/result.json
+240000/r1/variable-cursor/repair,240000,1,variable-cursor,repair,verified,True,True,True,True,True,28580,6,15.407791992000057,0,0,runs/240000/r1/variable-cursor/repair/result.json
+240000/r1/line-tracking/react,240000,1,line-tracking,react,completed,True,True,True,True,True,71233,8,21.054053208999903,0,0,runs/240000/r1/line-tracking/react/result.json
+240000/r1/trailing-literal/repair,240000,1,trailing-literal,repair,verified,True,True,True,True,True,58250,7,21.53739922800014,0,0,runs/240000/r1/trailing-literal/repair/result.json
+240000/r1/disable-interpolation/react,240000,1,disable-interpolation,react,completed,True,True,True,True,True,37092,7,14.61906301199997,0,0,runs/240000/r1/disable-interpolation/react/result.json

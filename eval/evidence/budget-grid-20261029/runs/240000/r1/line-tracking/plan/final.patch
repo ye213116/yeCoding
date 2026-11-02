@@ -1,0 +1,21 @@
+diff --git a/dotenv/parser.py b/dotenv/parser.py
+--- a/dotenv/parser.py
++++ b/dotenv/parser.py
+@@ -20,7 +20,7 @@
+ _unquoted_value = make_regex(r"([^\r\n]*)")
+ _comment = make_regex(r"(?:[^\S\r\n]*#[^\r\n]*)?")
+ _end_of_line = make_regex(r"[^\S\r\n]*(?:\r\n|\n|\r|$)")
+-_rest_of_line = make_regex(r"[^\r\n]*(?:\r|\n|\r\n)?")
++_rest_of_line = make_regex(r"[^\r\n]*(?:\r\n|\n|\r)?")
+ _double_quote_escapes = make_regex(r"\\[\\'\"abfnrtv]")
+ _single_quote_escapes = make_regex(r"\\[\\']")
+ 
+@@ -52,7 +52,7 @@
+ 
+     def advance(self, string: str) -> None:
+         self.chars += len(string)
+-        self.line += 0
++        self.line += len(_newline.findall(string))
+ 
+ 
+ class Error(Exception):

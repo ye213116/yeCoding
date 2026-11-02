@@ -1,0 +1,110 @@
+{
+  "id": "0aec1feb221e41c3a8f0e408ee429c14",
+  "status": "verified",
+  "strategy": "verified",
+  "source": "/tmp/yecoding-budget-grid-_97mt10z/disable-interpolation/src",
+  "model": "deepseek-v4-flash",
+  "provider": "deepseek",
+  "options": {
+    "image": "python:3.11-slim",
+    "test_commands": [
+      "python -m unittest discover -s tests -v"
+    ],
+    "max_attempts": 3,
+    "max_llm_calls": 64,
+    "max_tokens": 120000,
+    "timeout": 900,
+    "command_timeout": 60.0,
+    "artifacts_dir": "/home/zyh/projects/yeCoding/eval/evidence/budget-grid-20261029/repair-runs",
+    "strategy": "verified"
+  },
+  "started_at": "2026-10-29T09:01:43.693246+00:00",
+  "attempts": [
+    {
+      "number": 1,
+      "worker_summary": "The bug is at `dotenv/main.py:35`: `DotEnv.__init__` discards the `interpolate` argument by assigning `self.interpolate = True`.修复已完成。\n\n## 变更摘要\n\n**文件**: `dotenv/main.py`（`DotEnv.__init__`）\n\n**原因**: 构造函数虽然接收 `interpolate: bool = True` 参数，却硬编码 `self.interpolate = True`，忽略了调用方传入的值。因此 `dotenv_values(..., interpolate=False)` 仍会执行变量插值，`B=${A}` 被展开成 `one`。\n\n**修复**:\n```python\n- self.interpolate: bool = True\n+ self.interpolate: bool = interpolate\n```\n\n这样 `interpolate=False` 时 `dict()` 走 `OrderedDict(raw_values)` 分支，保留字面量 `${A}`；默认 `True` 时仍走 `resolve_variables` 执行正常插值。\n\n**验证**: `python -m unittest discover -s tests -v` 全部 9 个测试通过（含 `test_interpolation`），未改动任何测试或配置。",
+      "patch_hash": "d638f712a91fbfe06a0bd8515518e0176967eae3289364dc87570ee8502297e6",
+      "changed_files": [
+        "dotenv/main.py"
+      ],
+      "verification": [
+        {
+          "command": "python -m unittest discover -s tests -v",
+          "exit_code": 0,
+          "stdout": "",
+          "stderr": "test_default (test_acceptance.Acceptance.test_default) ... ok\ntest_escape (test_acceptance.Acceptance.test_escape) ... ok\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... ok\ntest_lines (test_acceptance.Acceptance.test_lines) ... ok\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... ok\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.002s\n\nOK\n",
+          "timed_out": false,
+          "duration": 1.6254430059998413,
+          "category": "passed",
+          "passed": true
+        }
+      ],
+      "passed": true,
+      "review": "I'll inspect the repository to verify the fix and check the surrounding code."
+    }
+  ],
+  "skills": [
+    {
+      "name": "repair-reproduce",
+      "version": "1.0.0",
+      "role": "coordinator",
+      "sha256": "08c62f4e3b40007ff17c062cf458e18f2a771a354a7847d7eb698a7fda8abbd2"
+    },
+    {
+      "name": "repair-reproduce",
+      "version": "1.0.0",
+      "role": "worker",
+      "sha256": "08c62f4e3b40007ff17c062cf458e18f2a771a354a7847d7eb698a7fda8abbd2"
+    },
+    {
+      "name": "repair-minimal",
+      "version": "1.0.0",
+      "role": "worker",
+      "sha256": "4c790f5e7acfe7c6e4c84f13929293435c91e788472b370cb388bc4a6bd06414"
+    },
+    {
+      "name": "repair-verify",
+      "version": "1.0.0",
+      "role": "verifier",
+      "sha256": "cac1fa9d87660b78ae6e019ef313053ed8356d31bb99cd63ed3531ac1451c779"
+    }
+  ],
+  "recalled_memory_ids": [],
+  "artifacts": "/home/zyh/projects/yeCoding/eval/evidence/budget-grid-20261029/repair-runs/0aec1feb221e41c3a8f0e408ee429c14",
+  "task": "The interpolate=False option is ignored and literal placeholders are expanded. Honor the option while keeping normal interpolation enabled by default.\n\nImplement the fix in the repository using tools. Do not modify tests or test/build configuration. Commands run in Docker at /workspace; file tools use repository-relative paths. No network or package installation is available. Acceptance command: python -m unittest discover -s tests -v. Run it to check your fix.",
+  "base_hash": "6c1baff6a8bfed6ab25352e930342963b753f37899cae7fc139f3ed863932b8d",
+  "base_files": {
+    "dotenv/__init__.py": "58153949f4a2280852de1ceed7bca436ebb06eec320c25fdd52cefe2f51e3ae3",
+    "dotenv/__main__.py": "3744612c6ee71c8aad9491f0c1ea48a3ecdb24f371f6c7b0082446639dbc87fe",
+    "dotenv/cli.py": "badf37488b5b59c9846a102448ece41eabd12a1aa18f4b40e77bdc5e9ca578e3",
+    "dotenv/ipython.py": "6af23a69ecff4719c1a6d62072122ab85d934a0288f863a1637a698aedd5b961",
+    "dotenv/main.py": "d6aea678a7e6a2cd8d93c009a5ee40e5edd20816baab4c900465ded928085d1f",
+    "dotenv/parser.py": "4205391f0330336c0caadd2fcfa7474c9e27ccf9b0a91aaf8b8312c9e5627e05",
+    "dotenv/py.typed": "f0f8f2675695a10a5156fb7bd66bafbaae6a13e8d315990af862c792175e6e67",
+    "dotenv/variables.py": "083d2a5cebefa41deae51a4140c0fda97eaf1d7ed2c96f92ba2c063054a5b74f",
+    "dotenv/version.py": "abcff90b47fef261d635bea6330d36ce560f9c419706abce98fdf3d0213064a3",
+    "tests/test_acceptance.py": "17262330807af86b22e602d4ac9cb7c5f109cb3e8ea755595e4c4d60f9b6014e"
+  },
+  "baseline": [
+    {
+      "command": "python -m unittest discover -s tests -v",
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": "test_default (test_acceptance.Acceptance.test_default) ... ok\ntest_escape (test_acceptance.Acceptance.test_escape) ... ok\ntest_interpolation (test_acceptance.Acceptance.test_interpolation) ... FAIL\ntest_lines (test_acceptance.Acceptance.test_lines) ... ok\ntest_literal (test_acceptance.Acceptance.test_literal) ... ok\ntest_none (test_acceptance.Acceptance.test_none) ... ok\ntest_override (test_acceptance.Acceptance.test_override) ... ok\ntest_trailing (test_acceptance.Acceptance.test_trailing) ... ok\ntest_unquoted (test_acceptance.Acceptance.test_unquoted) ... ok\n\n======================================================================\nFAIL: test_interpolation (test_acceptance.Acceptance.test_interpolation)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/workspace/tests/test_acceptance.py\", line 53, in test_interpolation\n    self.assertEqual(values[\"B\"], expected)\nAssertionError: 'one' != '${A}'\n- one\n+ ${A}\n\n\n----------------------------------------------------------------------\nRan 9 tests in 0.004s\n\nFAILED (failures=1)\n",
+      "timed_out": false,
+      "duration": 1.2854170850005175,
+      "category": "test_failure",
+      "passed": false
+    }
+  ],
+  "duration": 22.982845097998506,
+  "llm_calls": 11,
+  "usage": {
+    "input_tokens": 92972,
+    "output_tokens": 1377,
+    "cache_hit_tokens": 44928,
+    "cache_miss_tokens": 48044,
+    "reasoning_tokens": 249,
+    "total_tokens": 94349
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "checks": [
+    {
+      "name": "ruff-check",
+      "command": [
+        "uv",
+        "run",
+        "--extra",
+        "dev",
+        "ruff",
+        "check",
+        "."
+      ],
+      "exit_code": 0,
+      "seconds": 0.03697656899748836
+    },
+    {
+      "name": "ruff-format",
+      "command": [
+        "uv",
+        "run",
+        "--extra",
+        "dev",
+        "ruff",
+        "format",
+        "--check",
+        "."
+      ],
+      "exit_code": 0,
+      "seconds": 0.03474655900208745
+    },
+    {
+      "name": "pytest-docker",
+      "command": [
+        "uv",
+        "run",
+        "--extra",
+        "dev",
+        "python",
+        "-m",
+        "pytest"
+      ],
+      "exit_code": 0,
+      "seconds": 33.22939021899947
+    },
+    {
+      "name": "cli-version",
+      "command": [
+        "uv",
+        "run",
+        "yecoding",
+        "--version"
+      ],
+      "exit_code": 0,
+      "seconds": 0.9020852339999692
+    }
+  ],
+  "source_unchanged": true,
+  "formal_model_runs": 0
+}

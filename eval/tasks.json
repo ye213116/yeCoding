@@ -1,0 +1,202 @@
+{
+  "description": "T6 evaluation task set. Self-hosted: queries about the yeCoding-Python repository itself. Ground truth (primary_symbols = symbols an ideal answer must reference; dep_symbols = necessary dependencies; relevant_files) was labeled by reading the source and verified programmatically against the AST symbol index (see tests/test_eval_harness.py).",
+  "tasks": [
+    {
+      "id": "T01",
+      "query": "ContextWindowManager 是如何在 token 预算内压缩对话历史的",
+      "en_terms": [
+        "ContextWindowManager",
+        "compression",
+        "summarize",
+        "prepare"
+      ],
+      "primary_symbols": [
+        "manager.ContextWindowManager.prepare",
+        "manager.ContextWindowManager._summarize",
+        "manager.ContextWindowManager._recent_boundary"
+      ],
+      "dep_symbols": [
+        "manager.ContextBudget.compression_limit",
+        "manager.estimate_text_tokens"
+      ],
+      "relevant_files": [
+        "src/yecoding/context/manager.py"
+      ]
+    },
+    {
+      "id": "T02",
+      "query": "混合中英文文本的 token 数是怎么估算的",
+      "en_terms": [
+        "estimate_text_tokens",
+        "cjk",
+        "token"
+      ],
+      "primary_symbols": [
+        "manager.estimate_text_tokens",
+        "manager.estimate_message_tokens"
+      ],
+      "dep_symbols": [
+        "manager.ContextWindowManager._estimate_request"
+      ],
+      "relevant_files": [
+        "src/yecoding/context/manager.py"
+      ]
+    },
+    {
+      "id": "T03",
+      "query": "MemoryManager 长期记忆是怎么去重和执行配额的",
+      "en_terms": [
+        "MemoryManager",
+        "dedup",
+        "quota",
+        "_normalize"
+      ],
+      "primary_symbols": [
+        "manager.MemoryManager._normalize_and_deduplicate",
+        "manager.MemoryManager._enforce_quota"
+      ],
+      "dep_symbols": [
+        "manager.MemoryManager.save",
+        "manager._hash_content"
+      ],
+      "relevant_files": [
+        "src/yecoding/memory/manager.py"
+      ]
+    },
+    {
+      "id": "T04",
+      "query": "Agent 的 ReAct 循环是怎么执行工具并把结果放回对话的",
+      "en_terms": [
+        "_run_react",
+        "tool_calls",
+        "executor"
+      ],
+      "primary_symbols": [
+        "agent.Agent._run_react"
+      ],
+      "dep_symbols": [
+        "executor.ToolExecutor.execute_all",
+        "agent._merge_tool_delta"
+      ],
+      "relevant_files": [
+        "src/yecoding/agent/agent.py",
+        "src/yecoding/tools/executor.py"
+      ]
+    },
+    {
+      "id": "T05",
+      "query": "代码索引是如何解析 self 调用和继承关系的",
+      "en_terms": [
+        "_resolve_self_member",
+        "_resolve_edges",
+        "inherits"
+      ],
+      "primary_symbols": [
+        "code_index.CodeIndex._resolve_edges",
+        "code_index.CodeIndex._resolve_self_member"
+      ],
+      "dep_symbols": [
+        "parser._SymbolCollector.visit_Call"
+      ],
+      "relevant_files": [
+        "src/yecoding/rag/code_index.py",
+        "src/yecoding/rag/parser.py"
+      ]
+    },
+    {
+      "id": "T06",
+      "query": "ContextBuilder 是按什么优先级把代码装进 token 预算的",
+      "en_terms": [
+        "ContextBuilder",
+        "_pack",
+        "priority",
+        "budget"
+      ],
+      "primary_symbols": [
+        "context_builder.ContextBuilder.build",
+        "context_builder.ContextBuilder._pack_call_chains"
+      ],
+      "dep_symbols": [
+        "context_builder.ContextBuilder._start_section",
+        "code_index.CodeIndex.ranked_symbols"
+      ],
+      "relevant_files": [
+        "src/yecoding/rag/context_builder.py",
+        "src/yecoding/rag/code_index.py"
+      ]
+    },
+    {
+      "id": "T07",
+      "query": "工具执行的超时和输入校验是在哪里做的",
+      "en_terms": [
+        "wait_for",
+        "validate",
+        "required_keys"
+      ],
+      "primary_symbols": [
+        "base.Tool.execute",
+        "base.Tool.validate"
+      ],
+      "dep_symbols": [
+        "base.object_schema"
+      ],
+      "relevant_files": [
+        "src/yecoding/tools/base.py"
+      ]
+    },
+    {
+      "id": "T08",
+      "query": "快照是怎么创建和恢复工作区文件的",
+      "en_terms": [
+        "SnapshotService",
+        "create",
+        "restore"
+      ],
+      "primary_symbols": [
+        "service.SnapshotService.create",
+        "service.SnapshotService.restore"
+      ],
+      "dep_symbols": [],
+      "relevant_files": [
+        "src/yecoding/snapshot/service.py"
+      ]
+    },
+    {
+      "id": "T09",
+      "query": "SkillRegistry 是怎么把用户请求匹配到技能的",
+      "en_terms": [
+        "SkillRegistry",
+        "match",
+        "tags"
+      ],
+      "primary_symbols": [
+        "registry.SkillRegistry.match"
+      ],
+      "dep_symbols": [
+        "registry.SkillMatcher._score"
+      ],
+      "relevant_files": [
+        "src/yecoding/skill/registry.py"
+      ]
+    },
+    {
+      "id": "T10",
+      "query": "OpenAI 兼容客户端是怎么解析流式 SSE 响应的",
+      "en_terms": [
+        "_parse_chunk",
+        "_iter_sse",
+        "chat"
+      ],
+      "primary_symbols": [
+        "openai_compatible.OpenAICompatibleClient.chat",
+        "openai_compatible._iter_sse"
+      ],
+      "dep_symbols": [
+        "openai_compatible._map_finish_reason"
+      ],
+      "relevant_files": [
+        "src/yecoding/llm/openai_compatible.py"
+      ]
+    }
+  ]
+}

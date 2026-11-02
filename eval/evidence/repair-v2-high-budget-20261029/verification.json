@@ -1,0 +1,54 @@
+{
+  "checked_at": "2026-10-29T10:08:28.671287+00:00",
+  "git_head_base": "7a1783bc723d358090a3c9f318d7bf795903138e",
+  "implementation": "uncommitted V2; actual implementation.zip and per-file SHA256 in grid.json",
+  "run_state": "complete",
+  "completed_runs": 16,
+  "checks": {
+    "schedule_unique_and_complete": true,
+    "current_and_archived_implementation_match_manifest": true,
+    "all_model_event_usage_and_calls_reconciled": true,
+    "aggregate_matches_per_run_results": true,
+    "clean_reference_passes_9_acceptance_and_13_combined_tests": true,
+    "all_16_candidates_pass_9_acceptance_and_13_combined_tests": true,
+    "all_8_repair_patches_saved_and_reports_match": true,
+    "repair_leaf_phases_reconcile_shared_usage": true,
+    "all_8_repairs_single_attempt_worker_only": true
+  },
+  "metrics": {
+    "mean_token_reduction_fraction": 0.5653347421499448,
+    "median_token_reduction_fraction": 0.5816342340109073,
+    "mean_call_reduction_fraction": 0.29032258064516125,
+    "paired_tasks_repair_uses_fewer_tokens": 7,
+    "total_model_calls": 106,
+    "total_tokens": 822825
+  },
+  "local_validation": [
+    {
+      "command": "uv run --extra dev ruff check .",
+      "result": "passed"
+    },
+    {
+      "command": "uv run --extra dev ruff format --check .",
+      "result": "117 files already formatted"
+    },
+    {
+      "command": "uv run --extra dev python -m pytest tests/test_budget_grid.py tests/test_mode_comparison.py",
+      "result": "10 passed"
+    },
+    {
+      "command": "uv run python -m eval.report_budget_grid eval/evidence/repair-v2-high-budget-20261029/grid.json",
+      "result": "completed grid exported"
+    },
+    {
+      "command": "git diff --check",
+      "result": "passed"
+    }
+  ],
+  "limits": [
+    "8 synthetic defects in one project; one run per condition",
+    "existing mode prompts, skills, and turn limits are retained; no component ablation",
+    "token usage includes cached input and is not monetary cost",
+    "shared host latency is descriptive only"
+  ]
+}

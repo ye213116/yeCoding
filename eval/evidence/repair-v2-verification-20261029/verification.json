@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-29T09:56:07.994880+00:00",
+  "git_head": "7a1783bc723d358090a3c9f318d7bf795903138e",
+  "branch": "main",
+  "implementation": "uncommitted V2 changes; HEAD is the base, not the complete implementation",
+  "source_sha256": {
+    "src/yecoding/agent/repair.py": "b510bb5ba14f95a454b3cb7868d621adeab7ef46a4b9bf1fa862b51de0ec5615",
+    "src/yecoding/agent/repair_types.py": "ec4a315cd0942cebbf6a596d3905dda520993c3b9bd984ae1a8bd4e7a5a1def5",
+    "src/yecoding/agent/repair_strategy.py": "89fd1093516a24169444d31688ddf3ce92ae8c75cff3c99cb964a3f00e5edc5a",
+    "src/yecoding/agent/query.py": "ba3083f9901798a876a133f4f9427889a0573b4c99c8ed1f0d8c91a3af05b819",
+    "src/yecoding/config.py": "5864e076540d7bb8517614705b919080aa2f16d9b581f81bdd12899b48c1ed16",
+    "src/yecoding/entrypoints/cli.py": "1197dd95ff8ca12ee2aecd95ba97d8c95f3d63d5980a6f4f7d92e97c7f83f7ad",
+    "src/yecoding/runtime/api.py": "c025b0d103cdba3e2f8be43ccf0baca55ad56263edc8c3414fb7d3b7d4d908a8",
+    "tests/test_repair.py": "d29c65b25463923bc5df03152f70ac066c1ef2f57d78d56d3a2bea71fc1a83ad",
+    "tests/test_repair_strategy.py": "d90d4b8420469cb8b28355c47b01037a3ce11afc2eb7e7630b7fcb28c434663c"
+  },
+  "checks": [
+    {
+      "command": "uv run --extra dev ruff check .",
+      "exit_code": 0
+    },
+    {
+      "command": "uv run --extra dev ruff format --check .",
+      "exit_code": 0,
+      "result": "117 files already formatted"
+    },
+    {
+      "command": "YECODING_TEST_DOCKER=1 uv run --extra dev python -m pytest",
+      "exit_code": 1,
+      "result": "197 passed, 1 existing grep recall failure in 64.78s",
+      "log": "pytest.txt"
+    },
+    {
+      "command": "uv run yecoding repair --help",
+      "exit_code": 0
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "baseline_failure_evidence": "../mode-comparison-20261029/verification.json",
+  "model_calls": "Scripted protocol clients only; no paid model experiment was started for V2."
+}

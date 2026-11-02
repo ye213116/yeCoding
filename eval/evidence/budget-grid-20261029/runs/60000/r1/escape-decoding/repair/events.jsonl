@@ -1,0 +1,1651 @@
+{"type": "model.started", "call": 1}
+{"type": "model.event", "call": 1, "event": {"type": "message_start", "model": "deepseek-v4-flash"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "I"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "'ll"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " start"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " by"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " inspecting"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " the"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " repository"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " structure"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " and"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " the"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " failing"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": " behavior"}}
+{"type": "model.event", "call": 1, "event": {"type": "text_delta", "text": "."}}
+{"type": "model.event", "call": 1, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "id": "call_00_ET_nzgmVgJP5R9ZSuEYzVGQ4447", "type": "function", "function": {"name": "list_dir", "arguments": ""}}}}
+{"type": "model.event", "call": 1, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "{\""}}}}
+{"type": "model.event", "call": 1, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "path"}}}}
+{"type": "model.event", "call": 1, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 1, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 1, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "."}}}}
+{"type": "model.event", "call": 1, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 1, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "}"}}}}
+{"type": "model.event", "call": 1, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "id": "call_01_ET_x1kn1ZHrHeZXa9qFU1eM1596", "type": "function", "function": {"name": "glob_files", "arguments": ""}}}}
+{"type": "model.event", "call": 1, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "{\""}}}}
+{"type": "model.event", "call": 1, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "pattern"}}}}
+{"type": "model.event", "call": 1, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 1, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 1, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "**"}}}}
+{"type": "model.event", "call": 1, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "/*"}}}}
+{"type": "model.event", "call": 1, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "."}}}}
+{"type": "model.event", "call": 1, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "py"}}}}
+{"type": "model.event", "call": 1, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 1, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "}"}}}}
+{"type": "model.event", "call": 1, "event": {"type": "message_end", "stop_reason": "tool_use"}}
+{"type": "model.event", "call": 1, "event": {"type": "usage", "usage": {"input_tokens": 1706, "output_tokens": 80, "cache_hit_tokens": 128, "cache_miss_tokens": 1578, "reasoning_tokens": 0, "total_tokens": 1786}}}
+{"type": "model.ended", "call": 1}
+{"type": "model.started", "call": 2}
+{"type": "model.event", "call": 2, "event": {"type": "message_start", "model": "deepseek-v4-flash"}}
+{"type": "model.event", "call": 2, "event": {"type": "thinking_delta", "thinking": "Let"}}
+{"type": "model.event", "call": 2, "event": {"type": "thinking_delta", "thinking": " me"}}
+{"type": "model.event", "call": 2, "event": {"type": "thinking_delta", "thinking": " look"}}
+{"type": "model.event", "call": 2, "event": {"type": "thinking_delta", "thinking": " at"}}
+{"type": "model.event", "call": 2, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 2, "event": {"type": "thinking_delta", "thinking": " parser"}}
+{"type": "model.event", "call": 2, "event": {"type": "thinking_delta", "thinking": " and"}}
+{"type": "model.event", "call": 2, "event": {"type": "thinking_delta", "thinking": " tests"}}
+{"type": "model.event", "call": 2, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "id": "call_00_NjvG8L1SKs9LoQ4xCLPE2567", "type": "function", "function": {"name": "read_file", "arguments": ""}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "{\""}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "path"}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "dot"}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "env"}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "/"}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "parser"}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ".py"}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "}"}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "id": "call_01_Rbrt2RnHxBXSjBgbTG9G5962", "type": "function", "function": {"name": "read_file", "arguments": ""}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "{\""}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "path"}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "tests"}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "/test"}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "_"}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "accept"}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "ance"}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": ".py"}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 2, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "}"}}}}
+{"type": "model.event", "call": 2, "event": {"type": "message_end", "stop_reason": "tool_use"}}
+{"type": "model.event", "call": 2, "event": {"type": "usage", "usage": {"input_tokens": 1873, "output_tokens": 84, "cache_hit_tokens": 1664, "cache_miss_tokens": 209, "reasoning_tokens": 9, "total_tokens": 1957}}}
+{"type": "model.ended", "call": 2}
+{"type": "model.started", "call": 3}
+{"type": "model.event", "call": 3, "event": {"type": "message_start", "model": "deepseek-v4-flash"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "The"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " bug"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ":"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "decode"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "_"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "esc"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "apes"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "`"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " returns"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "string"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "`"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " unchanged"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " ignoring"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " regex"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " and"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " decode"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "_match"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " Fix"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ":"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "return"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " re"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ".sub"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "(re"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "gex"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " decode"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "_match"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " string"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ")`"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ".\n\n"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "Let"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " me"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " check"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " upstream"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " python"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "-d"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "ot"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "env"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " implementation"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " Yes"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " upstream"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ":\n\n"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "```"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "python"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "\n"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "def"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " decode"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "_"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "esc"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "apes"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "(re"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "gex"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ":"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " Pattern"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "[str"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "],"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " string"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ":"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " str"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ")"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " ->"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " str"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ":\n"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "   "}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " def"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " decode"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "_match"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "(m"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "atch"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ":"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " Match"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "[str"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "])"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " ->"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " str"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ":\n"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "       "}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " return"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " code"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "cs"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ".decode"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "(m"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "atch"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ".group"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "("}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "0"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "),"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " '"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "unicode"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "-"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "escape"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "')\n\n"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "   "}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " return"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " regex"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ".sub"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "(de"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "code"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "_match"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " string"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ")\n"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "```\n\n"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "That"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " dec"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "odes"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " only"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " matched"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " escapes"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " preserving"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " other"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " back"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "sl"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "ashes"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " literally"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " Un"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "qu"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "oted"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " values"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " go"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " through"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " parse"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "_un"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "qu"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "oted"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "_value"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " which"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " doesn"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "'t"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " use"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " decode"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "_"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "esc"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "apes"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " so"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " literal"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " un"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "qu"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "oted"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " text"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " preserved"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ".\n\n"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "Test"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " test"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "_"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "escape"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ":"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " '"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "X"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "=\""}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "line"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "\\\\"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "n"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "next"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "\"'"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " ->"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " value"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " \""}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "line"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "\\n"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "next"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "\"."}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " With"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " fix"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " regex"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "\\\\"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "["}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "\\\\"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "'"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "\\\""}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "ab"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "fn"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "rt"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "v"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "]"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "`"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " matches"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "\\"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "n"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "`"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " and"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " dec"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "odes"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " to"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " new"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "line"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " Good"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ".\n\n"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "Let"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " me"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " run"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " test"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " first"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " to"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " confirm"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " failure"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " ("}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "I"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "'m"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " told"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " commands"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " run"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " in"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " Docker"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " at"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " /"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "works"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "pace"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " —"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " I"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " can"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "'t"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " actually"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " run"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " commands"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ";"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " only"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " file"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " tools"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " available"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ")."}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " The"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " runtime"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " says"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " available"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " tools"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " are"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " only"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " read"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "/"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "glob"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "/g"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "rep"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " etc"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " No"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " run"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "_command"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " tool"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " So"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " I"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " can"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "'t"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " execute"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " acceptance"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " command"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " I"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " should"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " state"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " that"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " as"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " an"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " execution"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " prerequisite"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " and"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " propose"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " fix"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " but"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " task"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " says"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " implement"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " fix"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " using"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " tools"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " I"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " have"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " no"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " command"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " tool"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " I"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " can"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " read"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "/w"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "rite"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " files"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "?"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " The"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " tools"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " list"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " doesn"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "'t"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " include"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " write"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "_file"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " either"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " H"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "mm"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " Only"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " read"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " tools"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " available"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " So"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " I"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "'ll"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " propose"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " plan"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " concret"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "ely"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ".\n\n"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "Let"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " me"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " double"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " check"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " other"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " files"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " for"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " related"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " code"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " e"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ".g"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ".,"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " main"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": ".py"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " for"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " any"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " parsing"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " that"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " might"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " also"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " need"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": " attention"}}
+{"type": "model.event", "call": 3, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "id": "call_00_hehldEqvC9UM7bkQKmqc1068", "type": "function", "function": {"name": "grep", "arguments": ""}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "{\""}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "pattern"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "decode"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "_"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "esc"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "apes"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "|"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "escape"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "|"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "unicode"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "-"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "escape"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "|"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "back"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "slash"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ", \""}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "regex"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ": "}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "true"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "}"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "id": "call_01_2YU0r9HtDWa4yhjZc6Za3483", "type": "function", "function": {"name": "grep", "arguments": ""}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "{\""}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "pattern"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "parse"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "_value"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "|"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "parse"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "_un"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "qu"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "oted"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "_value"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": ", \""}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "regex"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": ": "}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "true"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "}"}}}}
+{"type": "model.event", "call": 3, "event": {"type": "message_end", "stop_reason": "tool_use"}}
+{"type": "model.event", "call": 3, "event": {"type": "usage", "usage": {"input_tokens": 4442, "output_tokens": 469, "cache_hit_tokens": 1920, "cache_miss_tokens": 2522, "reasoning_tokens": 352, "total_tokens": 4911}}}
+{"type": "model.ended", "call": 3}
+{"type": "model.started", "call": 4}
+{"type": "model.event", "call": 4, "event": {"type": "message_start", "model": "deepseek-v4-flash"}}
+{"type": "model.event", "call": 4, "event": {"type": "thinking_delta", "thinking": "Let"}}
+{"type": "model.event", "call": 4, "event": {"type": "thinking_delta", "thinking": " me"}}
+{"type": "model.event", "call": 4, "event": {"type": "thinking_delta", "thinking": " inspect"}}
+{"type": "model.event", "call": 4, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 4, "event": {"type": "thinking_delta", "thinking": " repo"}}
+{"type": "model.event", "call": 4, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "id": "call_00_8HfV23uaIONgkbwDMW6M3954", "type": "function", "function": {"name": "bash", "arguments": ""}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "{\""}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "command"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "cd"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " /"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "works"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "pace"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " &&"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " ls"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " -"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "R"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " |"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " head"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " -"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "100"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "}"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "id": "call_01_xUC3Uyj2CJ2bNp7ZedY56738", "type": "function", "function": {"name": "bash", "arguments": ""}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "{\""}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "command"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "cd"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": " /"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "works"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "pace"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": " &&"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": " sed"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": " -"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "n"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": " '"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "1"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": ","}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "120"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "p"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "'"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": " tests"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "/test"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "_"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "accept"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "ance"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": ".py"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 4, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "}"}}}}
+{"type": "model.event", "call": 4, "event": {"type": "message_end", "stop_reason": "tool_use"}}
+{"type": "model.event", "call": 4, "event": {"type": "usage", "usage": {"input_tokens": 2712, "output_tokens": 100, "cache_hit_tokens": 128, "cache_miss_tokens": 2584, "reasoning_tokens": 6, "total_tokens": 2812}}}
+{"type": "model.ended", "call": 4}
+{"type": "model.started", "call": 5}
+{"type": "model.event", "call": 5, "event": {"type": "message_start", "model": "deepseek-v4-flash"}}
+{"type": "model.event", "call": 5, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "id": "call_00_ET_waczoQVa2mRRjmc5iDfK1453", "type": "function", "function": {"name": "bash", "arguments": ""}}}}
+{"type": "model.event", "call": 5, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "{\""}}}}
+{"type": "model.event", "call": 5, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "command"}}}}
+{"type": "model.event", "call": 5, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 5, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 5, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "cd"}}}}
+{"type": "model.event", "call": 5, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " /"}}}}
+{"type": "model.event", "call": 5, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "works"}}}}
+{"type": "model.event", "call": 5, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "pace"}}}}
+{"type": "model.event", "call": 5, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " &&"}}}}
+{"type": "model.event", "call": 5, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " cat"}}}}
+{"type": "model.event", "call": 5, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " dot"}}}}
+{"type": "model.event", "call": 5, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "env"}}}}
+{"type": "model.event", "call": 5, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "/"}}}}
+{"type": "model.event", "call": 5, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "parser"}}}}
+{"type": "model.event", "call": 5, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ".py"}}}}
+{"type": "model.event", "call": 5, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 5, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "}"}}}}
+{"type": "model.event", "call": 5, "event": {"type": "message_end", "stop_reason": "tool_use"}}
+{"type": "model.event", "call": 5, "event": {"type": "usage", "usage": {"input_tokens": 3731, "output_tokens": 47, "cache_hit_tokens": 2688, "cache_miss_tokens": 1043, "reasoning_tokens": 0, "total_tokens": 3778}}}
+{"type": "model.ended", "call": 5}
+{"type": "model.started", "call": 6}
+{"type": "model.event", "call": 6, "event": {"type": "message_start", "model": "deepseek-v4-flash"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "Bug"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " obvious"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": ":"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " decode"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "_"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "esc"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "apes"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " returns"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " string"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " instead"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " of"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " re"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": ".sub"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "(re"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "gex"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " decode"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "_match"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " string"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": ")."}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " Fix"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " Also"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " check"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " un"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "qu"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "oted"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " behavior"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": ":"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " un"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "qu"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "oted"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " should"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " preserve"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " literal"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " back"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "sl"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "ashes"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": ";"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " parse"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "_un"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "qu"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "oted"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "_value"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " doesn"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "'t"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " call"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " decode"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " so"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " fine"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": ".\n\n"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "Apply"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": " fix"}}
+{"type": "model.event", "call": 6, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "id": "call_00_Jza8zpGJu9dwdLgGManV0313", "type": "function", "function": {"name": "edit_file", "arguments": ""}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "{\""}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "path"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "dot"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "env"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "/"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "parser"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ".py"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ", \""}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "old"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "_text"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "   "}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " return"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " string"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\\n\\n\\n"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "def"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " parse"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "_key"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ", \""}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "new"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "_text"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "   "}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " return"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " regex"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ".sub"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "(de"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "code"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "_match"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ","}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " string"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ")\\n\\n\\n"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "def"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " parse"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "_key"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 6, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "}"}}}}
+{"type": "model.event", "call": 6, "event": {"type": "message_end", "stop_reason": "tool_use"}}
+{"type": "model.event", "call": 6, "event": {"type": "usage", "usage": {"input_tokens": 5493, "output_tokens": 150, "cache_hit_tokens": 3712, "cache_miss_tokens": 1781, "reasoning_tokens": 56, "total_tokens": 5643}}}
+{"type": "model.ended", "call": 6}
+{"type": "model.started", "call": 7}
+{"type": "model.event", "call": 7, "event": {"type": "message_start", "model": "deepseek-v4-flash"}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "id": "call_00_ET_K4yNYCtgkfHbfkpaiEwx4812", "type": "function", "function": {"name": "bash", "arguments": ""}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "{\""}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "command"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "cd"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " /"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "works"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "pace"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " &&"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " python"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " -"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "m"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " unittest"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " discover"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " -"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "s"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " tests"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " -"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "v"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " "}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "2"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ">&"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "1"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " |"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " tail"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": " -"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "20"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 7, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "}"}}}}
+{"type": "model.event", "call": 7, "event": {"type": "message_end", "stop_reason": "tool_use"}}
+{"type": "model.event", "call": 7, "event": {"type": "usage", "usage": {"input_tokens": 5690, "output_tokens": 59, "cache_hit_tokens": 5504, "cache_miss_tokens": 186, "reasoning_tokens": 0, "total_tokens": 5749}}}
+{"type": "model.ended", "call": 7}
+{"type": "model.started", "call": 8}
+{"type": "model.event", "call": 8, "event": {"type": "message_start", "model": "deepseek-v4-flash"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "Check"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " full"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " behavior"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " maybe"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " windows"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "?"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " Parse"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " new"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "line"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " handling"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "?"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " Test"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " passes"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " But"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " note"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " potential"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " concern"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": ":"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " parse"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "_stream"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "_"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "end"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "_of"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "_line"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "`"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " ordering"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "\\"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "r"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "\\n"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "|\\"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "n"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "|\\"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "r"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "|"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "$"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "`,"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " fine"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": ".\n\n"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "Also"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " decode"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " of"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "\\\\"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "'"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "`"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " in"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " a"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " double"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "-qu"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "oted"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " value"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": ":"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " code"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "cs"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": ".decode"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "(r"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "\""}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "\\'"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "\","}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " un"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "icode"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "-"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "escape"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": ")"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " ->"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " \"'"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "\"?"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " Yes"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " Double"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " quoted"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "\\\\"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "\""}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "`"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " ->"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "\""}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "`."}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " Good"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": ".\n\n"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "Min"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "imal"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " change"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " Done"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " Summar"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "ize"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " in"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " Chinese"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " since"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " request"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " has"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " Chinese"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "?"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " Request"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " is"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " English"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " mostly"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " with"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " Chinese"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " only"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " in"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " skill"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " descriptions"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " The"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " task"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " is"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " English"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " \""}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "Reply"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " in"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " same"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " language"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " as"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " user"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "'s"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " request"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " If"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " request"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " contains"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " Chinese"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " use"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " Chinese"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": ".\""}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " Contains"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " Chinese"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " tags"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " H"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "mm"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " user"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " request"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " contains"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " Chinese"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " tags"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " in"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " skill"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " candidates"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " The"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " task"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " itself"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " English"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " I"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " can"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " respond"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " in"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " English"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " maybe"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " concise"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " Could"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " use"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " Chinese"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " but"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " task"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " English"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " I"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "'ll"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " respond"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": " English"}}
+{"type": "model.event", "call": 8, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "Fixed"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " in"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " `"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "dot"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "env"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "/"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "parser"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": ".py"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "`.\n\n"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "**"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "Cause"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": ":**"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " `"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "decode"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "_"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "esc"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "apes"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "()`"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " was"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " a"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " no"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "-op"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " —"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " it"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " defined"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " `"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "decode"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "_match"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "`"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " but"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " returned"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " the"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " original"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " `"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "string"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "`,"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " so"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " quote"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "-specific"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " escapes"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " (`"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "\\"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "n"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "`,"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " `"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "\\\""}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "`,"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " `"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "\\\\"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "`,"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " etc"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": ".)"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " remained"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " literal"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": ".\n\n"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "**"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "Change"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": ":**"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " Return"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " `"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "regex"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": ".sub"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "(de"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "code"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "_match"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": ","}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " string"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": ")`"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " so"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " only"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " escapes"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " matching"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " the"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " quote"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "-specific"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " regex"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " are"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " decoded"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": ":\n"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "-"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " Double"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "-qu"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "oted"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " values"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " use"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " `"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "_"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "double"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "_"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "quote"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "_"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "esc"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "apes"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "`"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " (`"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "\\\\"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "["}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "\\\\"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "'\""}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "ab"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "fn"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "rt"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "v"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "]"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "`)\n"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "-"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " Single"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "-qu"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "oted"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " values"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " use"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " `"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "_"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "single"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "_"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "quote"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "_"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "esc"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "apes"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "`"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " (`"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "\\\\"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "["}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "\\\\"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "']"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "`)\n"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "-"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " Un"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "qu"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "oted"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " values"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " still"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " bypass"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " `"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "decode"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "_"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "esc"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "apes"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "`,"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " preserving"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " literal"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " back"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "sl"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "ashes"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": ".\n\n"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "**"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "Ver"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "ification"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": ":**"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " `"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "python"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " -"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "m"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " unittest"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " discover"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " -"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "s"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " tests"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " -"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "v"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "`"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " →"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " "}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "9"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " tests"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " passed"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": ","}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " including"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": " `"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "test"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "_"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "escape"}}
+{"type": "model.event", "call": 8, "event": {"type": "text_delta", "text": "`."}}
+{"type": "model.event", "call": 8, "event": {"type": "message_end", "stop_reason": "end_turn"}}
+{"type": "model.event", "call": 8, "event": {"type": "usage", "usage": {"input_tokens": 6035, "output_tokens": 353, "cache_hit_tokens": 5632, "cache_miss_tokens": 403, "reasoning_tokens": 179, "total_tokens": 6388}}}
+{"type": "model.ended", "call": 8}
+{"type": "model.started", "call": 9}
+{"type": "model.event", "call": 9, "event": {"type": "message_start", "model": "deepseek-v4-flash"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "Let"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " me"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " inspect"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " repository"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " to"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " verify"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " fix"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " The"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " working"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " directory"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " is"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " /"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "tmp"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "/y"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "ec"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "oding"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "-re"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "pair"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "-"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "ky"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "te"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "_t"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "n"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "1"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "/"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "verify"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " Let"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " me"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " look"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " at"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " parser"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " file"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " and"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " tests"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": ".\n\n"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "Key"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " concern"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": ":"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " candidate"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " diff"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " changes"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "decode"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "_"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "esc"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "apes"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "`"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " to"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " apply"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " regex"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " substitution"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " But"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " task"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " says"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " \""}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "Rest"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "ore"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " quote"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "-specific"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " escape"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " decoding"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " while"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " preserving"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " literal"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " un"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "qu"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "oted"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " text"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": ".\""}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " The"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " original"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " python"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "-d"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "ot"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "env"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " code"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " has"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "decode"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "_"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "esc"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "apes"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "`"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " with"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " a"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " regex"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " that"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " matches"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " escapes"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " and"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " dec"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "odes"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " them"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": ";"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " used"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " only"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " for"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " double"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "-qu"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "oted"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " strings"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " Let"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " me"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " check"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " how"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " decode"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "_"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "esc"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "apes"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " is"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " called"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": ";"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " if"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " it"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "'s"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " called"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " for"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " un"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "qu"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "oted"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "/s"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "ingle"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "-qu"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "oted"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " values"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " too"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " then"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " this"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " fix"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " would"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " incorrectly"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " decode"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " un"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "qu"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "oted"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " text"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": ".\n\n"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "Let"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " me"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": " inspect"}}
+{"type": "model.event", "call": 9, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "id": "call_00_CQ46GOjIVaArxc5YBsQQ4655", "type": "function", "function": {"name": "list_dir", "arguments": ""}}}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "{\""}}}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "path"}}}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "."}}}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "}"}}}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "id": "call_01_2QuymQEB7A6MDAEJkdMJ6944", "type": "function", "function": {"name": "read_file", "arguments": ""}}}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "{\""}}}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "path"}}}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "dot"}}}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "env"}}}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "/"}}}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "parser"}}}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": ".py"}}}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 9, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "}"}}}}
+{"type": "model.event", "call": 9, "event": {"type": "message_end", "stop_reason": "tool_use"}}
+{"type": "model.event", "call": 9, "event": {"type": "usage", "usage": {"input_tokens": 2176, "output_tokens": 221, "cache_hit_tokens": 128, "cache_miss_tokens": 2048, "reasoning_tokens": 152, "total_tokens": 2397}}}
+{"type": "model.ended", "call": 9}
+{"type": "model.started", "call": 10}
+{"type": "model.event", "call": 10, "event": {"type": "message_start", "model": "deepseek-v4-flash"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "The"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " fix"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " rest"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "ores"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "regex"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ".sub"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "`"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " in"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " decode"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "_"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "esc"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "apes"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " But"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " wait"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " task"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " says"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " \""}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "Rest"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "ore"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " quote"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "-specific"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " escape"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " decoding"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " while"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " preserving"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " literal"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " un"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "qu"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "oted"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " text"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ".\""}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " Let"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "'s"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " check"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " tests"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " and"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " actual"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " behavior"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " The"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " candidate"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " diff"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " is"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " only"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " one"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " line"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " But"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " is"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " that"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " sufficient"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "?"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " Let"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " me"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " check"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " tests"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " to"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " see"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " what"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " they"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " test"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " and"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " whether"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " there"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "'s"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " a"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " hidden"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " issue"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ".\n\n"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "Important"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " concern"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ":"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "code"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "cs"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ".decode"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "(m"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "atch"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ".group"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "("}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "0"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "),"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " '"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "unicode"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "-"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "escape"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "')"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "`"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " on"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " a"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " string"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " like"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "\\\""}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "`"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " works"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " but"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " on"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "\\\\"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "`"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " dec"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "odes"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " to"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "\\"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "`."}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " However"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "code"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "cs"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ".decode"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "`"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " with"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "unicode"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "-"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "escape"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "`"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " on"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " a"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " str"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " is"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " deprecated"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " in"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " some"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " Python"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " versions"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "?"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " Actually"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " code"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "cs"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ".decode"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "(str"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " '"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "unicode"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "-"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "escape"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "')"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " works"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " but"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " emits"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " Dep"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "rec"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "ation"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "Warning"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " in"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " Python"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " "}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "3"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "9"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "+"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "?"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " H"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "mm"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ".\n\n"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "But"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " more"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " importantly"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ":"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " task"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " mentions"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " \""}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "pres"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "erving"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " literal"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " un"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "qu"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "oted"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " text"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "\""}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " —"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " maybe"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " bug"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " was"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " that"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " decode"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "_"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "esc"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "apes"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " was"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " applied"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " to"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " un"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "qu"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "oted"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " text"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " too"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " or"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " that"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " parse"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "_un"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "qu"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "oted"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "_value"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " was"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " wrongly"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " decoding"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " Let"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " me"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " look"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " at"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " tests"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " and"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " the"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " git"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " history"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " maybe"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " Let"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " me"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " check"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " tests"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " directory"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " and"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " ."}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "y"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "ec"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "oding"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ".\n\n"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "Also"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " potential"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " issue"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ":"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "_"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "single"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "_"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "quote"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "_"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "esc"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "apes"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " ="}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " r"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "\""}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "\\\\"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "["}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "\\\\"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "']"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "\""}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "`"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " and"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "_"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "double"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "_"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "quote"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "_"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "esc"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "apes"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " ="}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " r"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "\""}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "\\\\"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "["}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "\\\\"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "'"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "\\\""}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "ab"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "fn"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "rt"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "v"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "]\""}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "`."}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "code"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "cs"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ".decode"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "('"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "\\\\"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "a"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "',"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " '"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "unicode"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "-"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "escape"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "')"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "`"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " ->"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " `"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "\\"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "x"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "07"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "`"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "?"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " \\"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "a"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " is"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " bell"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " \\"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "b"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " back"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "space"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " \\"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "f"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " form"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "feed"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " \\"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "n"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " new"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "line"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " \\"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "r"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " carriage"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " return"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " \\"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "t"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " tab"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ","}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " \\"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "v"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " vertical"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " tab"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " That"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "'s"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " intended"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": ".\n\n"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "Let"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "'s"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " check"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": " tests"}}
+{"type": "model.event", "call": 10, "event": {"type": "thinking_delta", "thinking": "."}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "id": "call_00_5MJkWI7CUIwix9RzxjBG1232", "type": "function", "function": {"name": "list_dir", "arguments": ""}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "{\""}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "path"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "tests"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "}"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "id": "call_01_bT5UxT2j5nhek93AsLZp0674", "type": "function", "function": {"name": "grep", "arguments": ""}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "{\""}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "pattern"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "escape"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "|"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "decode"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "|"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "literal"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "|"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "un"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "qu"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "oted"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": ", \""}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "path"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "tests"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": ", \""}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "regex"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": ": "}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "true"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": ", \""}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "limit"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": ": "}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "50"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "}"}}}}
+{"type": "model.event", "call": 10, "event": {"type": "message_end", "stop_reason": "tool_use"}}
+{"type": "model.event", "call": 10, "event": {"type": "usage", "usage": {"input_tokens": 4199, "output_tokens": 467, "cache_hit_tokens": 2304, "cache_miss_tokens": 1895, "reasoning_tokens": 345, "total_tokens": 4666}}}
+{"type": "model.ended", "call": 10}
+{"type": "model.started", "call": 11}
+{"type": "model.event", "call": 11, "event": {"type": "message_start", "model": "deepseek-v4-flash"}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "id": "call_00_ET_RShv780qYhpCByckTJJh3134", "type": "function", "function": {"name": "read_file", "arguments": ""}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "{\""}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "path"}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "tests"}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "/test"}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "_"}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "accept"}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "ance"}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": ".py"}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 0, "function": {"arguments": "}"}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "id": "call_01_ET_REFnAGL0SfAlCidvbdVk8722", "type": "function", "function": {"name": "list_dir", "arguments": ""}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "{\""}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "path"}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": ": \""}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "."}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "y"}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "ec"}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "oding"}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "\""}}}}
+{"type": "model.event", "call": 11, "event": {"type": "tool_call_delta", "tool_call": {"index": 1, "function": {"arguments": "}"}}}}
+{"type": "model.event", "call": 11, "event": {"type": "message_end", "stop_reason": "tool_use"}}
+{"type": "model.event", "call": 11, "event": {"type": "usage", "usage": {"input_tokens": 4756, "output_tokens": 74, "cache_hit_tokens": 4608, "cache_miss_tokens": 148, "reasoning_tokens": 0, "total_tokens": 4830}}}
+{"type": "model.ended", "call": 11}

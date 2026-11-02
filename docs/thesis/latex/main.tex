@@ -1,0 +1,123 @@
+% English dissertation follows Instructions on Project reports 22Feb16.pdf.
+% Generated chapter files come from ../en/; edit those Markdown sources first.
+\documentclass[a4paper,12pt,oneside,openany]{report}
+\usepackage[left=25.4mm,right=20mm,top=20mm,bottom=20mm]{geometry}
+\usepackage{setspace}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\usepackage[scaled]{helvet}
+\usepackage{courier,textcomp}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,booktabs,longtable,array,calc,graphicx,caption}
+\usepackage{fvextra,xurl,etoolbox,needspace}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[hidelinks,unicode]{hyperref}
+\usepackage{bookmark}
+\input{metadata.tex}
+\hypersetup{pdftitle={\ThesisTitleEnglish},pdfsubject={Final-year engineering dissertation}}
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{3pt}
+\onehalfspacing
+\setlength{\emergencystretch}{2em}
+\clubpenalty=10000
+\widowpenalty=10000
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{1}
+\renewcommand{\thefigure}{\thechapter.\arabic{figure}}
+\renewcommand{\thetable}{\thechapter.\arabic{table}}
+\renewcommand{\theequation}{\thechapter.\arabic{equation}}
+\newcounter{thesisalgorithm}[chapter]
+\renewcommand{\thethesisalgorithm}{\thechapter.\arabic{thesisalgorithm}}
+\captionsetup{labelsep=period,font=normalsize}
+\captionsetup[table]{position=top}
+\setlength{\LTleft}{\fill}
+\setlength{\LTright}{\fill}
+\AtBeginEnvironment{longtable}{\setlength{\tabcolsep}{4pt}\renewcommand{\arraystretch}{1.05}}
+\DeclareUrlCommand\code{\urlstyle{tt}}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{topnumber}{2}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.65}
+\pagestyle{plain}
+\usepackage{flafter}
+\makeatletter
+\newcommand{\ReportLayoutEvidence}{%
+  \typeout{ReportFont=\f@size}%
+  \typeout{ReportBaseline=\the\baselineskip}%
+  \typeout{ReportPaperWidth=\the\paperwidth}%
+  \typeout{ReportPaperHeight=\the\paperheight}%
+  \typeout{ReportTextWidth=\the\textwidth}%
+  \typeout{ReportTextHeight=\the\textheight}%
+  \typeout{ReportLeft=\the\dimexpr1in+\oddsidemargin\relax}%
+  \typeout{ReportTop=\the\dimexpr1in+\topmargin+\headheight+\headsep\relax}%
+}
+\makeatother
+
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+  \centering
+  \vspace*{18mm}
+  {\Large School of Engineering\par}
+  \vspace{3mm}
+  {\Large University of Glasgow\par}
+  \vspace{22mm}
+  {\LARGE\bfseries \ThesisTitleEnglish\par}
+  \vspace{16mm}
+  {\large Final-Year Project Dissertation\par}
+  \vfill
+  \renewcommand{\arraystretch}{1.6}
+  \begin{tabular}{@{}ll@{}}
+    Student & \ThesisAuthor \\
+    Matriculation number & \ThesisMatriculation \\
+    UESTC student number & \ThesisUESTCNumber \\
+    Supervisor & \ThesisSupervisor \\
+    Degree programme & \ThesisDegree \\
+    Academic year & \ThesisAcademicYear \\
+    Submission date & \ThesisSubmissionDate
+  \end{tabular}
+  \vspace*{12mm}
+\end{titlepage}
+\pagenumbering{roman}
+\hypersetup{pageanchor=true}
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\input{chapters/00-abstract.tex}
+\clearpage
+\chapter*{Acknowledgements}
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\noindent\textit{To be completed by the author.}
+\clearpage
+\begingroup
+\setlength{\parskip}{0pt}
+\tableofcontents
+\endgroup
+\clearpage
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+\clearpage
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+\clearpage
+\pagenumbering{arabic}
+\ReportLayoutEvidence
+\input{chapters/01-introduction.tex}
+\input{chapters/02-related-technologies.tex}
+\input{chapters/03-requirements-analysis.tex}
+\input{chapters/04-system-design.tex}
+\input{chapters/05-core-implementation.tex}
+\input{chapters/06-testing-and-evaluation.tex}
+\input{chapters/07-discussion.tex}
+\input{chapters/08-conclusion-and-future-work.tex}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{References}
+\renewcommand{\bibname}{References}
+\setlength{\bibsep}{0pt}
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+\clearpage
+\appendix
+\input{chapters/appendix-artefacts.tex}
+\end{document}

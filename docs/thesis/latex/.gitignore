@@ -1,0 +1,6 @@
+__pycache__/
+build/*
+!build/main.pdf
+!build/build-report.json
+!build/pdf-audit.json
+figures/*.sha256

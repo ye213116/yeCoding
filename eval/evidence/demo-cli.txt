@@ -1,0 +1,31 @@
+## 结论（仅基于 `get_context` 返回的索引数据）
+
+注意：本次返回 `0 sources`、`~1959/2000 tokens, truncated`，即**没有返回任何源码正文**，只有符号、调用关系和文件摘要。因此下面的"优先级"是从符号所在行号与调用链推断的，不是从函数体格逐行确认的。
+
+### 组装的优先级
+
+`build` 位于 `src/yecoding/rag/context_builder.py:61`，它按调用关系依次触发四个打包函数。按同文件内的**行号从早到晚**可推断出被调用的先后次序：
+
+1. `src/yecoding/rag/context_builder.py:92` `_start_section` — 开启章节（辅助）
+2. `src/yecoding/rag/context_builder.py:100` `_pack_signatures` — **最高优先级**：符号签名
+3. `src/yecoding/rag/context_builder.py:125` `_pack_call_chains` — 次优先：调用链
+4. `src/yecoding/rag/context_builder.py:171` `_pack_sources` — 再次：源码摘录
+5. `src/yecoding/rag/context_builder.py:203` `_pack_file_summaries` — 最低：文件摘要
+
+这五个函数的签名都接收 `remaining`（剩余 token 预算）并返回消耗后的 `remaining`（`_pack_file_summaries` 返回 `None`），说明它们共享一个**贪心的逐级扣减预算模型**：高优先级内容先占用预算，越往后越可能因预算耗尽被截断。查询命中的 `_pack_call_chains(pack, parts, ranked, remaining) -> int` 正好处于"签名之后、源码之前"这一档，并以 `ranked: list[Symbol]` 为输入，即按检索排名来消费预算。
+
+`build(self, query, budget_tokens) -> ContextPack` 最终产出 `ContextPack`（`context_builder.py:40`），并由 `_sanitize`（`context_builder.py:226`）对 query 做清洗后进入流程。
+
+这条组装链在真实入口中被复用：`repl._handle_slash`（`src/yecoding/entrypoints/repl.py:216`）、`tools/builtins.py:690` 的 `_get_context`、以及 `rag/evaluation.py:250` 的 `symbol_retrieve` 都调用 `ContextBuilder`，说明组装逻辑是检索工具与评估共用的路径。
+
+### 局限
+
+1. **本次检索无源码正文**：`0 sources`，无法核对各 `_pack_*` 的实际排序/截断代码，优先级顺序是由行号与调用链反推的。
+2. **返回被截断**：`~1959/2000 tokens, truncated`，说明索引结果本身已触及 token 上限，额外符号/关系被丢弃，覆盖面不完整。
+3. **文件摘要几乎缺失**：仅 `src/yecoding/prompt/assembler.py` 有一条且标注 `(no module docstring)`，其余文件无摘要，无法据此判断各模块在大盘中的权重。
+4. **调用链只给一跳**：返回的关系是浅层（如 `build → _pack_signatures`），未展开 `_pack_*` 内部对 `estimate_text_tokens`（`src/yecoding/context/manager.py:205`）等下游的完整依赖树；`_pack_call_chains` 仅显示调用了 `estimate_text_tokens` 和 `_start_section`。
+5. **测试线索仅作参考**：`tests/test_context_builder.py` 的用例名（`test_build_returns_prioritized_sections`、`test_pack_respects_token_budget`、`test_tight_budget_keeps_signatures_and_flags_truncation`、`test_source_excerpts_are_limited_to_top_k`）印证了"优先级 + 预算 + 截断标记 + top-k"的存在，但用例体未返回，不能据此断言具体阈值。
+
+一句话概括：`ContextBuilder.build` 采用**签名 → 调用链 → 源码 → 文件摘要**的固定优先级贪心装包，预算不足时自后向前截断；但本次证据只有索引元数据、无源码正文且已截断，上述顺序与截断行为需读取 `src/yecoding/rag/context_builder.py:61-230` 才能最终确认。
+
+（未修改任何文件，也未执行命令。）

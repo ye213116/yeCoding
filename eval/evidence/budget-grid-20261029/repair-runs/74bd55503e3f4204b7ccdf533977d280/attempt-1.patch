@@ -1,0 +1,12 @@
+diff --git a/dotenv/parser.py b/dotenv/parser.py
+--- a/dotenv/parser.py
++++ b/dotenv/parser.py
+@@ -115,7 +115,7 @@
+ 
+ def parse_unquoted_value(reader: Reader) -> str:
+     (part,) = reader.read_regex(_unquoted_value)
+-    return re.sub(r"\s+#.*", "", part).lstrip()
++    return re.sub(r"\s+#.*", "", part).strip()
+ 
+ 
+ def parse_value(reader: Reader) -> str:

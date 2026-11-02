@@ -1,0 +1,149 @@
+--- a/src/yecoding/agent/query.py
++++ b/src/yecoding/agent/query.py
+@@ -28,6 +28,7 @@
+     approval_callback=None,
+     skill_context_buffer=None,
+     max_turns: int = 20,
++    final_response_on_last_turn: bool = False,
+ ) -> AsyncIterator[dict[str, Any]]:
+     original_user_message = user_message
+     user_message = _prepend_skill_candidates(user_message, cwd, config)
+@@ -70,6 +71,19 @@
+ 
+     while turn < max_turns:
+         turn += 1
++        final_response = final_response_on_last_turn and turn == max_turns
++        request_tools = [] if final_response else tool_definitions
++        if final_response:
++            messages.append(
++                Message(
++                    role="user",
++                    content=(
++                        "The inspection budget is exhausted. No further tool calls are available. "
++                        "Give a concrete conclusion using the evidence already gathered and "
++                        "state any remaining uncertainty."
++                    ),
++                )
++            )
+         text = ""
+         thinking = ""
+         stop_reason = "end_turn"
+@@ -80,7 +94,7 @@
+             compression = context_manager.prepare(
+                 messages,
+                 system_prompt=effective_system_prompt,
+-                tool_definitions=tool_definitions,
++                tool_definitions=request_tools,
+             )
+             messages = compression.messages
+             if compression.compressed:
+@@ -93,7 +107,7 @@
+ 
+         async for event in llm_client.chat(
+             messages,
+-            tool_definitions,
++            request_tools,
+             system_prompt=effective_system_prompt,
+         ):
+             event_type = event.get("type")
+@@ -129,6 +143,13 @@
+ 
+         if stop_reason != "tool_use" and not tool_calls:
+             break
++
++        if final_response:
++            yield {
++                "type": "error",
++                "error": RuntimeError("model requested a tool during the reserved final response"),
++            }
++            return
+ 
+         for call in tool_calls:
+             name = call.get("function", {}).get("name", "unknown")
+--- a/src/yecoding/agent/repair.py
++++ b/src/yecoding/agent/repair.py
+@@ -328,6 +328,7 @@
+             history=[],
+             skill_context_buffer=buffer,
+             max_turns=8 if role == "worker" else 3,
++            final_response_on_last_turn=readonly,
+         ):
+             kind = event.get("type")
+             if kind == "text_delta":
+--- a/tests/test_repair.py
++++ b/tests/test_repair.py
+@@ -473,3 +473,74 @@
+     assert result.passed
+     assert "[output truncated]" in result.stdout
+     assert len(result.stdout) < 21_000
++
++
++@pytest.mark.parametrize("role", ["coordinator", "verifier"])
++def test_readonly_role_returns_conclusion_within_existing_call_budget(project, role):
++    class ReadingClient(ScriptedClient):
++        def __init__(self):
++            super().__init__()
++            self.rounds = 0
++            self.tool_availability = []
++
++        async def chat(self, messages, tools=None, **kwargs):
++            self.rounds += 1
++            self.tool_availability.append(bool(tools))
++            if tools:
++                yield {
++                    "type": "tool_call_delta",
++                    "tool_call": {
++                        "index": 0,
++                        "id": f"read-{self.rounds}",
++                        "function": {
++                            "name": "read_file",
++                            "arguments": json.dumps({"path": "calc.py"}),
++                        },
++                    },
++                }
++                yield {"type": "message_end", "stop_reason": "tool_use"}
++            else:
++                yield {
++                    "type": "text_delta",
++                    "text": "Concrete conclusion based on inspected source.",
++                }
++                yield {"type": "message_end", "stop_reason": "end_turn"}
++            yield {"type": "usage", "usage": {"input_tokens": 5, "output_tokens": 5}}
++
++    root, config = project
++    client = ReadingClient()
++    repair = workflow(project, client)
++    repair.artifacts.mkdir(parents=True)
++    text = asyncio.run(
++        repair._agent(role, "Inspect the addition implementation", root, readonly=True)
++    )
++    assert text.strip(), "read-only role consumed its tool turns without producing a conclusion"
++    assert client.rounds <= 3
++    assert client.tool_availability == [True, True, False]
++
++
++@pytest.mark.parametrize("role", ["coordinator", "verifier"])
++def test_readonly_role_rejects_tools_in_reserved_final_response(project, role):
++    class PersistentClient(ScriptedClient):
++        async def chat(self, messages, tools=None, **kwargs):
++            yield {
++                "type": "tool_call_delta",
++                "tool_call": {
++                    "index": 0,
++                    "id": "unwanted-read",
++                    "function": {"name": "read_file", "arguments": json.dumps({"path": "calc.py"})},
++                },
++            }
++            yield {"type": "message_end", "stop_reason": "tool_use"}
++            yield {"type": "usage", "usage": {"input_tokens": 5, "output_tokens": 5}}
++
++    root, config = project
++    repair = workflow(project, PersistentClient())
++    repair.artifacts.mkdir(parents=True)
++    with pytest.raises(RuntimeError, match="reserved final response"):
++        asyncio.run(repair._agent(role, "Inspect addition", root, readonly=True))
++    events = [
++        json.loads(line) for line in (repair.artifacts / "events.jsonl").read_text().splitlines()
++    ]
++    assert sum(e["type"] == "tool_call" for e in events) == 2
++    assert repair.client.calls == 3
